@@ -1,0 +1,26 @@
+<resources>
+    <!--
+    TODO: Before you run your application, you need a Google Maps API key.
+
+    To get one, follow this link, follow the directions and press "Create" at the end:
+
+    https://console.developers.google.com/flows/enableapi?apiid=maps_android_backend&keyType=CLIENT_SIDE_ANDROID&r=5A:35:7E:58:9E:0F:D4:A3:A7:6C:84:FD:D3:7F:3F:1A:B8:46:12:CD%3Bcom.usenergysolutions.energybroker.view.maps
+
+    You can also add your credentials to an existing key, using these values:
+
+    Package name:
+    5A:35:7E:58:9E:0F:D4:A3:A7:6C:84:FD:D3:7F:3F:1A:B8:46:12:CD
+
+    SHA-1 certificate fingerprint:
+    5A:35:7E:58:9E:0F:D4:A3:A7:6C:84:FD:D3:7F:3F:1A:B8:46:12:CD
+
+    Alternatively, follow the directions here:
+    https://developers.google.com/maps/documentation/android/start#get-key
+
+    Once you have your key (it starts with "AIza"), replace the "google_maps_key"
+    string in this file.
+    -->
+    <string name="google_maps_key" translatable="false" templateMergeStrategy="preserve">
+        AIzaSyDjicr_9-A-_OsFs5tgBzq9S7cAlOssb_Q
+    </string>
+</resources>

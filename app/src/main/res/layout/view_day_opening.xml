@@ -1,0 +1,154 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingTop="@dimen/spacing_1x"
+                android:paddingBottom="@dimen/spacing_1x"
+                android:background="@android:color/transparent">
+
+    <TextView
+            android:id="@+id/dayName"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textSize="@dimen/text_size_1_0x"
+            android:textColor="@color/white"
+            android:text="Monday"
+            android:background="@android:color/transparent"
+            android:paddingStart="@dimen/spacing_1x"
+            android:paddingEnd="@dimen/spacing_1x"
+            android:paddingTop="@dimen/spacing_0_5x"
+            android:paddingBottom="@dimen/spacing_0_5x"
+            android:layout_marginBottom="@dimen/spacing_0_5x"/>
+
+    <TextView
+            android:id="@+id/dayClosed"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/spacing_3x"
+            android:layout_alignStart="@id/dayName"
+            android:layout_alignEnd="@id/dayName"
+            android:textSize="@dimen/text_size_1_0x"
+            android:textColor="@color/turquoise_dark"
+            android:text="@string/closed"
+            android:textStyle="bold"
+            android:background="@android:color/transparent"
+            android:paddingStart="@dimen/spacing_1x"
+            android:paddingEnd="@dimen/spacing_1x"
+            android:paddingTop="@dimen/spacing_0_5x"
+            android:paddingBottom="@dimen/spacing_0_5x"
+            android:layout_below="@id/dayName"
+            android:visibility="gone"/>
+
+    <LinearLayout
+            android:id="@+id/dayOpeningTimeContainer"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/spacing_3x"
+            android:layout_alignStart="@id/dayName"
+            android:layout_alignEnd="@id/dayName"
+            android:background="@android:color/transparent"
+            android:paddingStart="@dimen/spacing_1x"
+            android:paddingEnd="@dimen/spacing_1x"
+            android:paddingTop="@dimen/spacing_0_5x"
+            android:paddingBottom="@dimen/spacing_0_5x"
+            android:layout_below="@id/dayName"
+            android:orientation="horizontal"
+            android:gravity="center_vertical">
+
+        <!-- FROM Part -->
+        <TextView
+                android:id="@+id/dayFrmHrs"
+                android:maxLength="2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="@dimen/text_size_1_0x"
+                android:textColor="@color/turquoise_dark"
+                android:text="00"
+                android:background="@android:color/transparent"/>
+
+        <TextView
+                android:maxLength="2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="@dimen/text_size_1_0x"
+                android:textColor="@color/turquoise_dark"
+                android:text=":"
+                android:background="@android:color/transparent"
+                android:layout_marginStart="@dimen/spacing_0_5x"
+                android:layout_marginEnd="@dimen/spacing_0_5x"/>
+
+        <TextView
+                android:id="@+id/dayFrmMin"
+                android:maxLength="2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="@dimen/text_size_1_0x"
+                android:textColor="@color/turquoise_dark"
+                android:text="00"
+                android:background="@android:color/transparent"/>
+
+        <TextView
+                android:id="@+id/dayFrmType"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="@dimen/text_size_1_0x"
+                android:textColor="@color/white"
+                android:text="AM"
+                android:maxLength="2"
+                android:padding="1dp"
+                android:background="@drawable/day_opening_hrs_type_bg"
+                android:layout_marginStart="@dimen/spacing_0_5x"
+                android:layout_marginEnd="@dimen/spacing_0_5x"/>
+
+        <View
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:background="@android:color/transparent"/>
+
+        <!-- Until Part -->
+        <TextView
+                android:id="@+id/dayTilHrs"
+                android:maxLength="2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="@dimen/text_size_1_0x"
+                android:textColor="@color/turquoise_dark"
+                android:text="00"
+                android:background="@android:color/transparent"/>
+
+        <TextView
+                android:maxLength="2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="@dimen/text_size_1_0x"
+                android:textColor="@color/turquoise_dark"
+                android:text=":"
+                android:background="@android:color/transparent"
+                android:layout_marginStart="@dimen/spacing_0_5x"
+                android:layout_marginEnd="@dimen/spacing_0_5x"/>
+
+        <TextView
+                android:id="@+id/dayTilMin"
+                android:maxLength="2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="@dimen/text_size_1_0x"
+                android:textColor="@color/turquoise_dark"
+                android:text="00"
+                android:background="@android:color/transparent"/>
+
+        <TextView
+                android:id="@+id/dayTilType"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="@dimen/text_size_1_0x"
+                android:textColor="@color/white"
+                android:text="PM"
+                android:maxLength="2"
+                android:background="@drawable/day_opening_hrs_type_bg"
+                android:padding="1dp"
+                android:layout_marginStart="@dimen/spacing_0_5x"
+                android:layout_marginEnd="@dimen/spacing_0_5x"/>
+
+    </LinearLayout>
+
+</RelativeLayout>

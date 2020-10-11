@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                android:layout_width="380dp"
+                android:layout_height="wrap_content"
+                android:background="@color/white"
+                android:gravity="center_horizontal"
+                android:orientation="vertical"
+                android:padding="@dimen/spacing_1x"
+                android:windowSoftInputMode="adjustResize|adjustPan">
+
+    <EditText
+            android:id="@+id/editText"
+            android:layout_width="350dp"
+            android:layout_centerHorizontal="true"
+            android:layout_height="wrap_content"
+            android:textColor="@android:color/darker_gray"
+            android:textSize="@dimen/text_size_1_5x"
+            android:maxLines="6"
+            android:gravity="top"
+            android:lines="6"
+            android:hint="@string/comment"
+            android:layout_gravity="center_horizontal"
+            android:background="@drawable/contact_form_edit_text_bg"/>
+
+    <TextView
+            android:id="@+id/cancelButton"
+            android:textAllCaps="false"
+            android:ellipsize="marquee"
+            android:layout_width="@dimen/button_width"
+            android:layout_height="@dimen/button_height"
+            android:layout_below="@id/editText"
+            android:layout_marginStart="5dp"
+            android:layout_marginLeft="5dp"
+            android:layout_marginTop="50dp"
+            android:layout_marginEnd="10dp"
+            android:layout_marginRight="10dp"
+            android:layout_marginBottom="10dp"
+            android:background="@color/colorPrimary"
+            android:layout_toStartOf="@id/okButton"
+            android:text="Cancel"
+            android:gravity="center"
+            android:textColor="@color/turquoise"/>
+
+    <TextView
+            android:id="@+id/okButton"
+            android:textAllCaps="false"
+            android:ellipsize="marquee"
+            android:layout_width="@dimen/button_width"
+            android:layout_height="@dimen/button_height"
+            android:layout_below="@id/messageTextView"
+            android:layout_alignTop="@id/cancelButton"
+            android:layout_alignBottom="@id/cancelButton"
+            android:layout_alignParentEnd="true"
+            android:background="@color/colorPrimary"
+            android:text="Save"
+            android:gravity="center"
+            android:textColor="@color/turquoise"/>
+
+
+</RelativeLayout>

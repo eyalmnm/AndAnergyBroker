@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/white"
+                android:padding="@dimen/spacing_1x">
+
+    <ImageView
+            android:id="@+id/iconImageView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/ic_report_places"
+            android:layout_marginStart="@dimen/spacing_3x"
+            android:layout_marginEnd="@dimen/spacing_2x"/>
+
+    <TextView
+            android:id="@+id/titleTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/turquoise_dark"
+            android:textSize="@dimen/text_size_1_5x"
+            android:text="@string/add_new_business_title"
+            android:layout_toEndOf="@id/iconImageView"/>
+
+    <TextView
+            android:id="@+id/creationTime"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/turquoise_dark"
+            android:textSize="@dimen/text_size_1_5x"
+            android:layout_alignBaseline="@id/titleTextView"
+            android:layout_alignParentEnd="true"
+    />
+
+    <TextView
+            android:id="@+id/businessName"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textColor="@color/light_gray"
+            android:layout_marginTop="@dimen/spacing_0_5x"
+            android:layout_below="@id/titleTextView"
+            android:layout_alignStart="@id/titleTextView"
+            android:textSize="@dimen/text_size_2_5x"/>
+
+    <TextView
+            android:id="@+id/businessAddress"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textColor="@color/light_gray"
+            android:layout_marginTop="@dimen/spacing_1x"
+            android:layout_below="@id/businessName"
+            android:layout_alignStart="@id/titleTextView"
+            android:textSize="@dimen/text_size_2_5x"/>
+
+</RelativeLayout>

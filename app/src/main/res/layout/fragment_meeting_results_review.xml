@@ -1,0 +1,210 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@drawable/meeting_review_bg_image">
+
+    <!-- Dialog Title -->
+    <TextView
+            android:id="@+id/meetingResultsReviewTitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="@dimen/spacing_5x"
+            android:background="@android:color/transparent"
+            android:textColor="@color/white"
+            android:text="@string/meeting_results_review_title"
+            android:textSize="@dimen/text_size_2_25x"/>
+
+    <!-- Dialog Sub Title -->
+    <TextView
+            android:id="@+id/meetingResultsReviewSubTitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="@dimen/spacing_2x"
+            android:layout_below="@id/meetingResultsReviewTitle"
+            android:background="@android:color/transparent"
+            android:textColor="@color/turquoise_dark"
+            android:text="@string/meeting_results_review_title_sub_title"
+            android:textSize="@dimen/text_size_1_5x"
+            android:visibility="invisible"/>
+
+    <ScrollView
+            android:id="@+id/contactsScroller"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/spacing_0_5x"
+            android:layout_marginBottom="@dimen/spacing_5x"
+            android:layout_marginStart="@dimen/spacing_7x"
+            android:layout_marginEnd="@dimen/spacing_7x"
+            android:layout_below="@id/meetingResultsReviewSubTitle"
+            android:layout_above="@id/cancelButton"
+            android:background="@android:color/transparent">
+
+        <RelativeLayout
+                android:id="@+id/meetingResultsReviewContainer"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@android:color/transparent"
+                android:layout_marginBottom="@dimen/spacing_2x">
+
+            <TextView
+                    android:id="@+id/meetingResultsReviewContactsTitle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerHorizontal="true"
+                    android:layout_marginTop="@dimen/spacing_4x"
+                    android:background="@android:color/transparent"
+                    android:textColor="@color/white"
+                    android:text="@string/meeting_results_review_contacts_title"
+                    android:textSize="@dimen/text_size_1_0x"/>
+
+            <LinearLayout
+                    android:id="@+id/meetingResultsReviewContactsContainer"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/spacing_3x"
+                    android:layout_below="@id/meetingResultsReviewContactsTitle"
+                    android:background="@android:color/transparent"
+                    android:orientation="vertical"
+                    android:visibility="visible"/>
+
+            <!-- Vertical dashed line -->
+            <ImageView
+                    android:id="@+id/verticalLineSecond"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:src="@drawable/decision_makers_divider_image"
+                    android:layout_below="@id/meetingResultsReviewContactsContainer"
+                    android:layout_marginTop="@dimen/spacing_3x"/>
+
+
+            <TextView
+                    android:id="@+id/meetingSummaryTitleTextView"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/white"
+                    android:textSize="@dimen/text_size_2_0x"
+                    android:layout_marginTop="@dimen/spacing_4x"
+                    android:text="@string/meeting_results_summary_title"
+                    android:background="@android:color/transparent"
+                    android:layout_centerHorizontal="true"
+                    android:layout_below="@id/verticalLineSecond"/>
+
+            <TextView
+                    android:id="@+id/didYouSeeTheBill"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/meetingSummaryTitleTextView"
+                    android:textSize="@dimen/text_size_1_75x"
+                    android:layout_marginTop="@dimen/spacing_2x"
+                    android:background="@android:color/transparent"
+                    android:textColor="@color/white"
+                    android:text="DID YOU SEE THE BILL?"/>
+
+            <TextView
+                    android:id="@+id/didYouSeeTheBillAnswer"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignBaseline="@+id/didYouSeeTheBill"
+                    android:layout_toEndOf="@+id/didYouSeeTheBill"
+                    android:textSize="@dimen/text_size_1_75x"
+                    android:layout_marginStart="@dimen/spacing_2x"
+                    android:background="@android:color/transparent"
+                    android:textColor="@color/white"
+                    android:text="Yes"/>
+
+
+            <TextView
+                    android:id="@+id/meetingSummaryReviewStatus"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/didYouSeeTheBill"
+                    android:textSize="@dimen/text_size_1_75x"
+                    android:layout_marginTop="@dimen/spacing_2x"
+                    android:background="@android:color/transparent"
+                    android:textColor="@color/white"/>
+
+            <TextView
+                    android:id="@+id/meetingSummaryReviewReminder"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignBottom="@id/meetingSummaryReviewStatus"
+                    android:layout_centerHorizontal="true"
+                    android:textSize="@dimen/text_size_1_75x"
+                    android:layout_marginTop="@dimen/spacing_2x"
+                    android:background="@android:color/transparent"
+                    android:textColor="@color/white"
+                    android:text="Signed"/>
+
+            <LinearLayout
+                    android:id="@+id/reviewReasonFormLayout"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@android:color/transparent"
+                    android:layout_below="@+id/meetingSummaryReviewStatus"
+                    android:layout_marginTop="@dimen/spacing_2x"
+                    android:layout_marginBottom="@dimen/spacing_8x"
+                    android:orientation="vertical"
+                    android:visibility="gone">
+
+                <TextView
+                        android:id="@+id/meetingResultsReviewReasonTextView"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:background="@android:color/transparent"
+                        android:textColor="@android:color/darker_gray"
+                        android:textSize="@dimen/text_size_2_0x"
+                        android:text="@string/meeting_results_summary_reason_title"
+                        android:layout_marginBottom="@dimen/spacing_1x"/>
+
+                <TextView
+                        android:id="@+id/meetingResultsReviewReason"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:textColor="@android:color/darker_gray"
+                        android:textSize="@dimen/text_size_2_0x"
+                        android:maxLines="3"
+                        android:gravity="top"
+                        android:lines="7"
+                        android:padding="@dimen/spacing_1x"
+                        android:hint="@string/meeting_results_summary_comment_hint"
+                        android:layout_gravity="center_horizontal"
+                        android:background="@drawable/contact_form_edit_text_bg"/>
+            </LinearLayout>
+
+
+        </RelativeLayout>
+
+    </ScrollView>
+
+    <Button
+            android:id="@+id/saveButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/next_button_bg"
+            android:layout_alignParentBottom="true"
+            android:layout_alignParentEnd="true"
+            android:layout_marginEnd="@dimen/spacing_3x"
+            android:layout_marginBottom="@dimen/spacing_5x"
+            android:textColor="@color/white"
+            android:text="@string/save"
+            android:textAllCaps="false"
+            android:textSize="@dimen/text_size_2_0x"/>
+
+    <Button
+            android:id="@+id/cancelButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/cancel_button_bg"
+            android:layout_alignParentBottom="true"
+            android:layout_alignParentStart="true"
+            android:layout_marginStart="@dimen/spacing_3x"
+            android:layout_marginBottom="@dimen/spacing_5x"
+            android:textColor="@color/white"
+            android:text="@string/cancel"
+            android:textAllCaps="false"
+            android:textSize="@dimen/text_size_2_0x"/>
+
+</RelativeLayout>

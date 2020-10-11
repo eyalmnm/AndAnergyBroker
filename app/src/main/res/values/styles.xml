@@ -1,0 +1,215 @@
+<resources>
+
+    <!-- Base application theme -->
+    <style name="AppTheme" parent="Theme.AppCompat.NoActionBar">
+        <!-- Customize your theme here -->
+        <item name="colorPrimary">@color/colorPrimary</item>
+        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
+        <item name="colorAccent">@color/colorAccent</item>
+        <item name="colorControlActivated">@color/colorControlActivated</item>
+        <item name="android:background">@android:color/transparent</item>
+        <item name="android:textColorHint">@color/HintColor</item>
+        <item name="android:spinnerDropDownItemStyle">@style/AppSpinnerDropDownItem</item>
+        <item name="android:textSelectHandle">@drawable/ic_text_select_handle</item>
+    </style>
+
+    <!-- Main Activity Theme -->
+    <style name="MainActivityTheme">
+        <item name="windowNoTitle">true</item>
+    </style>
+
+    <style name="MapActivityStyle" parent="Theme.AppCompat.Light">
+        <item name="colorPrimary">@color/colorPrimary</item>
+        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
+        <item name="colorAccent">@color/colorAccent</item>
+        <item name="colorControlActivated">@color/colorControlActivated</item>
+        <item name="android:background">@android:color/transparent</item>
+        <item name="android:textColorHint">@color/HintColor</item>
+    </style>
+
+    <style name="MapActivityStyle.NoActionBar">
+        <item name="windowNoTitle">true</item>
+    </style>
+
+    <!-- App Text View -->
+    <style name="AppTextView">
+        <item name="android:textColor">@color/textColorPrimary</item>
+        <item name="android:background">@color/colorPrimary</item>
+        <item name="android:textAppearance">?android:attr/textAppearanceMedium</item>
+        <item name="android:fontFamily">sans-serif-light</item>
+    </style>
+
+    <!-- Login Edit Text Style -->
+    <style name="loginEditTextStyle">
+        <item name="android:layout_height">@dimen/spacing_6x</item>
+        <item name="android:layout_width">@dimen/login_edit_text_width</item>
+        <item name="android:textSize">@dimen/login_edit_text_text_size</item>
+        <item name="android:textColor">@color/login_edit_text_text_color</item>
+        <item name="android:textColorHint">@color/login_edit_text_hint_color</item>
+        <item name="android:background">@drawable/login_edittext_bg</item>
+        <item name="android:paddingRight">@dimen/login_edit_text_padding</item>
+        <item name="android:paddingLeft">@dimen/login_edit_text_padding_left</item>
+        <item name="android:layout_margin">@dimen/spacing_2x</item>
+        <item name="android:gravity">center_vertical</item>
+        <item name="android:layout_centerHorizontal">true</item>
+        <item name="android:textSelectHandle">@drawable/ic_text_select_handle</item>
+    </style>
+
+    <!-- Login App Button -->
+    <style name="loginAppButton">
+        <item name="android:layout_width">@dimen/login_button_width</item>
+        <item name="android:layout_height">@dimen/login_button_height</item>
+        <item name="android:background">@drawable/login_button_bg_color_selector</item>
+        <item name="android:textAllCaps">true</item>
+        <item name="android:ellipsize">marquee</item>
+        <item name="android:layout_margin">@dimen/spacing_2x</item>
+        <item name="android:textColor">@color/colorPrimaryDark</item>
+    </style>
+
+    <!-- Base application theme. -->
+    <style name="AppThemeOrg" parent="Theme.AppCompat.Light.DarkActionBar">
+        <!-- Customize your theme here. -->
+        <item name="colorPrimary">@color/colorPrimary</item>
+        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
+        <item name="colorAccent">@color/colorAccent</item>
+    </style>
+
+    <style name="AppButton">
+        <item name="android:background">@drawable/app_button_bg_color_selector</item>
+        <item name="android:textAllCaps">true</item>
+        <item name="android:ellipsize">marquee</item>
+        <item name="android:textColor">@color/textColorPrimary</item>
+    </style>
+
+    <style name="TextLabel" parent="TextAppearance.AppCompat">
+        <!-- Hint color and label color in FALSE state -->
+        <item name="android:focusableInTouchMode">true</item>
+        <item name="android:maxLines">1</item>
+        <item name="android:textSize">@dimen/text_size_2_25x</item>
+        <!-- Label color in TRUE state and bar color FALSE and TRUE State -->
+        <item name="colorAccent">@android:color/holo_orange_light</item>
+        <item name="colorControlNormal">@color/textColorPrimary</item>
+        <item name="colorControlActivated">@android:color/darker_gray</item>
+        <item name="android:textColorHint">@color/textColorPrimary</item>
+        <item name="android:textColor">@color/textColorPrimary</item>
+    </style>
+
+    <!-- Rating bar Style -->
+    <style name="RatingBar" parent="Theme.AppCompat">
+        <item name="colorControlActivated">@color/gold</item>
+        <item name="colorControlNormal">@android:color/darker_gray</item>
+    </style>
+
+    <!-- Custom Date Picker Style -->
+    <style name="DatePickerTheme" parent="Theme.AppCompat.Light">
+        <item name="colorAccent">@color/turquoise</item>
+        <item name="colorControlActivated">#33691e</item>
+        <item name="android:selectableItemBackgroundBorderless">@color/colorPrimaryDark</item>
+        <item name="colorControlHighlight">#d50000</item>
+    </style>
+
+    <!-- Switch View Style -->
+    <!-- Ref: http://www.zoftino.com/android-switch-button-and-custom-switch-examples -->
+    <style name="MySwitch">
+        <item name="android:switchTextAppearance">@style/SwitchTextAppearance</item>
+        <item name="android:textOn">@string/yes</item>
+        <item name="android:textOff">@string/no</item>
+    </style>
+
+    <style name="SwitchTextAppearance" parent="@android:style/TextAppearance.Holo.Small">
+        <item name="android:textColor">@color/turquoise</item>
+        <item name="android:textSize">@dimen/text_size_1_5x</item>
+    </style>
+
+
+    <!-- Bottom Navigation Style -->
+    <style name="MainActionBar.Popup" parent="ThemeOverlay.AppCompat.Light">
+        <item name="android:colorBackground">@color/bottom_tabs_bg_color</item>
+        <item name="android:textColor">@color/white</item>
+    </style>
+
+    <!-- Activity Times Styles -->
+    <style name="dayTileStyle">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:background">@android:color/transparent</item>
+        <item name="android:textColor">@color/add_place_title_color</item>
+        <item name="android:textSize">@dimen/text_size_2_0x</item>
+    </style>
+
+    <style name="timeEnterEditText">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:maxLength">2</item>
+        <item name="android:textSize">@dimen/text_size_1_5x</item>
+        <item name="android:hint">00</item>
+        <item name="android:textCursorDrawable">@null</item>
+        <item name="android:textColorHint">@color/add_place_title_color</item>
+        <item name="android:textColor">@color/turquoise_dark</item>
+        <item name="android:inputType">number</item>
+        <item name="android:imeOptions">actionNext</item>
+    </style>
+
+    <style name="previewTimeTextViewStyle">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:background">@android:color/transparent</item>
+        <item name="android:maxLength">2</item>
+        <item name="android:inputType">number</item>
+        <item name="android:textSize">@dimen/text_size_1_5x</item>
+        <item name="android:text">00</item>
+        <item name="android:textColorHint">@color/add_place_title_color</item>
+        <item name="android:textColor">@color/turquoise_dark</item>
+    </style>
+
+    <style name="previewTimeTypeTwxtViewStyle">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:textColor">@color/white</item>
+        <item name="android:padding">@dimen/spacing_0_5x</item>
+        <item name="android:textSize">@dimen/text_size_2_0x</item>
+        <item name="android:layout_marginStart">@dimen/spacing_0_5x</item>
+        <item name="android:background">@drawable/add_place_item_border_shape</item>
+    </style>
+
+
+    <style name="SpinnerTheme" parent="Base.Widget.AppCompat.DropDownItem.Spinner">
+        <item name="android:popupBackground">@drawable/add_place_item_border_shape</item>
+        <item name="android:background">@drawable/add_place_item_border_shape</item>
+        <item name="android:spinnerMode">dropdown</item>
+    </style>
+
+    <style name="AppSpinnerDropDownItem" parent="Base.Widget.AppCompat.DropDownItem.Spinner">
+        <item name="android:background">@drawable/add_place_item_border_shape</item>
+    </style>
+
+    <style name="PickersTheme" parent="Theme.AppCompat.DayNight.Dialog">
+        <item name="colorPrimary">@android:color/holo_orange_dark</item>
+        <item name="colorPrimaryDark">@android:color/holo_green_dark</item>
+        <item name="colorAccent">@android:color/holo_red_dark</item>
+        <item name="android:windowFullscreen">false</item>
+    </style>
+
+
+    <!-- Activity as Dialog Style -->
+    <style name="dialogTheme" parent="Theme.AppCompat.Light.Dialog">
+        <item name="windowNoTitle">true</item>
+        <item name="android:windowBackground">@android:color/transparent</item>
+    </style>
+
+    <!--style name="TextLabel" parent="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense">
+        <!- Hint color and label color in FALSE state ->
+        <item name="android:textColorHint">@color/textColorPrimary</item>
+        <item name="android:textSize">@dimen/registration_input_title</item>
+        <item name="android:textColor">@color/login_edit_text_text_color</item>
+        <item name="android:background">@android:color/transparent</item>
+        <!- Label color in TRUE state and bar color FALSE and TRUE State ->
+        <item name="colorAccent">@android:color/holo_green_dark</item>
+        <item name="colorControlNormal">@android:color/darker_gray</item>
+        <item name="colorControlActivated">@android:color/holo_green_light</item>
+        <item name="boxStrokeColor">#fff</item>
+        <item name="boxStrokeWidth">2dp</item>
+    </style-->
+
+    <dimen name="registration_input_title">20sp</dimen>
+</resources>

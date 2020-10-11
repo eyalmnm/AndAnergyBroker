@@ -1,0 +1,234 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        style="@style/AppTheme"
+        android:background="@drawable/sign_in_bg_image"
+        tools:context=".view.RegistrationActivity">
+
+    <TextView
+            android:id="@+id/registrationTitleTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="42dp"
+            android:background="@android:color/transparent"
+            android:textColor="@color/registration_title_text_color"
+            android:textSize="@dimen/registration_title_text_size"
+            android:text="@string/registration_title_text"
+            android:layout_centerHorizontal="true"/>
+
+    <ScrollView
+            android:id="@+id/registrationForm"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="@dimen/registration_form_side_margin"
+            android:layout_marginLeft="@dimen/registration_form_side_margin"
+            android:background="@android:color/transparent"
+            android:layout_below="@id/registrationTitleTextView"
+            android:layout_marginTop="@dimen/registration_form_margin_top">
+
+        <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@android:color/transparent"
+                android:orientation="vertical">
+
+            <!-- Name input Field -->
+            <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="60dp"
+                    android:layout_marginLeft="20dp"
+                    android:background="@android:color/transparent"
+                    android:layout_marginRight="20dp">
+                <EditText
+                        android:id="@+id/registrationNameEditText"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_marginTop="25dp"
+                        android:background="@drawable/borderedt"
+                        android:padding="5dp"
+                        android:imeOptions="actionNext"
+                        android:textSize="@dimen/registrartion_field_input_size"
+                        android:textColorHint="@color/registration_hint_color"/>
+                <!--android:hint="@string/registration_neme_edit_text_hint"/>-->
+                <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="5dp"
+                        android:textSize="@dimen/registrartion_field_title_size"
+                        android:layout_marginTop="0dp"
+                        android:background="@android:color/transparent"
+                        android:textColor="@color/white"
+                        android:text="@string/registration_neme_edit_text_hint"/>
+            </RelativeLayout>
+
+            <!-- User Name input Field -->
+            <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="60dp"
+                    android:layout_marginTop="20dp"
+                    android:layout_marginLeft="20dp"
+                    android:background="@android:color/transparent"
+                    android:layout_marginRight="20dp">
+                <EditText
+                        android:id="@+id/registrationUserNameEditText"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_marginTop="25dp"
+                        android:background="@drawable/borderedt"
+                        android:padding="5dp"
+                        android:imeOptions="actionNext"
+                        android:textSize="@dimen/registrartion_field_input_size"
+                        android:textColorHint="@color/registration_hint_color"/>
+                <!--android:hint="@string/registration_username_edit_text_hint"/>-->
+                <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="5dp"
+                        android:textSize="@dimen/registrartion_field_title_size"
+                        android:layout_marginTop="0dp"
+                        android:background="@android:color/transparent"
+                        android:textColor="@color/white"
+                        android:text="@string/registration_username_edit_text_hint"/>
+            </RelativeLayout>
+
+            <!-- Email input Field -->
+            <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="60dp"
+                    android:layout_marginTop="20dp"
+                    android:layout_marginLeft="20dp"
+                    android:background="@android:color/transparent"
+                    android:layout_marginRight="20dp">
+                <EditText
+                        android:id="@+id/registrationEmailEditText"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_marginTop="25dp"
+                        android:background="@drawable/borderedt"
+                        android:padding="5dp"
+                        android:imeOptions="actionNext"
+                        android:textSize="@dimen/registrartion_field_input_size"
+                        android:textColorHint="@color/registration_hint_color"/>
+                <!--android:hint="@string/registration_email_edit_text_hint"/>-->
+                <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="5dp"
+                        android:textSize="@dimen/registrartion_field_title_size"
+                        android:layout_marginTop="0dp"
+                        android:background="@android:color/transparent"
+                        android:textColor="@color/white"
+                        android:text="@string/registration_email_edit_text_hint"/>
+            </RelativeLayout>
+
+
+            <!-- Password input Field -->
+            <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="60dp"
+                    android:layout_marginTop="20dp"
+                    android:layout_marginLeft="20dp"
+                    android:background="@android:color/transparent"
+                    android:layout_marginRight="20dp">
+                <EditText
+                        android:id="@+id/registrationPasswordEditText"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_marginTop="25dp"
+                        android:background="@drawable/borderedt"
+                        android:inputType="textPassword"
+                        android:padding="5dp"
+                        android:imeOptions="actionNext"
+                        android:textSize="@dimen/registrartion_field_input_size"
+                        android:textColorHint="@color/registration_hint_color"/>
+                <!--android:hint="@string/registration_password_edit_text_hint"/>-->
+                <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="5dp"
+                        android:textSize="@dimen/registrartion_field_title_size"
+                        android:layout_marginTop="0dp"
+                        android:background="@android:color/transparent"
+                        android:textColor="@color/white"
+                        android:text="@string/registration_password_edit_text_hint"/>
+            </RelativeLayout>
+
+            <!-- Confirm Password input Field -->
+            <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="60dp"
+                    android:layout_marginTop="20dp"
+                    android:layout_marginLeft="20dp"
+                    android:background="@android:color/transparent"
+                    android:layout_marginRight="20dp">
+                <EditText
+                        android:id="@+id/registrationConfirmPasswordEditText"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_marginTop="25dp"
+                        android:background="@drawable/borderedt"
+                        android:inputType="textPassword"
+                        android:padding="5dp"
+                        android:imeOptions="actionSend"
+                        android:textSize="@dimen/registrartion_field_input_size"
+                        android:textColorHint="@color/registration_hint_color"/>
+                <!--android:hint="@string/registration_confirm_password_edit_text_hint"/>-->
+                <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="5dp"
+                        android:textSize="@dimen/registrartion_field_title_size"
+                        android:layout_marginTop="0dp"
+                        android:background="@android:color/transparent"
+                        android:textColor="@color/white"
+                        android:text="@string/registration_confirm_password_edit_text_hint"/>
+            </RelativeLayout>
+
+        </LinearLayout>
+
+    </ScrollView>
+
+    <CheckBox
+            android:id="@+id/registrationEulaCheckBox"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/registrationForm"
+            android:button="@drawable/login_remember_me_selector"
+            android:textColor="@color/registration_hint_color"
+            android:textSize="14dp"
+            android:layout_marginTop="20dp"
+            android:paddingLeft="5dp"
+            android:text="@string/registration_eula_check_box"
+            android:layout_marginLeft="46dp"
+            android:layout_marginRight="46dp"/>
+
+    <Button
+            android:id="@+id/registrationCreateAccountButton"
+            android:layout_width="match_parent"
+            android:layout_height="35dp"
+            android:layout_below="@id/registrationEulaCheckBox"
+            android:textColor="@color/white"
+            android:textSize="@dimen/registrartion_field_title_size"
+            android:textAllCaps="false"
+            android:text="@string/registration_create_account_button"
+            android:layout_marginTop="20dp"
+            android:background="@color/registration_create_account_bg_color"
+            android:layout_marginLeft="46dp"
+            android:layout_marginRight="46dp"/>
+
+    <TextView
+            android:id="@+id/alreadyMemberTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:layout_below="@id/registrationCreateAccountButton"
+            android:text="@string/registrartion_already_member"
+            android:layout_centerHorizontal="true"
+            android:background="@android:color/transparent"
+            android:textColor="@color/registration_already_member_title"
+            android:textSize="@dimen/registration_already_member_text_size"/>
+
+</RelativeLayout>

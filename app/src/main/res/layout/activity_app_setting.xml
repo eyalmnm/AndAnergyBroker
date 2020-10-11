@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@drawable/sign_in_bg_image"
+                style="@style/MainActivityTheme"
+                android:padding="@dimen/spacing_1x">
+
+    <TextView
+            android:id="@+id/title"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textSize="@dimen/text_size_3_0x"
+            android:gravity="center"
+            android:text="@string/settings"
+            android:textColor="@color/white"
+            android:layout_marginTop="@dimen/spacing_2x"
+            android:layout_marginBottom="@dimen/spacing_2x"
+            android:background="@android:color/transparent"/>
+
+    <CheckBox
+            android:id="@+id/settingsRememberMeCheckBox"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/title"
+            android:button="@drawable/login_remember_me_selector"
+            android:textColor="@color/login_text_color"
+            android:textSize="@dimen/text_size_1_75x"
+            android:layout_marginTop="@dimen/spacing_4x"
+            android:layout_marginLeft="@dimen/spacing_3x"
+            android:paddingLeft="@dimen/spacing_1x"
+            android:gravity="center_vertical"
+            android:text="@string/login_remember_me"/>
+
+    <Button
+            android:id="@+id/settingLogOutButton"
+            style="@style/loginAppButton"
+            android:layout_centerHorizontal="true"
+            android:layout_width="@dimen/sign_in_btn_width"
+            android:layout_height="@dimen/sign_in_btn_height"
+            android:background="@drawable/sign_in_bg_shape"
+            android:layout_alignBaseline="@id/settingsRememberMeCheckBox"
+            android:layout_alignParentEnd="true"
+            android:textSize="@dimen/text_size_2_0x"
+            android:layout_marginEnd="@dimen/spacing_3x"
+            android:textColor="@color/sign_in_btn_text_color"
+            android:text="@string/login_sign_out"/>
+
+
+    <TextView
+            android:id="@id/versionNumber"
+            style="@style/AppTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@android:color/transparent"
+            android:layout_alignParentBottom="true"
+            android:layout_margin="5dp"
+            android:textColor="#f1f1f1"
+            android:textSize="@dimen/text_size_1_75x"/>
+
+    <TextView android:id="@+id/loginCopyRights"
+              android:layout_width="wrap_content"
+              android:layout_height="wrap_content"
+              android:layout_alignParentBottom="true"
+              android:layout_alignParentRight="true"
+              android:text="© US Energy Solutions INC"
+              android:background="@android:color/transparent"
+              android:textColor="#f1f1f1"
+              android:layout_margin="5dp"
+              android:textSize="@dimen/text_size_1_75x"/>
+</RelativeLayout>

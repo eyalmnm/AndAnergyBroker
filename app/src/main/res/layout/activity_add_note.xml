@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:fitsSystemWindows="true">
+
+    <RelativeLayout
+            android:id="@+id/screenHeaderView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentTop="true">
+
+        <View
+                android:id="@+id/formUpperHeaderView"
+                android:layout_width="match_parent"
+                android:layout_height="30dp"
+                android:background="@color/add_note_form_upper_header_bg"/>
+
+        <RelativeLayout android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@id/formUpperHeaderView"
+                        android:background="@color/add_note_form_sub_header_bg"
+                        android:padding="@dimen/spacing_2x">
+
+            <ImageView
+                    android:id="@+id/addNoteImageView"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentStart="true"
+                    android:src="@drawable/ic_notes_image"
+                    android:background="@android:color/transparent"
+                    android:layout_marginStart="@dimen/spacing_3x"/>
+
+            <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_toEndOf="@id/addNoteImageView"
+                    android:textColor="@color/white"
+                    android:background="@android:color/transparent"
+                    android:text="@string/add_note_title"
+                    android:textSize="@dimen/text_size_2_0x"
+                    android:layout_marginStart="@dimen/spacing_3x"
+                    android:layout_alignBottom="@id/addNoteImageView"/>
+
+        </RelativeLayout>
+
+    </RelativeLayout>
+
+    <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_below="@id/screenHeaderView"
+            android:background="@color/white"
+            android:layout_above="@id/addNoteForm">
+
+        <ImageView
+                android:id="@+id/addNoteEmptyNotesListImage"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:src="@drawable/ic_empty_notes_list"
+                android:visibility="visible"/>
+
+        <ListView
+                android:id="@+id/addNoteNotesListView"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:visibility="invisible"/>
+    </RelativeLayout>
+
+    <LinearLayout
+            android:id="@+id/addNoteForm"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center_vertical"
+            android:layout_alignParentBottom="true"
+            android:background="@color/add_note_form_sub_header_bg"
+            android:paddingStart="@dimen/spacing_1x"
+            android:paddingEnd="@dimen/spacing_1x">
+
+        <EditText
+                android:id="@+id/noteEditText"
+                android:layout_width="0dp"
+                android:layout_height="@dimen/button_height"
+                android:layout_weight="1"
+                android:lines="1"
+                android:maxLines="1"
+                android:background="@drawable/add_note_button_normal_bg"
+                android:layout_margin="@dimen/spacing_1x"
+                android:textSize="@dimen/text_size_2_0x"
+                android:paddingRight="@dimen/spacing_3x"
+                android:paddingLeft="@dimen/spacing_3x"
+                android:textColor="@android:color/white"
+                android:textColorHint="@color/white"
+                android:hint="@string/business_info_new_note_hint"
+                android:imeOptions="actionSend"/>
+
+        <ImageButton
+                android:id="@+id/sendButton"
+                android:layout_width="@dimen/button_height"
+                android:layout_height="@dimen/button_height"
+                android:layout_alignParentRight="true"
+                android:src="@drawable/ic_send_note"
+                android:background="@drawable/add_note_button_bg_color_selector"/>
+
+    </LinearLayout>
+
+</RelativeLayout>

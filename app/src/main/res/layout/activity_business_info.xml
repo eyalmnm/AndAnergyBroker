@@ -1,0 +1,338 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                android:layout_width="match_parent"
+                android:padding="@dimen/spacing_1x"
+                android:layout_height="match_parent"
+                android:background="@color/white"
+                android:fitsSystemWindows="true">
+
+    <TextView
+            android:id="@+id/businessName"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/black"
+            android:textSize="@dimen/text_size_3_0x"
+            android:layout_marginTop="@dimen/business_info_name_margin_top"
+            android:textStyle="bold"
+            android:text="name"/>
+
+
+    <TextView
+            android:id="@+id/businessPhone"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/businessName"
+            android:textColor="@color/black"
+            android:textSize="@dimen/text_size_2_0x"
+            android:layout_marginTop="@dimen/spacing_2x"
+            android:text="phone"/>
+
+    <TextView
+            android:id="@+id/businessEmail"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/spacing_1x"
+            android:layout_below="@id/businessPhone"
+            android:textColor="@color/black"
+            android:ellipsize="marquee"
+            android:textSize="@dimen/text_size_2_0x"
+            android:text="email"/>
+
+    <TextView
+            android:id="@+id/businessTypeName"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/businessEmail"
+            android:textColor="@color/black"
+            android:layout_marginTop="@dimen/spacing_2x"
+            android:ellipsize="marquee"
+            android:textSize="@dimen/text_size_2_0x"
+            android:text="type"/>
+
+
+    <TextView
+            android:id="@+id/businessOpen"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/businessTypeName"
+            android:textColor="@color/black"
+            android:layout_marginTop="@dimen/spacing_2x"
+            android:textSize="@dimen/text_size_2_0x"
+            android:text="Open"
+            android:visibility="gone"/>
+
+
+    <ImageView
+            android:id="@+id/meetingIconImageView"
+            android:layout_below="@id/businessOpen"
+            android:layout_width="@dimen/business_info_meeting_icon_width"
+            android:layout_height="@dimen/business_info_meeting_icon_height"
+            android:src="@drawable/ic_meeting_colorfull"
+            android:layout_marginEnd="@dimen/spacing_1x"
+            android:layout_marginStart="@dimen/spacing_1x"
+            android:layout_marginBottom="@dimen/spacing_1x"
+            android:layout_marginTop="@dimen/spacing_4x"/>
+
+    <TextView
+            android:id="@+id/meetingTitleTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@android:color/darker_gray"
+            android:textSize="@dimen/text_size_2_0x"
+            android:layout_toEndOf="@id/meetingIconImageView"
+            android:layout_alignBottom="@id/meetingIconImageView"
+            android:text="@string/business_info_meeting"
+            android:layout_marginStart="@dimen/spacing_2x"/>
+
+    <!--ToggleButton
+            android:id="@+id/businessOpenToggleButton"
+            android:layout_width="@dimen/business_info_closed_button_width"
+            android:layout_height="@dimen/business_info_closed_button_height"
+            android:background="@drawable/business_info_closed_btn_selector"
+            android:textAllCaps="false"
+            android:textColor="@color/white"
+            android:layout_toStartOf="@id/meetingToggleButton"
+            android:layout_marginEnd="@dimen/spacing_3x"
+            android:layout_alignBottom="@id/meetingIconImageView"
+            android:textOff="@string/business_info_opened"
+            android:textOn="@string/business_info_closed"/-->
+
+    <CheckBox
+            android:id="@+id/businessOpenToggleButton"
+            android:layout_width="wrap_content"
+            android:layout_height="@dimen/business_info_closed_button_height"
+            android:textAllCaps="false"
+            android:buttonTint="@android:color/darker_gray"
+            android:textColor="@android:color/darker_gray"
+            android:textSize="@dimen/text_size_1_75x"
+            android:layout_toStartOf="@id/meetingToggleButton"
+            android:layout_marginEnd="@dimen/spacing_3x"
+            android:layout_alignBottom="@id/meetingIconImageView"
+            android:text="@string/business_info_closed"
+            android:gravity="center"/>
+
+    <!--ToggleButton
+            android:id="@+id/meetingToggleButton"
+            android:layout_width="@dimen/business_info_closed_button_width"
+            android:layout_height="@dimen/business_info_closed_button_height"
+            android:background="@drawable/business_info_meeting_btn_selector"
+            android:textAllCaps="false"
+            android:textColor="@android:color/transparent"
+            android:layout_marginEnd="@dimen/spacing_3x"
+            android:layout_alignParentEnd="true"
+            android:layout_alignBottom="@id/meetingIconImageView"
+            android:textOff="@string/yes"
+            android:textOn="@string/no"
+            android:checked="true"/-->
+
+    <CheckBox
+            android:id="@+id/meetingToggleButton"
+            android:layout_width="wrap_content"
+            android:layout_height="@dimen/business_info_closed_button_height"
+            android:textAllCaps="false"
+            android:textSize="@dimen/text_size_1_75x"
+            android:layout_marginEnd="@dimen/spacing_3x"
+            android:layout_alignParentEnd="true"
+            android:layout_alignBottom="@id/meetingIconImageView"
+            android:buttonTint="@android:color/darker_gray"
+            android:textColor="@android:color/darker_gray"
+            android:text="@string/yes"
+            android:gravity="center"
+            android:checked="false"/>
+
+    <RelativeLayout
+            android:id="@+id/contactDataForm"
+            android:layout_width="match_parent"
+            android:layout_below="@id/meetingTitleTextView"
+            android:layout_alignStart="@id/meetingIconImageView"
+            android:layout_alignEnd="@id/meetingToggleButton"
+            android:layout_marginTop="@dimen/spacing_2x"
+            android:layout_height="wrap_content">
+
+        <ImageView
+                android:id="@+id/decisionMakingImageView"
+                android:layout_width="@dimen/business_info_decision_image_width"
+                android:layout_height="@dimen/business_info_decision_image_height"
+                android:layout_margin="@dimen/spacing_1x"
+                android:src="@drawable/ic_decision_making_colorfull"/>
+
+        <TextView
+                android:id="@+id/business_info_contact"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@android:color/darker_gray"
+                android:textSize="@dimen/text_size_2_0x"
+                android:layout_marginStart="@dimen/spacing_2x"
+                android:layout_toEndOf="@id/decisionMakingImageView"
+                android:layout_alignBottom="@id/decisionMakingImageView"
+                android:text="@string/business_info_contact_decision"/>
+
+        <RelativeLayout
+                android:id="@+id/contactDetailsForm"
+                android:layout_width="match_parent"
+                android:layout_height="150dp"
+                android:layout_below="@id/decisionMakingImageView"
+                android:layout_alignStart="@id/decisionMakingImageView"
+                android:layout_marginEnd="@dimen/spacing_1x"
+                android:orientation="vertical">
+            <!--android:layout_height="@dimen/business_info_contacts_viewpager_height"-->
+
+            <android.support.v4.view.ViewPager
+                    android:id="@+id/contactsViewPager"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@android:color/transparent"
+                    android:layout_marginStart="@dimen/spacing_1x"
+                    android:layout_marginEnd="@dimen/spacing_1x"
+                    android:layout_toRightOf="@id/arrowToLeftImageView"
+                    android:layout_toLeftOf="@id/arrowToRightImageView"/>
+
+            <ImageView
+                    android:id="@+id/arrowToLeftImageView"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="@dimen/spacing_1x"
+                    android:layout_centerVertical="true"
+                    android:src="@drawable/arrow_to_left"
+                    android:background="@android:color/transparent"/>
+
+            <ImageView
+                    android:id="@+id/arrowToRightImageView"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:src="@drawable/arrow_to_right"
+                    android:layout_alignParentEnd="true"
+                    android:background="@android:color/transparent" android:layout_marginTop="@dimen/spacing_1x"
+                    android:layout_marginEnd="@dimen/spacing_1x" android:layout_marginBottom="@dimen/spacing_1x"/>
+
+        </RelativeLayout>
+
+
+    </RelativeLayout>
+
+    <RelativeLayout
+            android:id="@+id/meetingDataForm"
+            android:layout_width="match_parent"
+            android:layout_below="@id/contactDataForm"
+            android:layout_above="@+id/saveButton"
+            android:layout_alignStart="@id/meetingIconImageView"
+            android:layout_alignEnd="@id/meetingToggleButton"
+            android:layout_marginTop="@dimen/spacing_2x"
+            android:layout_marginBottom="@dimen/spacing_6x"
+            android:layout_height="wrap_content">
+
+
+        <ImageView
+                android:id="@+id/meetingHistoryImageView"
+                android:layout_width="@dimen/business_info_summary_icon_width"
+                android:layout_height="@dimen/business_info_summary_icon_height"
+                android:layout_marginTop="@dimen/spacing_1x"
+                android:layout_marginRight="@dimen/spacing_1x"
+                android:layout_marginLeft="@dimen/spacing_1x"
+                android:layout_marginBottom="@dimen/spacing_1x"
+                android:src="@drawable/ic_meetings_history"/>
+
+        <TextView
+                android:id="@+id/businessInfoMeetingHistoryTitleTextView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_toEndOf="@id/meetingHistoryImageView"
+                android:layout_alignTop="@id/meetingHistoryImageView"
+                android:layout_marginStart="@dimen/spacing_2x"
+                android:textColor="@android:color/darker_gray"
+                android:textSize="@dimen/text_size_2_0x"
+                android:text="@string/business_info_history"/>
+
+        <ListView
+                android:id="@+id/businessInfoHistoryListView"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/businessInfoMeetingHistoryTitleTextView"
+                android:layout_marginTop="@dimen/spacing_3x"
+                android:layout_marginEnd="@dimen/spacing_6x"
+                android:layout_toEndOf="@+id/meetingHistoryImageView"
+                android:background="@android:color/transparent"/>
+
+        <ImageView
+                android:id="@+id/businessInfoEmptyMeetingsListImage"
+                android:layout_width="96dp"
+                android:layout_height="130dp"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="@dimen/spacing_12x"
+                android:scaleType="centerInside"
+                android:src="@drawable/ic_empty_history_list"
+                android:visibility="visible"/>
+
+
+    </RelativeLayout>
+
+    <ImageView
+            android:id="@+id/notesImageView"
+            android:layout_width="@dimen/business_info_note_image_width"
+            android:layout_height="@dimen/business_info_note_image_height"
+            android:layout_alignParentBottom="true"
+            android:layout_margin="@dimen/spacing_1x"
+            android:layout_alignStart="@id/meetingIconImageView"
+            android:src="@drawable/ic_notes"/>
+
+    <TextView
+            android:id="@+id/notesTitleTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_toEndOf="@id/notesImageView"
+            android:layout_alignBottom="@id/notesImageView"
+            android:textColor="@android:color/darker_gray"
+            android:textSize="@dimen/text_size_2_5x"
+            android:text="@string/business_info_notes"
+            android:layout_alignStart="@id/meetingTitleTextView"/>
+
+    <Button
+            android:id="@+id/saveButton"
+            android:layout_width="@dimen/button_width_samll"
+            android:layout_height="@dimen/button_height_small"
+            android:text="@string/save"
+            android:textSize="@dimen/text_size_1_5x"
+            android:textColor="@color/white"
+            android:layout_alignParentEnd="true"
+            android:layout_alignBottom="@id/notesImageView"
+            android:layout_marginEnd="@dimen/spacing_2x"
+            android:textAllCaps="false"
+            android:background="@drawable/business_button_bg_color_selector"
+            style="@style/AppButton"/>
+
+    <RelativeLayout
+            xmlns:app="http://schemas.android.com/apk/res-auto"
+            android:id="@+id/infoLoadingDialog"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:theme="@style/AppTheme"
+            android:background="@color/colorPrimaryDark"
+            android:padding="@dimen/spacing_1x"
+            android:visibility="gone">
+
+        <fr.castorflex.android.circularprogressbar.CircularProgressBar
+                android:id="@+id/CircularProgressBar"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:layout_centerVertical="true"
+                android:layout_margin="@dimen/spacing_1x"
+                android:indeterminate="true"
+                android:background="@android:color/transparent"
+                app:cpb_colors="@array/colors"/>
+
+        <TextView
+                android:id="@+id/messageTextView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_toRightOf="@id/CircularProgressBar"
+                android:textSize="@dimen/text_size_2_5x"
+                android:layout_margin="@dimen/spacing_1x"
+                android:background="@android:color/transparent"
+                android:layout_centerVertical="true"
+                android:textColor="@color/white"
+                android:text="@string/loading"/>
+    </RelativeLayout>
+
+</RelativeLayout>

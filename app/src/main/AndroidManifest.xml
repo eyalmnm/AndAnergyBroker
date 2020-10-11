@@ -1,0 +1,215 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android" xmlns:tools="http://schemas.android.com/tools"
+          package="com.usenergysolutions.energybroker">
+
+    <!--
+         The ACCESS_COARSE/FINE_LOCATION permissions are not required to use
+         Google Maps Android API v2, but you must specify either coarse or fine
+         location permissions for the 'MyLocation' functionality. 
+    -->
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION"/>
+
+    <!-- Location Service Permission -->
+    <uses-permission android:name="android.permission.FOREGROUND_SERVICE"/>
+
+    <!-- The internet access permission -->
+    <uses-permission android:name="android.permission.INTERNET"/>
+
+    <!-- Date Time Pickers requirement permissions -->
+    <uses-permission android:name="android.permission.VIBRATE"/>
+
+    <!-- Image Picker and Cropper Permissions and features -->
+    <uses-permission android:name="android.permission.CAMERA"/>
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/>
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
+    <uses-feature android:name="android.hardware.camera" android:required="true"/>
+
+    <!--
+        Android 8: Cleartext HTTP traffic not permitted
+        https://stackoverflow.com/questions/45940861/android-8-cleartext-http-traffic-not-permitted/52576612
+        android:usesCleartextTraffic="true"
+    -->
+    <application
+            android:allowBackup="false"
+            tools:replace="android:allowBackup"
+            android:icon="@mipmap/energybroker"
+            android:label="@string/app_name"
+            android:roundIcon="@mipmap/energybroker"
+            android:supportsRtl="true"
+            android:usesCleartextTraffic="true"
+            android:theme="@style/AppTheme"
+            android:name=".application.EnergyBrokerApp">
+
+        <activity
+                android:name=".view.MainActivity"
+                android:windowSoftInputMode="stateHidden|adjustResize">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN"/>
+
+                <category android:name="android.intent.category.LAUNCHER"/>
+            </intent-filter>
+        </activity>
+
+        <!-- Registration Activity -->
+        <activity
+                android:name=".view.RegistrationActivity"
+                android:configChanges="layoutDirection|screenSize"
+                android:theme="@style/AppTheme"
+                android:windowSoftInputMode="adjustPan|adjustResize|stateHidden"/>
+
+        <!-- Navigation Activity -->
+        <activity android:name=".view.BottomNavigationActivity"
+                  android:configChanges="layoutDirection|screenSize"
+                  android:theme="@style/AppTheme"
+                  android:windowSoftInputMode="adjustPan|adjustResize|stateHidden"/>
+
+        <!-- Map Activity -->
+        <activity
+                android:name=".view.maps.MapActivity"
+                android:configChanges="layoutDirection|screenSize"
+                android:theme="@style/MapActivityStyle"
+                android:label=""
+                android:windowSoftInputMode="adjustPan|adjustResize|stateHidden">
+
+            <intent-filter>
+                <action android:name="android.intent.action.SEARCH"/>
+            </intent-filter>
+
+            <meta-data android:name="android.app.searchable"
+                       android:resource="@xml/searchable"/>
+        </activity>
+
+        <!-- Add Place Activity -->
+        <activity android:name=".view.maps.AddPlaceActivity"
+                  android:configChanges="layoutDirection|screenSize"
+                  android:theme="@style/MapActivityStyle.NoActionBar"
+                  android:windowSoftInputMode="adjustResize|stateHidden"/>
+
+        <!-- Add Business Activity -->
+        <activity android:name=".view.maps.AddBusinessActivity"
+                  android:configChanges="layoutDirection|screenSize"
+                  android:theme="@style/MapActivityStyle.NoActionBar"
+                  android:windowSoftInputMode="adjustResize|stateHidden"/>
+
+        <meta-data
+                android:name="com.google.android.gms.version"
+                android:value="@integer/google_play_services_version"/>
+        <!--
+             The API key for Google Maps-based APIs is defined as a string resource.
+             (See the file "res/values/google_maps_api.xml").
+             Note that the API key is linked to the encryption key used to sign the APK.
+             You need a different API key for each encryption key, including the release key that is used to
+             sign the APK for publishing.
+             You can define the keys for the debug and release targets in src/debug/ and src/release/. 
+        -->
+        <meta-data
+                android:name="com.google.android.geo.API_KEY"
+                android:value="@string/google_maps_key"/>
+
+        <!-- Google Map Requirment For Android 9 and above -->
+        <uses-library
+                android:name="org.apache.http.legacy"
+                android:required="false"/>
+
+        <!-- Application Main Setting -->
+        <activity android:name=".view.settings.AppSettingsActivity"
+                  android:configChanges="layoutDirection|screenSize"
+                  android:theme="@style/AppTheme"
+                  android:label="@string/settings"
+                  android:windowSoftInputMode="adjustResize|stateHidden"/>
+
+        <!-- Business Info Activity -->
+        <activity android:name=".view.maps.BusinessInfoActivity"
+                  android:configChanges="layoutDirection|screenSize"
+                  android:theme="@style/AppTheme"
+                  android:windowSoftInputMode="adjustResize|stateHidden"/>
+
+        <!-- Business Edit Activity -->
+        <activity android:name=".view.maps.BusinessEditActivity"
+                  android:configChanges="layoutDirection|screenSize"
+                  android:theme="@style/AppTheme"
+                  android:windowSoftInputMode="adjustResize|stateHidden"/>
+
+        <!-- Meetings History Activity -->
+        <activity android:name=".view.maps.MeetingsHistoryActivity"
+                  android:configChanges="layoutDirection|screenSize"
+                  android:theme="@style/AppTheme"
+                  android:windowSoftInputMode="adjustResize|stateHidden"/>
+
+        <!-- Add Notes Activity -->
+        <activity android:name=".view.maps.AddNoteActivity"
+                  android:configChanges="layoutDirection|screenSize"
+                  android:theme="@style/AppTheme"
+                  android:windowSoftInputMode="adjustResize|stateHidden"/>
+
+        <!-- Add New Notes Activity -->
+        <activity android:name=".view.maps.AddNewNoteActivity"
+                  android:configChanges="layoutDirection|screenSize"
+                  android:theme="@style/dialogTheme"
+                  android:excludeFromRecents="true"
+                  android:windowSoftInputMode="adjustResize|stateHidden"/>
+
+        <!-- Meeting Results Activity -->
+        <activity android:name=".view.maps.MeetingResultsActivity"
+                  android:configChanges="layoutDirection|screenSize"
+                  android:theme="@style/AppTheme"
+                  android:windowSoftInputMode="adjustResize|stateHidden"/>
+
+        <!-- Meeting Edit Activity -->
+        <activity android:name=".view.maps.MeetingEditActivity"
+                  android:configChanges="layoutDirection|screenSize"
+                  android:theme="@style/AppTheme"
+                  android:windowSoftInputMode="adjustResize|stateHidden"/>
+
+
+        <!--  ***       Users' Activities      ***  -->
+
+        <!-- Personal Account Activity -->
+        <activity android:name=".view.user.PersonalReportActivity"
+                  android:configChanges="layoutDirection|screenSize"
+                  android:theme="@style/AppTheme"
+                  android:windowSoftInputMode="adjustResize|stateHidden"/>
+
+        <activity android:name=".view.user.PersonalAccountActivity"
+                  android:configChanges="layoutDirection|screenSize"
+                  android:theme="@style/AppTheme"
+                  android:windowSoftInputMode="adjustResize|stateHidden"/>
+
+        <activity android:name=".view.user.ImagePickerDialog"
+                  android:theme="@style/AppTheme"
+                  android:configChanges="layoutDirection|screenSize"
+                  android:windowSoftInputMode="adjustResize|stateHidden"
+                  android:excludeFromRecents="true"/>
+
+        <activity android:name=".view.user.CropActivity"
+                  android:theme="@style/AppTheme"
+                  android:configChanges="layoutDirection|screenSize"
+                  android:windowSoftInputMode="adjustResize|stateHidden"
+                  android:excludeFromRecents="true"/>
+
+
+        <!--  ***       CRMs' Activities      ***  -->
+
+
+        <!-- Services and others -->
+        <service
+                android:name=".services.location.locationListenerService"
+                android:enabled="true"
+                android:exported="true"/>
+        <!-- android:stopWithTask="true" -->
+        <service
+                android:name=".services.communication.MyLocationTransmitterService"
+                android:exported="false"/>
+
+        <!-- Crashlytics -->
+        <meta-data
+                android:name="firebase_crashlytics_collection_enabled"
+                android:value="false"/>
+
+        <meta-data
+                android:name="io.fabric.ApiKey"
+                android:value="031710ddde9205938e3ce7b5ba8199948bb025e4"/>
+
+    </application>
+
+</manifest>

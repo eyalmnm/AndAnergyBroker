@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/add_note_form_sub_header_bg"
+                android:theme="@style/dialogTheme">
+
+    <TextView
+            android:id="@+id/addNoteTitle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/add_note_title_text"
+            android:textColor="@color/white"
+            android:textSize="@dimen/text_size_3_0x"
+            android:gravity="center"
+            android:ellipsize="marquee"
+            android:layout_marginBottom="@dimen/spacing_4x"
+            android:layout_marginTop="@dimen/spacing_5x"/>
+
+    <EditText
+            android:id="@+id/addNoteEditText"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:lines="3"
+            android:gravity="top"
+            android:textSize="@dimen/text_size_2_0x"
+            android:background="@drawable/add_note_button_normal_new_bg"
+            android:layout_below="@id/addNoteTitle"
+            android:paddingRight="@dimen/spacing_3x"
+            android:paddingLeft="@dimen/spacing_3x"
+            android:layout_marginRight="@dimen/spacing_5x"
+            android:layout_marginLeft="@dimen/spacing_5x"
+            android:textColor="@android:color/white"
+            android:textColorHint="@color/white"
+            android:hint="@string/business_info_new_note_hint"
+            android:imeOptions="actionSend"/>
+
+    <Button
+            android:id="@+id/saveButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/next_button_bg_new"
+            android:layout_below="@id/addNoteEditText"
+            android:layout_alignParentEnd="true"
+            android:layout_marginEnd="@dimen/spacing_5x"
+            android:layout_marginBottom="@dimen/spacing_5x"
+            android:layout_marginTop="@dimen/spacing_5x"
+            android:textColor="@color/white"
+            android:textAllCaps="false"
+            android:textSize="@dimen/text_size_2_0x"/>
+
+    <Button
+            android:id="@+id/cancelButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/cancel_button_bg_new"
+            android:layout_alignBottom="@id/saveButton"
+            android:layout_alignParentStart="true"
+            android:layout_marginStart="@dimen/spacing_5x"
+            android:textColor="@color/white"
+            android:textAllCaps="false"
+            android:textSize="@dimen/text_size_2_0x"/>
+
+</RelativeLayout>

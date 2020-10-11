@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              android:layout_width="match_parent"
+              android:layout_height="wrap_content"
+              android:orientation="vertical"
+              android:padding="@dimen/spacing_1x"
+              android:background="@android:color/transparent">
+
+    <EditText
+            android:id="@+id/controllableEditText"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/spacing_7x"
+            android:background="@drawable/borderedt"
+            android:padding="@dimen/spacing_1x"
+            android:lines="1"
+            android:maxLines="1"
+            android:inputType="textEmailAddress"
+            android:imeOptions="actionNext"
+            android:textSize="@dimen/text_size_1_5x"
+            android:textColorHint="@color/registration_hint_color"
+            android:textColor="@color/white"/>
+
+    <TextView
+            android:id="@+id/controllableTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/add_new_form"
+            android:textSize="@dimen/text_size_1_0x"
+            android:textColor="@color/white"
+            android:background="@android:color/transparent"
+            android:layout_gravity="end"/>
+
+    <ImageView
+            android:id="@+id/controllableIcon"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/ic_add_white"
+            android:layout_marginTop="@dimen/spacing_1x"
+            android:layout_gravity="end"
+            android:background="@android:color/transparent"/>
+
+</LinearLayout>

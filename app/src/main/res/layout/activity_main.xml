@@ -1,0 +1,131 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:tools="http://schemas.android.com/tools"
+        style="@style/MainActivityTheme"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@drawable/sign_in_bg_image"
+        tools:context=".view.MainActivity"
+        android:fitsSystemWindows="true">
+
+    <ImageView
+            android:id="@+id/loginLogoImageView"
+            android:layout_width="@dimen/login_logo_width"
+            android:layout_height="@dimen/login_logo_height"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="52dp"
+            android:layout_marginBottom="80dp"
+            android:src="@drawable/sign_in_logo"
+            android:background="@android:color/transparent"/>
+
+    <RelativeLayout
+            android:id="@+id/loginFormLayout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="27dp"
+            android:layout_marginRight="27dp"
+            android:background="@android:color/transparent"
+            android:layout_below="@id/loginLogoImageView"
+            android:layout_above="@+id/versionNumber"
+            android:paddingBottom="0dp">
+
+        <EditText
+                android:id="@+id/loginUserName"
+                android:imeOptions="actionNext"
+                android:layout_alignParentTop="true"
+                android:layout_marginTop="0dp"
+                android:background="@drawable/login_user_name_bg"
+                android:hint="@string/login_userneme_edit_text_hint"
+                style="@style/loginEditTextStyle"/>
+
+        <EditText
+                android:id="@+id/loginPassword"
+                android:layout_below="@id/loginUserName"
+                android:inputType="textPassword"
+                android:layout_marginTop="0dp"
+                android:hint="@string/login_password_edit_text_hint"
+                android:background="@drawable/login_password_bg"
+                android:imeOptions="actionSend"
+                style="@style/loginEditTextStyle"/>
+
+        <Button
+                android:id="@+id/loginSignInButton"
+                style="@style/loginAppButton"
+                android:layout_centerHorizontal="true"
+                android:layout_width="@dimen/sign_in_btn_width"
+                android:layout_height="@dimen/sign_in_btn_height"
+                android:layout_marginTop="@dimen/spacing_7x"
+                android:background="@drawable/sign_in_bg_shape"
+                android:layout_below="@id/loginPassword"
+                android:textColor="@color/sign_in_btn_text_color"
+                android:text="@string/login_sign_in"/>
+
+        <CheckBox
+                android:id="@+id/loginRememberMeCheckBox"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/loginSignInButton"
+                android:button="@drawable/login_remember_me_selector"
+                android:textColor="@color/login_text_color"
+                android:textSize="14dp"
+                android:layout_marginTop="@dimen/spacing_7x"
+                android:layout_centerHorizontal="true"
+                android:layout_marginLeft="15dp"
+                android:paddingLeft="5dp"
+                android:gravity="center_vertical"
+                android:text="@string/login_remember_me"/>
+
+        <TextView
+                android:id="@+id/loginFotgotPassword"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@color/login_forgot_pwd_text_color"
+                android:layout_alignRight="@id/loginPassword"
+                android:textSize="14dp"
+                android:gravity="right"
+                android:layout_alignBaseline="@id/loginRememberMeCheckBox"
+                android:layout_marginRight="15dp"
+                android:background="@android:color/transparent"
+                android:text="@string/login_forgot_your_pwd_text"
+                android:visibility="gone"/>
+
+        <TextView
+                android:id="@+id/loginSignUp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@color/login_text_color"
+                android:textSize="14dp"
+                android:layout_centerHorizontal="true"
+                android:layout_below="@id/loginRememberMeCheckBox"
+                android:layout_marginTop="25dp"
+                android:background="@android:color/transparent"
+                android:text="@string/login_sign_in_text"
+                android:visibility="gone"/>
+
+    </RelativeLayout>
+
+    <TextView
+            android:id="@id/versionNumber"
+            style="@style/AppTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@android:color/transparent"
+            android:layout_alignParentBottom="true"
+            android:layout_margin="5dp"
+            android:textColor="#f1f1f1"
+            android:textSize="@dimen/text_size_1_75x"
+            android:text="dgdfgdfghdfghfdhdfghfd"/>
+
+    <TextView android:id="@+id/loginCopyRights"
+              android:layout_width="wrap_content"
+              android:layout_height="wrap_content"
+              android:layout_alignParentBottom="true"
+              android:layout_alignParentRight="true"
+              android:text="© US Energy Solutions INC"
+              android:background="@android:color/transparent"
+              android:textColor="#f1f1f1"
+              android:layout_margin="5dp"
+              android:textSize="@dimen/text_size_1_75x"/>
+
+</RelativeLayout>

@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <!-- Fab colors -->
+    <color name="colorFAB_normal">#757575</color>
+    <color name="colorFAB_pressed">#55000000</color>
+
+    <!--Main Colors-->
+    <color name="colorPrimary">#FFFFFF</color>
+    <color name="colorPrimaryDark">#042551</color>
+    <color name="HintColor">#858585</color>
+    <color name="sign_in_bg_color">#fd001f</color>
+    <color name="mainTextColor">@android:color/darker_gray</color>
+
+    <!-- Temp Colors -->
+    <color name="colorAccent">#D81B60</color>
+    <color name="colorControlActivated">@color/white</color>
+    <color name="textColorPrimary">@color/orange_light</color>
+
+    <!-- General colors -->
+    <color name="white">#FFFFFF</color>
+    <color name="black">#000000</color>
+    <color name="light_gray">#e1e0e0</color>
+    <color name="gold">#FBFF00</color>
+    <color name="orange_light">#FFBC00</color>
+    <color name="turquoise">#1eeeff</color>
+    <color name="turquoise_dark">#559AD8</color>
+
+    <!-- Main Activity Colors -->
+    <color name="login_edit_text_text_color">@color/white</color>
+    <color name="login_edit_text_hint_color">@android:color/darker_gray</color>
+    <color name="sign_in_btn_text_color">#f1f1f1</color>
+    <color name="sign_in_register_text_color">#075da1</color>
+    <color name="login_text_color">#f1f1f1</color>
+    <color name="login_forgot_pwd_text_color">#fd001f</color>
+
+    <!-- Registration Activity Colors -->
+    <color name="registration_title_text_color">@color/white</color>
+    <color name="registration_field_border_color">#F1F1F1</color>
+    <color name="registration_hint_color">#e1e0e0</color>
+    <color name="registration_create_account_bg_color">#FF0000</color>
+    <color name="registration_already_member_title">#409D90</color>
+
+    <!-- Tabs Screen Colors -->
+    <color name="bottom_tabs_bg_color">#042D5A</color>
+
+    <!-- Business Info Activity Colors -->
+    <color name="business_info_closed_bt_color">#579FDF</color>
+    <color name="business_info_closed_bt_pressed_color">#D84717</color>
+
+    <!--drawable name="login_button_press">@color/textColorPrimary</drawable>
+    <drawable name="login_button_normal">@color/white</drawable-->
+
+    <!-- Add Place Colors -->
+    <color name="add_place_title_color_old">#6E7CAE</color>
+    <color name="add_place_title_color">@color/white</color>
+    <!--color name="add_place_item_title_color">#909292</color-->
+    <color name="add_place_item_title_color">@color/white</color>
+    <color name="add_place_item_border_color">@color/white</color>
+    <!--color name="add_place_item_border_color">#E6E7E8</color-->
+    <color name="add_place_save_button_bg_color">#70D6E2</color>
+    <color name="add_place_cancel_button_bg_color">#FF0000</color>
+    <color name="add_place_dropdown_bg_color">#00143F</color>
+
+    <!-- Opening Hours Dialog Colors -->
+    <color name="toggle_left_bg_color">@color/turquoise_dark</color>
+    <color name="toggle_right_bg_color">@color/turquoise_dark</color>
+    <color name="toggle_left_bg_color_ond">#e1e0e0</color>
+    <color name="toggle_right_bg_color_old">@color/black</color>
+
+    <!-- Add Note Screen Colors -->
+    <color name="add_note_form_bg">#BCC5E6</color>
+    <color name="add_note_form_pressed_bg">#798DC4</color>
+    <color name="add_note_form_upper_header_bg">#445089</color>
+    <color name="add_note_form_sub_header_bg">#5061AE</color>
+    <color name="add_note_msg_text_color">#242424</color>
+    <color name="add_note_name_text_color">#CCD6ED</color>
+
+
+</resources>

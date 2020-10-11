@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/white"
+                android:padding="@dimen/spacing_2x">
+
+    <ImageView
+            android:id="@+id/addNoteAvatarImageView"
+            android:layout_width="@dimen/add_note_avatar_width"
+            android:layout_height="@dimen/add_note_avatar_height"
+            android:background="@drawable/add_note_avatar_bg_shape"
+            android:scaleType="center"
+            android:src="@drawable/ic_default_avatar"/>
+
+    <TextView
+            android:id="@+id/addNoteNameTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/addNoteAvatarImageView"
+            android:text="name"
+            android:gravity="center"
+            android:layout_alignStart="@id/addNoteAvatarImageView"
+            android:layout_alignEnd="@id/addNoteAvatarImageView"
+            android:textSize="@dimen/text_size_1_0x"
+            android:layout_marginTop="@dimen/spacing_1x"
+            android:textColor="@color/add_note_name_text_color"/>
+
+    <TextView
+            android:id="@+id/addNoteTextView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_toEndOf="@id/addNoteAvatarImageView"
+            android:layout_alignTop="@id/addNoteAvatarImageView"
+            android:layout_alignBottom="@id/addNoteAvatarImageView"
+            android:layout_marginStart="@dimen/spacing_3x"
+            android:layout_marginEnd="@dimen/spacing_3x"
+            android:textSize="@dimen/text_size_1_5x"
+            android:textColor="@color/add_note_msg_text_color"
+            android:text="SAMPLE TEXT"/>
+
+    <TextView
+            android:id="@+id/addNoteDateTextView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignStart="@id/addNoteTextView"
+            android:layout_alignEnd="@id/addNoteTextView"
+            android:textSize="@dimen/text_size_1_0x"
+            android:layout_alignBottom="@id/addNoteNameTextView"
+            android:text="2019-01-26 18:13:15"
+            android:textColor="@color/add_note_name_text_color"/>
+
+</RelativeLayout>

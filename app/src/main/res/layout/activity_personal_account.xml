@@ -1,0 +1,197 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@color/white"
+                android:theme="@style/AppTheme">
+
+    <RelativeLayout
+            android:id="@+id/businessInfoHeader"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/personal_account_header_height"
+            android:background="@drawable/ing_personal_ogrange_bg">
+
+        <ImageView
+                android:id="@+id/avatarImageView"
+                android:layout_width="@dimen/personal_account_avatar_image_diameter"
+                android:layout_height="@dimen/personal_account_avatar_image_diameter"
+                android:background="@drawable/personal_account_avatar_background"
+                android:layout_marginTop="@dimen/personal_account_avatar_image_margin_top"
+                android:layout_marginStart="@dimen/personal_account_avatar_image_margin_start"
+                android:layout_marginBottom="@dimen/personal_account_avatar_image_margin_bottom"
+                android:src="@drawable/avatar_placeholder_image"/>
+
+        <ImageView
+                android:id="@+id/avatarEditButton"
+                android:layout_width="@dimen/personal_account_avatar_edit_button"
+                android:layout_height="@dimen/personal_account_avatar_edit_button"
+                android:background="@drawable/personal_account_avatar_edit_background"
+                android:src="@drawable/avatar_edit_button"
+                android:layout_alignBottom="@id/avatarImageView"
+                android:layout_alignEnd="@id/avatarImageView"
+                android:layout_marginTop="@dimen/personal_account_avatar_edit_button_margin_top"
+                android:layout_marginBottom="@dimen/personal_account_avatar_edit_button_margin_bottom"
+                android:layout_marginStart="@dimen/personal_account_avatar_edit_button_margin_start"/>
+
+        <!--ImageView
+                android:id="@+id/editNameButton"
+                android:layout_width="@dimen/personal_account_name_edit_button_width"
+                android:layout_height="@dimen/personal_account_name_edit_button_height"
+                android:background="@android:color/transparent"
+                android:src="@drawable/ic_edit_white_24dp"
+                android:layout_alignParentEnd="true"
+                android:layout_marginTop="@dimen/personal_account_name_edit_button_margin_top"
+                android:layout_marginEnd="@dimen/personal_account_name_edit_button_margin_end"/-->
+
+        <TextView
+                android:id="@+id/fullNameTextView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_toEndOf="@id/avatarImageView"
+                android:layout_alignBottom="@id/avatarImageView"
+                android:layout_marginRight="@dimen/spacing_2x"
+                android:layout_alignParentEnd="true"
+                android:paddingLeft="@dimen/spacing_1x"
+                android:paddingRight="@dimen/spacing_1x"
+                android:textSize="@dimen/text_size_4_0x"
+                android:textStyle="bold"
+                android:background="@android:color/transparent"
+                android:text="John Dow"
+                android:maxLines="1"
+                android:lines="1"
+                android:ellipsize="end"
+                android:textColor="@color/white"
+                android:layout_marginEnd="@dimen/spacing_2x"/>
+        <!--android:layout_toStartOf="@id/editNameButton"-->
+        <!--android:layout_alignBottom="@id/editNameButton"-->
+
+
+        <TextView
+                android:id="@+id/positionTextView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerHorizontal="true"
+                android:layout_below="@id/fullNameTextView"
+                android:textSize="@dimen/text_size_1_5x"
+                android:text="Energy Advisor"
+                android:textColor="@color/white"
+                android:layout_marginEnd="@dimen/spacing_1x"
+                android:background="@android:color/transparent"/>
+
+    </RelativeLayout>
+
+
+    <LinearLayout
+            android:id="@+id/personalDataView"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/personal_account_personal_height"
+            android:layout_below="@id/businessInfoHeader"
+            android:orientation="horizontal"
+            android:weightSum="3">
+
+        <!-- Salary -->
+        <!--LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:layout_weight="1"
+                android:layout_margin="@dimen/personal_account_personal_data_margin">
+
+            <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textStyle="bold"
+                    android:textSize="@dimen/text_size_1_5x"
+                    android:textColor="@color/light_gray"
+                    android:text="@string/personal_account_personal_salary"/>
+
+            <TextView
+                    android:id="@+id/personalSalary"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/black"
+                    android:textStyle="bold"
+                    android:textSize="@dimen/text_size_2_5x"
+                    android:text="$2100"
+                    android:layout_marginTop="@dimen/spacing_4x"/>
+
+        </LinearLayout-->
+
+        <!-- Commission -->
+        <!--LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:layout_weight="1"
+                android:layout_margin="@dimen/personal_account_personal_data_margin">
+
+            <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textStyle="bold"
+                    android:textSize="@dimen/text_size_1_5x"
+                    android:textColor="@color/light_gray"
+                    android:text="@string/personal_account_personal_commission"/>
+
+            <TextView
+                    android:id="@+id/personalCommission"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/black"
+                    android:textStyle="bold"
+                    android:textSize="@dimen/text_size_2_5x"
+                    android:text="$700"
+                    android:layout_marginTop="@dimen/spacing_4x"/>
+
+        </LinearLayout-->
+
+        <!-- Bonuses -->
+        <!--LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:layout_weight="1"
+                android:layout_margin="@dimen/personal_account_personal_data_margin">
+
+            <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textStyle="bold"
+                    android:textSize="@dimen/text_size_1_5x"
+                    android:textColor="@color/light_gray"
+                    android:text="@string/personal_account_personal_bonuses"/>
+
+            <TextView
+                    android:id="@+id/personalBonuses"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/black"
+                    android:textStyle="bold"
+                    android:textSize="@dimen/text_size_2_5x"
+                    android:text="$250"
+                    android:layout_marginTop="@dimen/spacing_4x"/>
+
+        </LinearLayout-->
+
+    </LinearLayout>
+
+    <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_below="@id/personalDataView">
+
+        <ImageView
+                android:id="@+id/personalEmptyNotesListImage"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:src="@drawable/ic_empty_notes_list"
+                android:visibility="visible"/>
+
+        <ListView
+                android:id="@+id/personalNotesList"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:visibility="gone"/>
+    </RelativeLayout>
+</RelativeLayout>

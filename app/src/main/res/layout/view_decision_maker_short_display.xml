@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              android:orientation="vertical"
+              android:layout_width="match_parent"
+              android:layout_height="wrap_content"
+              android:padding="@dimen/spacing_1x"
+              android:background="@android:color/transparent">
+
+    <!-- Name Field -->
+    <TextView
+            android:id="@+id/contactNameTv"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/borderedt"
+            android:padding="@dimen/spacing_1x"
+            android:textSize="@dimen/text_size_1_5x"
+            android:textColor="@android:color/darker_gray"/>
+
+    <TextView
+            android:id="@+id/contactEmailTv"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/spacing_1x"
+            android:background="@drawable/borderedt"
+            android:padding="@dimen/spacing_1x"
+            android:textSize="@dimen/text_size_1_5x"
+            android:textColor="@android:color/darker_gray"/>
+
+    <TextView
+            android:id="@+id/contactPhoneTv"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/spacing_1x"
+            android:background="@drawable/borderedt"
+            android:padding="@dimen/spacing_1x"
+            android:textSize="@dimen/text_size_1_5x"
+            android:textColor="@android:color/darker_gray"/>
+
+    <!-- Comment Field -->
+    <TextView
+            android:id="@+id/contactCommentTv"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/spacing_1x"
+            android:background="@drawable/borderedt"
+            android:padding="@dimen/spacing_1x"
+            android:lines="5"
+            android:maxLines="5"
+            android:gravity="top"
+            android:textSize="@dimen/text_size_1_5x"
+            android:textColor="@android:color/darker_gray"/>
+
+</LinearLayout>

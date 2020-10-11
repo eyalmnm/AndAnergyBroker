@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                android:layout_width="match_parent"
+                android:background="@color/white"
+                android:layout_height="match_parent">
+
+
+    <RelativeLayout
+            android:id="@+id/avatarImageContainer"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/personal_account_header_height"
+            android:layout_centerHorizontal="true"
+            android:background="@drawable/ing_personal_ogrange_bg">
+
+        <ImageView
+                android:id="@+id/avatarImageView"
+                android:layout_width="@dimen/personal_account_avatar_image_diameter"
+                android:layout_height="@dimen/personal_account_avatar_image_diameter"
+                android:background="@drawable/personal_account_avatar_background"
+                android:layout_centerInParent="true"
+                android:src="@drawable/avatar_placeholder_image"/>
+
+    </RelativeLayout>
+
+    <RelativeLayout
+            android:id="@+id/imageSrcButtonsContainer"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/image_picker_buttons_bg_height"
+            android:background="@drawable/image_src_buttons_bg"
+            android:layout_centerInParent="true"
+            android:gravity="center_vertical">
+
+        <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:background="@android:color/transparent"
+                android:weightSum="2">
+
+            <Button android:id="@+id/galleryButton"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="Gallery"
+                    android:background="@android:color/transparent"
+                    android:textColor="@color/white"
+                    android:drawableTop="@drawable/ic_gallery_white"
+                    android:layout_gravity="center"/>
+
+            <Button android:id="@+id/cameraButton"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="Camera"
+                    android:background="@android:color/transparent"
+                    android:textColor="@color/white"
+                    android:drawableTop="@drawable/ic_camera_white"
+                    android:layout_gravity="center"/>
+
+        </LinearLayout>
+
+    </RelativeLayout>
+
+
+    <Button android:id="@+id/cancelButton"
+            android:layout_width="@dimen/cancel_button_width"
+            android:layout_height="@dimen/cancel_button_height"
+            android:layout_alignParentBottom="true"
+            android:background="@drawable/cancel_button_bg"
+            android:text="@string/cancel"
+            android:textColor="@color/white"
+            android:layout_marginBottom="@dimen/spacing_4x"
+            android:layout_marginStart="@dimen/spacing_3x"/>
+
+    <Button android:id="@+id/editButton"
+            android:layout_width="@dimen/button_width"
+            android:layout_height="@dimen/button_height"
+            android:layout_alignBottom="@id/cancelButton"
+            android:layout_centerHorizontal="true"
+            android:background="@color/white"
+            android:text="@string/edit"
+            android:layout_marginEnd="@dimen/spacing_2x"
+            android:textColor="@color/dark_gray"
+            android:enabled="false"
+            android:visibility="gone"/>
+
+    <Button android:id="@+id/saveButton"
+            android:layout_width="@dimen/cancel_button_width"
+            android:layout_height="@dimen/cancel_button_height"
+            android:layout_alignBottom="@id/cancelButton"
+            android:layout_alignParentEnd="true"
+            android:background="@drawable/next_button_bg"
+            android:text="@string/save"
+            android:layout_marginEnd="@dimen/spacing_3x"
+            android:textColor="@color/white"/>
+
+</RelativeLayout>

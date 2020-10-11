@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <!-- General Text Size -->
+    <dimen name="spacing_0_5x">3dp</dimen>
+    <dimen name="spacing_1x">8dp</dimen>
+    <dimen name="spacing_2x">15dp</dimen>
+    <dimen name="spacing_3x">23dp</dimen>
+    <dimen name="spacing_4x">30dp</dimen>
+    <dimen name="spacing_5x">38dp</dimen>
+    <dimen name="spacing_6x">45dp</dimen>
+    <dimen name="spacing_7x">53dp</dimen>
+    <dimen name="spacing_8x">60dp</dimen>
+    <dimen name="spacing_9x">68dp</dimen>
+    <dimen name="spacing_10x">75dp</dimen>
+    <dimen name="spacing_11x">83dp</dimen>
+    <dimen name="spacing_12x">90dp</dimen>
+    <dimen name="spacing_13x">98dp</dimen>
+
+    <dimen name="text_size_0_75x">9dp</dimen>
+    <dimen name="text_size_1_0x">12dp</dimen>
+    <dimen name="text_size_1_25x">15dp</dimen>
+    <dimen name="text_size_1_5x">18dp</dimen>
+    <dimen name="text_size_1_75x">21dp</dimen>
+    <dimen name="text_size_2_0x">24dp</dimen>
+    <dimen name="text_size_2_25x">27dp</dimen>
+    <dimen name="text_size_2_5x">30dp</dimen>
+    <dimen name="text_size_3_0x">36dp</dimen>
+    <dimen name="text_size_3_5x">42dp</dimen>
+    <dimen name="text_size_4_0x">48dp</dimen>
+
+    <!-- Standard buttons dimens -->
+    <dimen name="button_radius">27dp</dimen>
+    <dimen name="button_width_samll">102dp</dimen>
+    <dimen name="button_height_small">38dp</dimen>
+    <dimen name="button_width">202dp</dimen>
+    <dimen name="button_height">53dp</dimen>
+
+
+    <!-- Main Activity -->
+    <dimen name="login_logo_width">173dp</dimen>
+    <dimen name="login_logo_height">163dp</dimen>
+    <dimen name="login_edit_text_width">500dp</dimen>
+    <dimen name="sign_in_btn_width">180dp</dimen>
+    <dimen name="sign_in_btn_height">53dp</dimen>
+    <dimen name="sign_in_btn_radius">24dp</dimen>
+    <dimen name="login_edit_text_bg_corner">60dp</dimen>
+    <dimen name="login_edit_text_padding_left">70dp</dimen>
+
+    <!-- Map Activity Dimens -->
+    <dimen name="map_info_window_height">170dp</dimen>
+    <dimen name="map_fab_margin_bottom">380dp</dimen>
+    <dimen name="map_ui_marging_bottom">85dp</dimen>
+
+    <!-- Add Note Activity Dimens -->
+    <dimen name="add_note_avatar_width">88dp</dimen>
+    <dimen name="add_note_avatar_height">@dimen/add_note_avatar_width</dimen>
+    <dimen name="add_note_avatar_radius">45dp</dimen>
+
+    <!-- Business Info Activity Dimens -->
+    <dimen name="business_info_closed_button_width">90dp</dimen>
+    <dimen name="business_info_closed_button_height">40dp</dimen>
+    <dimen name="business_info_meeting_icon_width">63dp</dimen>
+    <dimen name="business_info_meeting_icon_height">48dp</dimen>
+    <dimen name="business_info_decision_image_width">51dp</dimen>
+    <dimen name="business_info_decision_image_height">48dp</dimen>
+    <dimen name="business_info_summary_icon_width">44dp</dimen>
+    <dimen name="business_info_summary_icon_height">48dp</dimen>
+    <dimen name="business_info_note_image_width">42dp</dimen>
+    <dimen name="business_info_note_image_height">48dp</dimen>
+    <dimen name="business_info_contacts_viewpager_height">120dp</dimen>
+
+
+    <!-- Navigation Activity Dimens -->
+    <dimen name="navigation_bar_height">62dp</dimen>
+
+    <!-- Personal Account Activity Dimens -->
+    <dimen name="personal_account_header_height">279dp</dimen>
+    <dimen name="personal_account_avatar_image_diameter">192dp</dimen>
+    <dimen name="personal_account_avatar_edit_button">48dp</dimen>
+    <dimen name="image_picker_buttons_bg_height">240dp</dimen>
+
+
+</resources>

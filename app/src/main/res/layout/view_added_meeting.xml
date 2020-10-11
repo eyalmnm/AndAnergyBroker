@@ -1,0 +1,150 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="@dimen/spacing_1x"
+                android:background="@color/white">
+
+    <ImageView
+            android:id="@+id/iconImageView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/ic_report_meetings"
+            android:layout_marginStart="@dimen/spacing_3x"
+            android:layout_marginEnd="@dimen/spacing_2x"/>
+
+    <TextView
+            android:id="@+id/mainTitleTextView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textColor="@color/turquoise_dark"
+            android:textSize="@dimen/text_size_1_5x"
+            android:text="@string/meeting_resutls_title"
+            android:layout_toEndOf="@id/iconImageView"/>
+
+    <TextView
+            android:id="@+id/creationTimeTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/turquoise_dark"
+            android:textSize="@dimen/text_size_1_5x"
+            android:layout_alignBaseline="@id/mainTitleTextView"
+            android:layout_alignParentEnd="true"/>
+
+    <TextView
+            android:id="@+id/businessNameTextView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textColor="@color/light_gray"
+            android:layout_marginTop="@dimen/spacing_0_5x"
+            android:layout_below="@id/mainTitleTextView"
+            android:layout_alignStart="@id/mainTitleTextView"
+            android:textSize="@dimen/text_size_2_5x"/>
+
+    <TextView
+            android:id="@+id/businessAddressTextView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textColor="@color/light_gray"
+            android:layout_marginTop="@dimen/spacing_1x"
+            android:layout_below="@id/businessNameTextView"
+            android:layout_alignStart="@id/mainTitleTextView"
+            android:textSize="@dimen/text_size_2_5x"/>
+
+    <TextView
+            android:id="@+id/decisionMakersTitleTextView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/businessAddressTextView"
+            android:layout_alignStart="@id/mainTitleTextView"
+            android:layout_marginTop="@dimen/spacing_1x"
+            android:textSize="@dimen/text_size_1_5x"
+            android:textColor="@color/turquoise_dark"
+            android:text="@string/decision_maker_title_lower"
+            android:visibility="gone"/>
+
+    <LinearLayout
+            android:id="@+id/decisionMakersContainer"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingTop="@dimen/spacing_0_5x"
+            android:paddingBottom="@dimen/spacing_1x"
+            android:layout_below="@id/decisionMakersTitleTextView"
+            android:layout_alignStart="@id/mainTitleTextView"
+            android:orientation="vertical"/>
+
+    <TextView
+            android:id="@+id/statusTitleTextView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/spacing_1x"
+            android:textSize="@dimen/text_size_1_5x"
+            android:textColor="@color/turquoise_dark"
+            android:text="@string/status"
+            android:layout_below="@id/decisionMakersContainer"
+            android:layout_alignStart="@id/mainTitleTextView"/>
+
+    <TextView
+            android:id="@+id/statusNameTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:minWidth="150dp"
+            android:layout_marginTop="@dimen/spacing_1x"
+            android:layout_below="@id/statusTitleTextView"
+            android:layout_alignStart="@id/mainTitleTextView"
+            android:textColor="@color/light_gray"
+            android:textSize="@dimen/text_size_2_5x"/>
+
+    <TextView
+            android:id="@+id/reminderTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_toEndOf="@id/statusNameTextView"
+            android:layout_alignBaseline="@id/statusNameTextView"
+            android:textColor="@color/light_gray"
+            android:layout_marginStart="@dimen/spacing_1x"
+            android:textSize="@dimen/text_size_2_5x"/>
+
+    <TextView
+            android:id="@+id/seeTheBillTitleTextView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/statusNameTextView"
+            android:layout_alignStart="@id/mainTitleTextView"
+            android:layout_marginTop="@dimen/spacing_1x"
+            android:textSize="@dimen/text_size_1_5x"
+            android:textColor="@color/turquoise_dark"
+            android:text="@string/see_the_bill"/>
+
+    <TextView
+            android:id="@+id/seeTheBillAnswerTextView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/seeTheBillTitleTextView"
+            android:layout_alignStart="@id/mainTitleTextView"
+            android:layout_marginTop="@dimen/spacing_0_5x"
+            android:textColor="@color/light_gray"
+            android:textSize="@dimen/text_size_2_5x"/>
+
+    <TextView
+            android:id="@+id/commentTitleTextView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/seeTheBillAnswerTextView"
+            android:layout_alignStart="@id/mainTitleTextView"
+            android:layout_marginTop="@dimen/spacing_1x"
+            android:textSize="@dimen/text_size_1_5x"
+            android:textColor="@color/turquoise_dark"
+            android:text="@string/comment"/>
+
+    <TextView
+            android:id="@+id/commentTextTextView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/commentTitleTextView"
+            android:layout_alignStart="@id/mainTitleTextView"
+            android:layout_marginTop="@dimen/spacing_0_5x"
+            android:textColor="@color/light_gray"
+            android:lines="3"
+            android:textSize="@dimen/text_size_2_5x"/>
+</RelativeLayout>

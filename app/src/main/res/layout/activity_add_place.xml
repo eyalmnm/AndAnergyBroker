@@ -1,0 +1,311 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+             xmlns:tools="http://schemas.android.com/tools"
+             android:layout_width="match_parent"
+             android:layout_height="match_parent"
+             android:orientation="vertical"
+             android:fitsSystemWindows="true"
+             android:padding="@dimen/spacing_1x">
+
+    <!-- Map Container -->
+    <fragment xmlns:android="http://schemas.android.com/apk/res/android"
+              xmlns:tools="http://schemas.android.com/tools"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent"
+              android:fitsSystemWindows="true"
+              android:id="@+id/mapFragment"
+              tools:context=".view.MapsActivity"
+              android:name="com.google.android.gms.maps.SupportMapFragment"/>
+
+    <RelativeLayout
+            android:id="@+id/addPlaceFormContainer"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@android:color/transparent"
+            android:fitsSystemWindows="true">
+
+        <RelativeLayout
+                android:id="@+id/addPlaceFormSubContainer"
+                android:layout_width="349dp"
+                android:layout_height="448dp"
+                android:layout_centerHorizontal="true"
+                android:layout_gravity="center_horizontal"
+                android:background="@drawable/add_place_bg_image"
+                android:orientation="vertical"
+                android:visibility="visible"
+                android:layout_marginTop="@dimen/spacing_2x"
+                android:paddingBottom="@dimen/spacing_2x"
+                android:paddingLeft="@dimen/spacing_2x"
+                android:paddingRight="@dimen/spacing_2x"
+                android:fitsSystemWindows="true">
+
+            <!-- Business Data Form -->
+            <RelativeLayout
+                    android:id="@+id/businessDataForm"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+
+                <!-- Title -->
+                <TextView
+                        android:id="@+id/businessDataTitle"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:layout_centerHorizontal="true"
+                        android:layout_marginTop="@dimen/spacing_2x"
+                        android:textColor="@color/add_place_title_color"
+                        android:text="@string/add_place_business_data_title"
+                        android:textSize="@dimen/text_size_2_0x"/>
+
+                <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentEnd="true"
+                        android:layout_marginRight="@dimen/spacing_4x"
+                        android:src="@drawable/add_place_business_image"/>
+
+                <LinearLayout
+                        android:id="@+id/businessMainForm"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        android:layout_below="@id/businessDataTitle"
+                        android:layout_marginLeft="@dimen/spacing_4x"
+                        android:layout_marginRight="@dimen/spacing_4x"
+                        android:layout_marginTop="@dimen/spacing_1x">
+
+                    <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="@string/add_place_business_name_title"
+                            android:textColor="@color/add_place_item_title_color"
+                            android:textSize="@dimen/text_size_1_5x"/>
+
+                    <EditText
+                            android:id="@+id/businessNameET"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:background="@drawable/add_place_item_border_shape"
+                            android:textColor="@color/add_place_item_title_color"
+                            android:textSize="@dimen/text_size_1_5x"
+                            android:padding="2dp"
+                            android:layout_marginTop="@dimen/spacing_0_5x"/>
+
+                    <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="@string/add_place_business_address_title"
+                            android:textColor="@color/add_place_item_title_color"
+                            android:textSize="@dimen/text_size_1_5x"
+                            android:layout_marginTop="@dimen/spacing_1x"/>
+
+                    <EditText
+                            android:id="@+id/businessAddressET"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:inputType="textPostalAddress"
+                            android:background="@drawable/add_place_item_border_shape"
+                            android:textColor="@color/add_place_item_title_color"
+                            android:textSize="@dimen/text_size_1_5x"
+                            android:padding="2dp"
+                            android:layout_marginTop="@dimen/spacing_0_5x"/>
+
+                    <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="@string/add_place_business_phone_title"
+                            android:textColor="@color/add_place_item_title_color"
+                            android:textSize="@dimen/text_size_1_5x"
+                            android:layout_marginTop="@dimen/spacing_1x"/>
+
+                    <EditText
+                            android:id="@+id/businessPhoneET"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:inputType="phone"
+                            android:background="@drawable/add_place_item_border_shape"
+                            android:textColor="@color/add_place_item_title_color"
+                            android:textSize="@dimen/text_size_1_5x"
+                            android:padding="2dp"
+                            android:layout_marginTop="@dimen/spacing_0_5x"/>
+
+                    <Spinner
+                            android:id="@+id/typeSpinner"
+                            android:layout_width="match_parent"
+                            android:layout_height="@dimen/text_size_1_75x"
+                            android:layout_marginTop="2dp"
+                            android:inputType="text"/>
+
+                </LinearLayout>
+
+            </RelativeLayout>
+
+            <!-- Business Data Form -->
+            <RelativeLayout
+                    android:id="@+id/contactDataForm"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:layout_below="@id/businessDataForm"
+                    android:layout_marginTop="@dimen/spacing_6x">
+
+                <!-- Title -->
+                <TextView
+                        android:id="@+id/contactDataTitle"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:layout_centerHorizontal="true"
+                        android:layout_marginTop="@dimen/spacing_2x"
+                        android:textColor="@color/add_place_title_color"
+                        android:text="@string/add_place_contact_data_title"
+                        android:textSize="@dimen/text_size_1_75x"/>
+
+                <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentEnd="true"
+                        android:layout_marginRight="@dimen/spacing_4x"
+                        android:src="@drawable/add_place_contact_image"/>
+
+                <LinearLayout
+                        android:id="@+id/contactMainForm"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        android:layout_below="@id/contactDataTitle"
+                        android:layout_marginLeft="@dimen/spacing_4x"
+                        android:layout_marginRight="@dimen/spacing_4x"
+                        android:layout_marginTop="@dimen/spacing_1x">
+
+                    <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="@string/add_place_contact_name_title"
+                            android:textColor="@color/add_place_item_title_color"
+                            android:textSize="@dimen/text_size_1_5x"/>
+
+                    <EditText
+                            android:id="@+id/contactNameEditText"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:background="@drawable/add_place_item_border_shape"
+                            android:textColor="@color/add_place_item_title_color"
+                            android:textSize="@dimen/text_size_1_5x"
+                            android:padding="2dp"
+                            android:layout_marginTop="@dimen/spacing_0_5x"/>
+
+                    <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="@string/add_place_contact_email_title"
+                            android:textColor="@color/add_place_item_title_color"
+                            android:textSize="@dimen/text_size_1_5x"
+                            android:layout_marginTop="@dimen/spacing_1x"/>
+
+                    <EditText
+                            android:id="@+id/contactEmailEditText"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:inputType="textEmailAddress"
+                            android:background="@drawable/add_place_item_border_shape"
+                            android:textColor="@color/add_place_item_title_color"
+                            android:textSize="@dimen/text_size_1_5x"
+                            android:padding="2dp"
+                            android:layout_marginTop="@dimen/spacing_0_5x"/>
+
+                    <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="@string/add_place_contact_phone_title"
+                            android:textColor="@color/add_place_item_title_color"
+                            android:textSize="@dimen/text_size_1_5x"
+                            android:layout_marginTop="@dimen/spacing_1x"/>
+
+                    <EditText
+                            android:id="@+id/contactPhoneEditText"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:inputType="phone"
+                            android:background="@drawable/add_place_item_border_shape"
+                            android:textColor="@color/add_place_item_title_color"
+                            android:textSize="@dimen/text_size_1_5x"
+                            android:padding="2dp"
+                            android:layout_marginTop="@dimen/spacing_0_5x"/>
+
+                </LinearLayout>
+            </RelativeLayout>
+
+
+            <!--LinearLayout
+                    android:id="@+id/buttonsLayout"
+                    android:layout_width="93dp"
+                    android:layout_height="35dp"
+                    android:layout_alignParentEnd="true"
+                    android:layout_alignParentBottom="true"
+                    android:gravity="center_vertical"
+                    android:background="@android:color/transparent"
+                    android:orientation="horizontal"-->
+
+            <TextView
+                    android:id="@+id/cancelButton"
+                    android:layout_width="wrap_content"
+                    android:layout_height="@dimen/add_place_save_btn_height"
+                    android:text="X"
+                    android:textColor="@color/white"
+                    android:gravity="center"
+                    android:paddingRight="@dimen/add_place_save_btn_radius"
+                    android:paddingLeft="@dimen/add_place_save_btn_radius"
+                    android:layout_marginStart="@dimen/spacing_1x"
+                    android:layout_marginBottom="@dimen/spacing_1x"
+                    android:background="@drawable/add_place_cancel_button_bg_shape"
+                    android:layout_alignParentBottom="true"/>
+
+            <!--View
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:background="@android:color/transparent"/-->
+
+            <TextView
+                    android:id="@+id/saveButton"
+                    android:layout_width="wrap_content"
+                    android:layout_height="@dimen/add_place_save_btn_height"
+                    android:text="@string/save"
+                    android:textColor="@color/white"
+                    android:gravity="center"
+                    android:paddingRight="@dimen/add_place_save_btn_radius"
+                    android:paddingLeft="@dimen/add_place_save_btn_radius"
+                    android:layout_alignBottom="@id/cancelButton"
+                    android:layout_alignParentRight="true"
+                    android:background="@drawable/add_place_save_button_bg_shape"/>
+
+            <!--/LinearLayout-->
+
+            <!--RelativeLayout
+                    android:layout_width="65dp"
+                    android:layout_height="35dp"
+                    android:background="@android:color/transparent"
+                    android:layout_alignParentBottom="true"
+            android:layout_centerHorizontal="true"-->
+
+            <TextView
+                    android:id="@+id/addOpeningButton"
+                    android:layout_width="65dp"
+                    android:layout_height="wrap_content"
+                    android:text="@string/add_place_add_opening_hours"
+                    android:background="@android:color/transparent"
+                    android:gravity="center"
+                    android:maxLines="2"
+                    android:layout_centerHorizontal="true"
+                    android:layout_alignParentBottom="true"
+                    android:layout_marginBottom="@dimen/spacing_1x"
+                    android:textColor="@color/add_place_item_title_color"
+                    android:textSize="@dimen/text_size_1_75x"/>
+        </RelativeLayout>
+    </RelativeLayout>
+
+    <!--/RelativeLayout-->
+
+</FrameLayout>

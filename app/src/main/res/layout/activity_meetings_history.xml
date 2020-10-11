@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:fitsSystemWindows="true">
+
+    <RelativeLayout
+            android:id="@+id/screenHeaderView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentTop="true">
+
+        <View
+                android:id="@+id/formUpperHeaderView"
+                android:layout_width="match_parent"
+                android:layout_height="30dp"
+                android:background="@color/add_note_form_upper_header_bg"/>
+
+        <RelativeLayout android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@id/formUpperHeaderView"
+                        android:background="@color/add_note_form_sub_header_bg"
+                        android:padding="@dimen/spacing_2x">
+
+            <ImageView
+                    android:id="@+id/addNoteImageView"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentStart="true"
+                    android:src="@drawable/ic_history_image"
+                    android:background="@android:color/transparent"
+                    android:layout_marginStart="@dimen/spacing_3x"/>
+
+            <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_toEndOf="@id/addNoteImageView"
+                    android:textColor="@color/white"
+                    android:background="@android:color/transparent"
+                    android:text="@string/meeting_history_title"
+                    android:textSize="@dimen/text_size_2_0x"
+                    android:layout_marginStart="@dimen/spacing_3x"
+                    android:layout_alignBottom="@id/addNoteImageView"/>
+
+        </RelativeLayout>
+
+    </RelativeLayout>
+
+    <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_below="@id/screenHeaderView">
+
+        <ImageView
+                android:id="@+id/emptyMeetingsListImage"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:src="@drawable/ic_empty_notes_list"
+                android:visibility="visible"/>
+
+        <ListView
+                android:id="@+id/meetingsListView"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:visibility="invisible"/>
+    </RelativeLayout>
+
+</RelativeLayout>

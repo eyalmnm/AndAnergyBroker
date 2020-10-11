@@ -1,0 +1,140 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:padding="@dimen/spacing_1x"
+                android:windowSoftInputMode="adjustResize|adjustPan"
+                android:fitsSystemWindows="true"
+                android:background="@drawable/meeting_results_contact">
+
+    <!-- Dialog Title -->
+    <TextView
+            android:id="@+id/meetingResultsContactTitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="@dimen/spacing_5x"
+            android:background="@android:color/transparent"
+            android:textColor="@color/white"
+            android:text="@string/meeting_results_contact_title"
+            android:textSize="@dimen/text_size_2_25x"/>
+
+    <!-- Dialog Sub Title -->
+    <TextView
+            android:id="@+id/meetingResultsContactSubTitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="@dimen/spacing_2x"
+            android:layout_below="@id/meetingResultsContactTitle"
+            android:background="@android:color/transparent"
+            android:textColor="@color/turquoise_dark"
+            android:text="@string/meeting_results_contact_sub_title"
+            android:textSize="@dimen/text_size_1_5x"/>
+
+    <!-- Dialog Contact Type Title -->
+
+    <!--LinearLayout
+            android:id="@+id/meetingResultsContactTypeLayout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/spacing_4x"
+            android:layout_below="@+id/meetingResultsContactSubTitle"
+            android:layout_marginTop="@dimen/spacing_4x"
+            android:layout_marginEnd="@dimen/spacing_4x"
+            android:background="@android:color/transparent"
+            android:gravity="center_vertical"
+            android:orientation="horizontal">
+
+        <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:background="@android:color/transparent"
+                android:textColor="@color/white"
+                android:text="@string/meeting_results_contact_type_title"
+                android:textSize="@dimen/text_size_1_5x"/>
+
+        <ToggleButton
+                android:id="@+id/meetingResultsIsDecisionMakerToggleButton"
+                android:layout_width="@dimen/business_info_closed_button_width"
+                android:layout_height="@dimen/business_info_closed_button_height"
+                android:background="@drawable/business_info_meeting_btn_selector"
+                android:textAllCaps="false"
+                android:textColor="@android:color/transparent"
+                android:textOff="@string/yes"
+                android:textOn="@string/no"/>
+
+    </LinearLayout-->
+
+    <!-- Contacts Forms container Scroll-->
+    <ScrollView
+            android:id="@+id/mainScrollView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/meetingResultsContactSubTitle"
+            android:layout_above="@id/nextBtn"
+            android:layout_marginStart="@dimen/spacing_4x"
+            android:layout_marginEnd="@dimen/spacing_4x"
+            android:background="@android:color/transparent"
+            android:layout_marginTop="@dimen/spacing_4x"
+            android:layout_marginBottom="@dimen/spacing_6x">
+
+        <!-- Contacts Forms container-->
+        <FrameLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+            <LinearLayout
+                    android:id="@+id/addContactFormLayout"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+
+                <TextView
+                        android:id="@+id/meetingFragmentAddDecisionMakerTextView"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/add_new_decision_maker"
+                        android:textSize="@dimen/text_size_1_0x"
+                        android:textColor="@color/white"
+                        android:background="@android:color/transparent"
+                        android:layout_gravity="end"/>
+
+                <ImageView
+                        android:id="@+id/meetingFragmentAddDecisionMakerIcon"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:src="@drawable/ic_add_white"
+                        android:layout_marginTop="@dimen/spacing_1x"
+                        android:layout_gravity="end"
+                        android:layout_marginBottom="@dimen/spacing_1x"
+                        android:background="@android:color/transparent"/>
+
+            </LinearLayout>
+
+            <LinearLayout
+                    android:id="@+id/contactsFormContainerLayout"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:layout_gravity="center_horizontal|top"
+                    android:background="@android:color/transparent"/>
+        </FrameLayout>
+    </ScrollView>
+
+    <Button
+            android:id="@+id/nextBtn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/next_button_bg"
+            android:layout_alignParentBottom="true"
+            android:layout_alignParentEnd="true"
+            android:layout_marginEnd="@dimen/spacing_3x"
+            android:layout_marginBottom="@dimen/spacing_5x"
+            android:textColor="@color/white"
+            android:text="@string/next"
+            android:textAllCaps="false"
+            android:textSize="@dimen/text_size_2_0x"/>
+
+</RelativeLayout>

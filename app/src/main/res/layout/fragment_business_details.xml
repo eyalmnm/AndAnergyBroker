@@ -1,0 +1,224 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@drawable/business_detailsbg_image">
+
+    <TextView
+            android:id="@+id/addPlaceTitleTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/spacing_5x"
+            android:textColor="@color/white"
+            android:textSize="@dimen/text_size_2_0x"
+            android:text="@string/add_business_title"
+            android:background="@android:color/transparent"
+            android:layout_centerHorizontal="true"/>
+
+    <TextView
+            android:id="@+id/addPlaceSubTitleTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/spacing_2x"
+            android:textColor="@color/turquoise_dark"
+            android:text="@string/add_business_sub_title"
+            android:background="@android:color/transparent"
+            android:layout_centerHorizontal="true"
+            android:textSize="@dimen/text_size_1_5x"
+            android:layout_below="@id/addPlaceTitleTextView"/>
+
+    <ScrollView
+            android:id="@+id/scrollView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/addPlaceSubTitleTextView"
+            android:layout_above="@id/nextButton"
+            android:layout_marginStart="@dimen/spacing_4x"
+            android:layout_marginEnd="@dimen/spacing_4x"
+            android:background="@android:color/transparent"
+            android:layout_marginTop="@dimen/spacing_3x"
+            android:layout_marginBottom="@dimen/spacing_6x">
+
+        <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@android:color/transparent">
+
+            <!-- Name input Field -->
+            <RelativeLayout
+                    android:id="@+id/businessNameLayout"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/spacing_12x"
+                    android:layout_marginLeft="@dimen/spacing_4x"
+                    android:background="@android:color/transparent"
+                    android:layout_marginRight="@dimen/spacing_4x">
+
+                <EditText
+                        android:id="@+id/businessNameET"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_marginTop="@dimen/spacing_5x"
+                        android:background="@drawable/borderedt"
+                        android:padding="@dimen/spacing_1x"
+                        android:imeOptions="actionNext"
+                        android:textSize="@dimen/text_size_1_5x"
+                        android:textColorHint="@color/registration_hint_color"
+                        android:hint="@string/add_business_name_hint"
+                        android:textColor="@color/white"/>
+
+                <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="@dimen/spacing_1x"
+                        android:textSize="@dimen/text_size_1_5x"
+                        android:layout_marginTop="0dp"
+                        android:background="@android:color/transparent"
+                        android:textColor="@color/white"
+                        android:text="@string/add_business_name_title"/>
+            </RelativeLayout>
+
+            <!-- Address input Field -->
+            <RelativeLayout
+                    android:id="@+id/businessAddressLayout"
+                    android:layout_width="match_parent"
+                    android:layout_marginTop="@dimen/spacing_9x"
+                    android:layout_height="@dimen/spacing_12x"
+                    android:background="@android:color/transparent"
+                    android:layout_alignStart="@id/businessNameLayout"
+                    android:layout_alignEnd="@id/businessNameLayout"
+                    android:layout_below="@id/businessNameLayout">
+
+                <EditText
+                        android:id="@+id/businessAddressET"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_marginTop="@dimen/spacing_5x"
+                        android:background="@drawable/borderedt"
+                        android:padding="@dimen/spacing_1x"
+                        android:inputType="textPostalAddress"
+                        android:imeOptions="actionNext"
+                        android:textSize="@dimen/text_size_1_5x"
+                        android:textColorHint="@color/registration_hint_color"
+                        android:hint="@string/add_business_address_hint"
+                        android:textColor="@color/white"/>
+
+                <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="@dimen/spacing_1x"
+                        android:textSize="@dimen/text_size_1_5x"
+                        android:layout_marginTop="0dp"
+                        android:background="@android:color/transparent"
+                        android:textColor="@color/white"
+                        android:text="@string/add_business_address_title"/>
+            </RelativeLayout>
+
+            <!-- Email input Field -->
+            <LinearLayout
+                    android:id="@+id/businessEmailLayout"
+                    android:layout_width="match_parent"
+                    android:layout_marginTop="@dimen/spacing_10x"
+                    android:minHeight="@dimen/spacing_12x"
+                    android:layout_height="wrap_content"
+                    android:background="@android:color/transparent"
+                    android:layout_alignStart="@id/businessNameLayout"
+                    android:layout_alignEnd="@id/businessNameLayout"
+                    android:layout_below="@id/businessAddressLayout"
+                    android:orientation="vertical">
+
+                <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="@dimen/spacing_1x"
+                        android:textSize="@dimen/text_size_1_5x"
+                        android:layout_marginTop="0dp"
+                        android:background="@android:color/transparent"
+                        android:textColor="@color/white"
+                        android:text="@string/add_business_email_title"/>
+
+            </LinearLayout>
+
+            <!-- Phone input Field -->
+            <LinearLayout
+                    android:id="@+id/businessPhoneLayout"
+                    android:layout_width="match_parent"
+                    android:layout_marginTop="@dimen/spacing_1x"
+                    android:layout_height="wrap_content"
+                    android:minHeight="@dimen/spacing_12x"
+                    android:background="@android:color/transparent"
+                    android:layout_alignStart="@id/businessNameLayout"
+                    android:layout_alignEnd="@id/businessNameLayout"
+                    android:layout_below="@id/businessEmailLayout"
+                    android:orientation="vertical">
+
+                <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="@dimen/spacing_1x"
+                        android:textSize="@dimen/text_size_1_5x"
+                        android:layout_marginTop="0dp"
+                        android:background="@android:color/transparent"
+                        android:textColor="@color/white"
+                        android:text="@string/add_business_phone_title"/>
+
+            </LinearLayout>
+
+            <!-- Business Type Field -->
+            <RelativeLayout
+                    android:id="@+id/businessTypeLayout"
+                    android:layout_width="match_parent"
+                    android:layout_marginTop="@dimen/spacing_3x"
+                    android:layout_height="@dimen/spacing_12x"
+                    android:background="@android:color/transparent"
+                    android:layout_alignStart="@id/businessNameLayout"
+                    android:layout_alignEnd="@id/businessNameLayout"
+                    android:layout_below="@id/businessPhoneLayout">
+
+                <Spinner
+                        android:id="@+id/businessTypeSpinner"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_alignParentBottom="true"
+                        android:inputType="text"
+                        android:spinnerMode="dropdown"/>
+                <!-- android:background="@android:drawable/btn_dropdown" -->
+
+                <TextView
+                        android:id="@+id/spinnerTitle"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="@dimen/spacing_1x"
+                        android:textSize="@dimen/registrartion_field_title_size"
+                        android:layout_marginTop="0dp"
+                        android:background="@android:color/transparent"
+                        android:textColor="@color/white"
+                        android:text="@string/add_business_type_title"/>
+
+                <ImageView
+                        android:id="@+id/spinnerButton"
+                        android:layout_width="wrap_content"
+                        android:layout_marginEnd="@dimen/spacing_1x"
+                        android:layout_height="wrap_content"
+                        android:background="@android:color/transparent"
+                        android:layout_alignParentEnd="true"
+                        android:layout_centerVertical="true"
+                        android:src="@drawable/ic_keyboard_arrow_down_white_18dp"/>
+            </RelativeLayout>
+
+        </RelativeLayout>
+    </ScrollView>
+
+    <Button
+            android:id="@+id/nextButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/next_button_bg"
+            android:layout_alignParentBottom="true"
+            android:layout_alignParentEnd="true"
+            android:layout_marginEnd="@dimen/spacing_3x"
+            android:layout_marginBottom="@dimen/spacing_5x"
+            android:textColor="@color/white"
+            android:text="@string/save"
+            android:textAllCaps="false"
+            android:textSize="@dimen/text_size_2_0x"/>
+</RelativeLayout>

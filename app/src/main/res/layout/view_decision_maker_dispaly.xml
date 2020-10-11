@@ -1,0 +1,159 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              android:orientation="vertical"
+              android:layout_width="match_parent"
+              android:layout_height="wrap_content"
+              android:padding="@dimen/spacing_1x"
+              android:background="@android:color/transparent">
+
+    <!-- Name Field -->
+    <RelativeLayout
+            android:id="@+id/meetingResultsContactNameLayout"
+            android:layout_height="@dimen/spacing_12x"
+            android:layout_width="match_parent"
+            android:layout_marginTop="@dimen/spacing_1x"
+            android:background="@android:color/transparent">
+
+        <TextView
+                android:id="@+id/meetingResultsContactNameTv"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginTop="@dimen/spacing_5x"
+                android:background="@drawable/borderedt"
+                android:padding="@dimen/spacing_1x"
+                android:textSize="@dimen/text_size_1_5x"
+                android:textColor="@color/white"/>
+
+        <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/spacing_1x"
+                android:textSize="@dimen/text_size_1_5x"
+                android:layout_marginTop="0dp"
+                android:background="@android:color/transparent"
+                android:textColor="@color/white"
+                android:text="@string/add_business_name_title"/>
+    </RelativeLayout>
+
+    <!-- Email Field -->
+    <RelativeLayout
+            android:id="@+id/meetingResultsContactEmailLayout"
+            android:layout_width="match_parent"
+            android:layout_marginTop="@dimen/spacing_3x"
+            android:layout_height="@dimen/spacing_12x"
+            android:background="@android:color/transparent">
+
+        <TextView
+                android:id="@+id/meetingResultsContactEmailTv"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginTop="@dimen/spacing_5x"
+                android:background="@drawable/borderedt"
+                android:padding="@dimen/spacing_1x"
+                android:textSize="@dimen/text_size_1_5x"
+                android:textColor="@color/white"/>
+
+        <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/spacing_1x"
+                android:textSize="@dimen/text_size_1_5x"
+                android:layout_marginTop="0dp"
+                android:background="@android:color/transparent"
+                android:textColor="@color/white"
+                android:text="@string/add_business_email_title"/>
+    </RelativeLayout>
+
+
+    <!-- Phone Field -->
+    <RelativeLayout
+            android:id="@+id/meetingResultsContactPhoneLayout"
+            android:layout_width="match_parent"
+            android:layout_marginTop="@dimen/spacing_3x"
+            android:layout_height="@dimen/spacing_12x"
+            android:background="@android:color/transparent">
+
+        <TextView
+                android:id="@+id/meetingResultsContactPhoneTv"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginTop="@dimen/spacing_5x"
+                android:background="@drawable/borderedt"
+                android:padding="@dimen/spacing_1x"
+                android:textSize="@dimen/text_size_1_5x"
+                android:textColor="@color/white"/>
+
+        <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/spacing_1x"
+                android:textSize="@dimen/text_size_1_5x"
+                android:layout_marginTop="0dp"
+                android:background="@android:color/transparent"
+                android:textColor="@color/white"
+                android:text="@string/add_business_phone_title"/>
+    </RelativeLayout>
+
+    <!-- Comment Field -->
+    <RelativeLayout
+            android:id="@+id/meetingResultsContactCommentTvLayout"
+            android:layout_width="match_parent"
+            android:layout_marginTop="@dimen/spacing_3x"
+            android:layout_height="wrap_content"
+            android:background="@android:color/transparent">
+
+        <TextView
+                android:id="@+id/meetingResultsContactCommentTv"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/spacing_5x"
+                android:background="@drawable/borderedt"
+                android:padding="@dimen/spacing_1x"
+                android:lines="5"
+                android:maxLines="5"
+                android:gravity="top"
+                android:textSize="@dimen/text_size_1_5x"
+                android:textColor="@color/white"/>
+
+        <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/spacing_1x"
+                android:textSize="@dimen/text_size_1_5x"
+                android:layout_marginTop="0dp"
+                android:background="@android:color/transparent"
+                android:textColor="@color/white"
+                android:text="@string/add_business_comment_title"/>
+    </RelativeLayout>
+
+    <LinearLayout
+            android:id="@+id/meetingResultsContactTypeLayout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/spacing_1x"
+            android:background="@android:color/transparent"
+            android:gravity="center_vertical"
+            android:orientation="horizontal">
+
+        <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:background="@android:color/transparent"
+                android:textColor="@color/white"
+                android:text="@string/meeting_results_contact_type_title"
+                android:textSize="@dimen/text_size_1_5x"/>
+
+        <ToggleButton
+                android:id="@+id/meetingResultsIsDecisionMakerToggleButton"
+                android:layout_width="@dimen/business_info_closed_button_width"
+                android:layout_height="@dimen/business_info_closed_button_height"
+                android:background="@drawable/business_info_meeting_btn_selector"
+                android:textAllCaps="false"
+                android:textColor="@android:color/transparent"
+                android:textOff="@string/yes"
+                android:textOn="@string/no"/>
+
+    </LinearLayout>
+
+</LinearLayout>

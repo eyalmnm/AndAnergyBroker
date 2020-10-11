@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <!-- Hours Type for AM / PM Spinner -->
+    <string-array name="hours_types_array">
+        <item>AM</item>
+        <item>PM</item>
+    </string-array>
+
+</resources>

@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:padding="@dimen/spacing_1x"
+                android:windowSoftInputMode="adjustResize|adjustPan"
+                android:fitsSystemWindows="true"
+                android:background="@drawable/decision_makers_bg_image">
+
+    <!-- Dialog Title -->
+    <TextView
+            android:id="@+id/decisionMakerTitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="@dimen/spacing_5x"
+            android:background="@android:color/transparent"
+            android:textColor="@color/white"
+            android:text="@string/decision_maker_title"
+            android:textSize="@dimen/text_size_2_25x"/>
+
+    <!-- Dialog Sub Title -->
+    <TextView
+            android:id="@+id/businessDataSubTitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="@dimen/spacing_2x"
+            android:layout_below="@id/decisionMakerTitle"
+            android:background="@android:color/transparent"
+            android:textColor="@color/turquoise_dark"
+            android:text="@string/decision_maker_sub_title"
+            android:textSize="@dimen/text_size_1_5x"/>
+
+    <!-- Contacts Forms container Scroll-->
+    <ScrollView
+            android:id="@+id/scrollView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/businessDataSubTitle"
+            android:layout_above="@id/nextButton"
+            android:layout_marginStart="@dimen/spacing_4x"
+            android:layout_marginEnd="@dimen/spacing_4x"
+            android:background="@android:color/transparent"
+            android:layout_marginTop="@dimen/spacing_3x"
+            android:layout_marginBottom="@dimen/spacing_6x">
+
+        <!-- Contacts Forms container-->
+        <LinearLayout
+                android:id="@+id/contactsFormContainer"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:layout_gravity="center_horizontal|top"
+                android:background="@android:color/transparent"/>
+    </ScrollView>
+
+    <!-- Vertical dashed line -->
+    <!--ImageView
+            android:id="@+id/verticalLine"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:src="@drawable/decision_makers_divider_image"
+            android:layout_above="@id/addDecisionMakerTextView"
+            android:layout_marginBottom="@dimen/spacing_1x"/>
+
+    <TextView
+            android:id="@+id/addDecisionMakerTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/add_new_decision_maker"
+            android:layout_alignEnd="@id/scrollView"
+            android:textSize="@dimen/text_size_1_0x"
+            android:textColor="@color/white"
+            android:background="@android:color/transparent"
+            android:layout_above="@id/addDecisionMakerIcon"/>
+
+    <ImageView
+            android:id="@+id/addDecisionMakerIcon"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignEnd="@id/addDecisionMakerTextView"
+            android:src="@drawable/ic_add_white"
+            android:layout_marginTop="@dimen/spacing_1x"
+            android:layout_above="@id/nextButton"
+            android:layout_marginBottom="40dp"
+            android:background="@android:color/transparent"/-->
+
+    <Button
+            android:id="@+id/nextButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/next_button_bg"
+            android:layout_alignParentBottom="true"
+            android:layout_alignParentEnd="true"
+            android:layout_marginEnd="@dimen/spacing_3x"
+            android:layout_marginBottom="@dimen/spacing_5x"
+            android:textColor="@color/white"
+            android:text="@string/next"
+            android:textAllCaps="false"
+            android:textSize="@dimen/text_size_2_0x"/>
+
+
+</RelativeLayout>

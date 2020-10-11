@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              android:layout_width="match_parent"
+              android:layout_height="wrap_content"
+              android:background="@color/white"
+              android:paddingTop="@dimen/spacing_1x"
+              android:paddingBottom="@dimen/spacing_1x"
+              android:orientation="vertical">
+
+    <TextView
+            android:id="@+id/contactNameTextView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textColor="@color/light_gray"
+            android:layout_marginTop="@dimen/spacing_0_5x"
+            android:textSize="@dimen/text_size_2_5x"/>
+
+    <TextView
+            android:id="@+id/contactPhoneTextView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textColor="@color/light_gray"
+            android:layout_marginTop="@dimen/spacing_1x"
+            android:textSize="@dimen/text_size_2_5x"/>
+
+    <TextView
+            android:id="@+id/contactMailTextView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textColor="@color/light_gray"
+            android:layout_marginTop="@dimen/spacing_1x"
+            android:textSize="@dimen/text_size_2_5x"/>
+
+    <TextView
+            android:id="@+id/contactCommentTextView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textColor="@color/light_gray"
+            android:layout_marginTop="@dimen/spacing_1x"
+            android:textSize="@dimen/text_size_2_5x"/>
+
+
+</LinearLayout>

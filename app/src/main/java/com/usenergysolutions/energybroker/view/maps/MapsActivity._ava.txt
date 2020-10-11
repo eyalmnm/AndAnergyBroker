@@ -1,0 +1,837 @@
+package com.usenergysolutions.energybroker.view.maps;
+
+import android.Manifest;
+import android.app.Activity;
+import android.app.SearchManager;
+import android.arch.lifecycle.Observer;
+import android.arch.lifecycle.ViewModelProviders;
+import android.content.BroadcastReceiver;
+import android.content.Context;
+import android.content.Intent;
+import android.content.IntentFilter;
+import android.location.Address;
+import android.location.Geocoder;
+import android.net.Uri;
+import android.os.Build;
+import android.os.Bundle;
+import android.support.annotation.NonNull;
+import android.support.annotation.Nullable;
+import android.support.design.widget.FloatingActionButton;
+import android.support.v4.app.DialogFragment;
+import android.support.v4.content.LocalBroadcastManager;
+import android.support.v7.app.AppCompatActivity;
+import android.util.Log;
+import android.view.*;
+import android.view.animation.Animation;
+import android.view.animation.AnimationUtils;
+import android.view.animation.DecelerateInterpolator;
+import android.view.inputmethod.InputMethodManager;
+import android.widget.*;
+import com.bumptech.glide.Glide;
+import com.crashlytics.android.Crashlytics;
+import com.usenergysolutions.energybroker.config.Constants;
+import com.google.android.gms.maps.CameraUpdateFactory;
+import com.google.android.gms.maps.GoogleMap;
+import com.google.android.gms.maps.OnMapReadyCallback;
+import com.google.android.gms.maps.SupportMapFragment;
+import com.google.android.gms.maps.model.*;
+import com.usenergysolutions.energybroker.R;
+import com.usenergysolutions.energybroker.config.Dynamic;
+import com.usenergysolutions.energybroker.config.LocationHelper;
+import com.usenergysolutions.energybroker.model.DataWrapper;
+import com.usenergysolutions.energybroker.model.ExtendedBusinessInfoModel;
+import com.usenergysolutions.energybroker.model.UesPlaceModel;
+import com.usenergysolutions.energybroker.services.location.locationListenerService;
+import com.usenergysolutions.energybroker.utils.CalendarUtils;
+import com.usenergysolutions.energybroker.utils.StringUtils;
+import com.usenergysolutions.energybroker.view.dialogs.AppExitDialog;
+import com.usenergysolutions.energybroker.view.dialogs.ProgressDialog;
+import com.usenergysolutions.energybroker.view.settings.AppSettingsActivity;
+import com.usenergysolutions.energybroker.view.user.PersonalReportActivity;
+import com.usenergysolutions.energybroker.viewmodel.MapViewModel;
+import pub.devrel.easypermissions.AfterPermissionGranted;
+import pub.devrel.easypermissions.AppSettingsDialog;
+import pub.devrel.easypermissions.EasyPermissions;
+
+import java.util.ArrayList;
+import java.util.List;
+
+// Ref: https://stackoverflow.com/questions/29323317/how-to-stop-android-service-when-app-is-closed/31586477#31586477
+
+
+public class MapsActivity extends AppCompatActivity implements OnMapReadyCallback, SearchView.OnQueryTextListener, EasyPermissions.PermissionCallbacks {
+    private static final String TAG = "MapActivity";
+
+    // Permissions components
+    private static final int RC_APP_PERMISSION = 123;
+    private String[] appPermissions = {
+            android.Manifest.permission.ACCESS_COARSE_LOCATION,
+            Manifest.permission.ACCESS_FINE_LOCATION
+    };
+    private boolean permissionGranted = false;
+
+    // Location Components
+    private BroadcastReceiver locationReceiver;
+    private boolean isGpsAvailable = false;
+
+    // Map Components
+    private GoogleMap map = null;
+    private double lat = 42;    // USA Location
+    private double lng = -71;   // USA Location
+    private long time = 0;
+    private float zoom = 18;
+    private Marker marker;
+    private ArrayList<Marker> placesMarkers = new ArrayList<>();
+    private ArrayList<Marker> myNewPlacesMarkers = new ArrayList<>();
+    private SearchView searchView;
+    private Marker searchMarker;
+
+    // Info Window components
+    private View mapInfoContainer;
+    private TextView mapInfoTitleTextView;
+    private ImageView mapInfoImageView;
+    private TextView mapInfoAddressTextView;
+    private TextView mapInfoPhoneTextView;
+    private Button mapInfoCloseButton;
+    private Button mapInfoDirectionButton;
+    private Button mapInfoCallButton;
+    private Button mapInfoMoreButton;
+    private Button mapInfoEditButton;
+    private LatLng mapInfoLatng;
+    private boolean updateMap = true;
+    private int infoContainerAnimationDuration = 750;
+
+    // Helpers
+    private Context context;
+    private BitmapDescriptor icon;
+    private BitmapDescriptor iconNoGPS;
+    private BitmapDescriptor defIcon;
+    private BitmapDescriptor newPlaceIcon;
+
+    // The last query time form our DB for new places
+    private long lastQuery = 0;
+    private LatLng latLng = new LatLng(lat, lng);
+
+    private MapViewModel viewModel;
+
+    // Loading Dialog
+    private ProgressDialog progressDialog = null;
+
+    @Override
+    protected void onCreate(@Nullable Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        getWindow().setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_ADJUST_RESIZE);
+        setContentView(R.layout.activity_maps);
+        Log.d(TAG, "onCreate");
+        context = this;
+
+        Crashlytics.log("$TAG onCreate");
+
+        // Init the ViewModel
+        viewModel = ViewModelProviders.of(this).get(MapViewModel.class);
+
+        // Create my marker iconStr and def iconStr for new places
+        icon = BitmapDescriptorFactory.fromResource(R.drawable.ic_person_pin);
+        iconNoGPS = BitmapDescriptorFactory.fromResource(R.drawable.ic_person_no_gps_pin);
+        defIcon = BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_AZURE);
+        newPlaceIcon = BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_MAGENTA);
+
+        // Bind Map Components
+        FloatingActionButton fabGpsFix = findViewById(R.id.fabGpsFix);
+        FloatingActionButton fabAddLocation = findViewById(R.id.fabAddLocation);
+
+        // Bind Bottom nav bar components
+        // Nav Bar Components
+        ImageButton crmButton = findViewById(R.id.crmButton);
+        ImageButton profileButton = findViewById(R.id.profileButton);
+        ImageButton newsButton = findViewById(R.id.newsButton);
+
+        // Bind Info Window components
+        mapInfoContainer = findViewById(R.id.mapInfoContainer);
+        mapInfoTitleTextView = findViewById(R.id.mapInfoTitleTextView);
+        mapInfoImageView = findViewById(R.id.mapInfoImageView);
+        mapInfoAddressTextView = findViewById(R.id.mapInfoAddressTextView);
+        mapInfoPhoneTextView = findViewById(R.id.mapInfoPhoneTextView);
+        mapInfoCloseButton = findViewById(R.id.mapInfoCloseButton);
+        mapInfoDirectionButton = findViewById(R.id.mapInfoDirectionButton);
+        mapInfoCallButton = findViewById(R.id.mapInfoCallButton);
+        mapInfoMoreButton = findViewById(R.id.mapInfoMoreButton);
+        mapInfoEditButton = findViewById(R.id.mapInfoEditButton);
+
+        fabGpsFix.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                updateMap = true;
+                map.moveCamera(CameraUpdateFactory.newLatLngZoom(new LatLng(lat, lng), zoom));
+            }
+        });
+
+        fabAddLocation.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                openAddLocationScreen();
+            }
+        });
+
+        mapInfoContainer.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                mapInfoCloseButton.performClick();
+            }
+        });
+
+        crmButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                // TODO
+                Toast.makeText(context, "CRM button clicked", Toast.LENGTH_SHORT).show();
+            }
+        });
+
+        profileButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+//                Intent intent = new Intent(context, PersonalAccountActivity.class);
+                Intent intent = new Intent(context, PersonalReportActivity.class);
+                startActivity(intent);
+                overridePendingTransition(R.anim.activity_slide_in, R.anim.activity_slide_out);
+            }
+        });
+
+        newsButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                // TODO
+                Toast.makeText(context, "News button clicked", Toast.LENGTH_SHORT).show();
+            }
+        });
+
+        mapInfoCloseButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Animation leaveAnimation = AnimationUtils.loadAnimation(context, R.anim.map_info_leave);
+                leaveAnimation.setDuration(infoContainerAnimationDuration);
+                leaveAnimation.setInterpolator(new DecelerateInterpolator());
+                leaveAnimation.setAnimationListener(new Animation.AnimationListener() {
+                    @Override
+                    public void onAnimationStart(Animation animation) {
+                    }
+
+                    @Override
+                    public void onAnimationEnd(Animation animation) {
+                        mapInfoContainer.setVisibility(View.GONE);
+                        mapInfoTitleTextView.setText("");
+                        mapInfoAddressTextView.setText("");
+                        mapInfoLatng = null;
+                    }
+
+                    @Override
+                    public void onAnimationRepeat(Animation animation) {
+                    }
+                });
+                mapInfoContainer.startAnimation(leaveAnimation);
+            }
+        });
+
+        mapInfoDirectionButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                LatLng temp = mapInfoLatng;
+                mapInfoCloseButton.performClick();
+                if (temp != null) {
+                    openDirectionMap(temp.latitude, temp.longitude);
+                }
+            }
+        });
+
+        mapInfoCallButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                mapInfoCloseButton.performClick();
+                if (!mapInfoPhoneTextView.getText().toString().isEmpty()) {
+                    openDialer(mapInfoPhoneTextView.getText().toString());
+                }
+            }
+        });
+
+        mapInfoMoreButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                mapInfoCloseButton.performClick();
+                String placeId = (String) v.getTag();
+                if (StringUtils.isNullOrEmpty(placeId)) return;
+                Intent intent = new Intent(context, BusinessInfoActivity.class);
+                intent.putExtra(Constants.PLACE_ID, placeId);
+                startActivity(intent);
+                overridePendingTransition(R.anim.activity_slide_in, R.anim.activity_slide_out);
+            }
+        });
+
+        mapInfoEditButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                mapInfoCloseButton.performClick();
+                String placeId = (String) v.getTag();
+                if (StringUtils.isNullOrEmpty(placeId)) return;
+                Intent intent = new Intent(context, BusinessEditActivity.class);
+                intent.putExtra(Constants.PLACE_ID, placeId);
+                startActivity(intent);
+                overridePendingTransition(R.anim.activity_slide_in, R.anim.activity_slide_out);
+            }
+        });
+
+        // Init Map
+        SupportMapFragment mapFragment = (SupportMapFragment) getSupportFragmentManager()
+                .findFragmentById(R.id.map);
+        if (mapFragment != null) {
+            mapFragment.getMapAsync(this);
+        }
+    }
+
+    private void openAddLocationScreen() {
+        Intent intent = new Intent(context, AddBusinessActivity.class); // AddPlaceActivity.class);
+        Bundle extras = new Bundle();
+        extras.putDouble(Constants.NAME_LATITUDE_DATA, lat);
+        extras.putDouble(Constants.NAME_LONGITUDE_DATA, lng);
+        intent.putExtras(extras);
+        startActivity(intent);
+        overridePendingTransition(R.anim.activity_slide_in, R.anim.activity_slide_out);
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        getPermissions();
+        if (map != null) {
+            loadingUesPlaces();
+        }
+    }
+
+    @Override
+    public void onMapReady(GoogleMap googleMap) {
+        Log.d(TAG, "onMapReady googleMap: " + googleMap);
+        map = googleMap;
+        map.getUiSettings().setZoomControlsEnabled(true);
+        //map.setPadding(0, 0, 0, getResources().getDimensionPixelOffset(R.dimen.map_ui_marging_bottom));  // Set Ui Settings position
+        map.setMinZoomPreference(5);
+        map.moveCamera(CameraUpdateFactory.newLatLngZoom(new LatLng(lat, lng), zoom));
+        setOnMarkerClickListener(map);
+        setOnPoiClick(map);
+        setMapDragListener(map);
+    }
+
+    private void setMapDragListener(GoogleMap map) {
+        map.setOnCameraMoveStartedListener(new GoogleMap.OnCameraMoveStartedListener() {
+            @Override
+            public void onCameraMoveStarted(int reason) {
+                if (reason == REASON_GESTURE) {
+                    updateMap = false;
+                }
+            }
+        });
+    }
+
+    private void updateMap(String action, double lat, double lng, long time) {
+        Log.d(TAG, "updateMap action: " + action);
+
+        // Remove the previous marker, ddd a marker and move the camera
+        if (marker != null) marker.remove();
+
+        if (time != 0 && action.equals(Constants.LOCATION_AVAILABLE)) {
+            latLng = new LatLng(lat, lng);
+            marker = map.addMarker(new MarkerOptions().position(latLng).icon(icon));
+            long timeDiff = System.currentTimeMillis() - lastQuery;
+            Log.d(TAG, "UpdateMap placesMarkers.size: " + placesMarkers.size() + " timeDiff: " + timeDiff);
+            if ((placesMarkers.isEmpty() && timeDiff > 750) || timeDiff > 30000) {
+                loadingUesPlaces();
+                lastQuery = System.currentTimeMillis();
+            }
+        } else {
+            marker = map.addMarker(new MarkerOptions().position(latLng).icon(iconNoGPS));
+        }
+
+        if (updateMap) {
+            map.moveCamera(CameraUpdateFactory.newLatLng(latLng));
+        }
+    }
+
+    private void loadingUesPlaces() {
+        removeOldMarkers();
+        removeOldNewPlaces();
+        showLoadingDialog();
+        viewModel.getNearByPlaces(lat, lng).observe(this, new Observer<DataWrapper<List<UesPlaceModel>>>() {
+
+            @Override
+            public void onChanged(@Nullable DataWrapper<List<UesPlaceModel>> listDataWrapper) {
+                progressDialog.dismiss();
+                if (listDataWrapper != null) {
+                    if (listDataWrapper.getData() != null) {
+                        addPlaces(listDataWrapper.getData());
+                        loadingMyNewPlaces();
+                    } else {
+                        String msg = listDataWrapper.getThrowable() != null ? listDataWrapper.getThrowable().getMessage() : "";
+                        Toast.makeText(context, "Failed to loading places data " + msg, Toast.LENGTH_LONG).show();
+                    }
+                }
+            }
+        });
+    }
+
+    private void loadingMyNewPlaces() {
+        showLoadingDialog();
+        viewModel.getPlacesByUserIdAndCreationDate(CalendarUtils.getCurrentLocalDateString()).observe(this, new Observer<DataWrapper<List<UesPlaceModel>>>() {
+
+            @Override
+            public void onChanged(@Nullable DataWrapper<List<UesPlaceModel>> listDataWrapper) {
+                progressDialog.dismiss();
+                if (listDataWrapper != null && listDataWrapper.getData() != null) {
+                    addMyNewPlaces(listDataWrapper.getData());
+                } else {
+                    String msg = null;
+                    if (listDataWrapper != null) {
+                        msg = listDataWrapper.getThrowable() != null ? listDataWrapper.getThrowable().getMessage() : "";
+                    }
+                    Toast.makeText(context, "Failed to loading new added places data " + msg, Toast.LENGTH_LONG).show();
+                }
+            }
+        });
+    }
+
+    private void addMyNewPlaces(List<UesPlaceModel> data) {
+        BitmapDescriptor placeIcon = newPlaceIcon;
+        for (UesPlaceModel place : data) {
+            if (place == null || place.getLatitude() == null || place.getLongitude() == null) continue;
+            LatLng position = new LatLng(place.getLatitude(), place.getLongitude());
+            Marker marker = map.addMarker(new MarkerOptions()
+                    .position(position)
+                    .title(place.getBusinessName())
+                    .snippet(place.getBusinessAddress())
+                    .icon(placeIcon));
+            marker.setTag(place.getPlaceId());
+            myNewPlacesMarkers.add(marker);
+        }
+    }
+
+    private void addPlaces(List<UesPlaceModel> data) {
+        BitmapDescriptor placeIcon = defIcon;
+        for (UesPlaceModel place : data) {
+            if (place.getBusinessType() != null) {
+                int resId = LocationHelper.Companion.getImageByPlaceType(place.getBusinessType());
+                if (resId != 0) {
+                    placeIcon = BitmapDescriptorFactory.fromResource(resId);
+                }
+            }
+            if (place.getLatitude() == null || place.getLongitude() == null) continue;
+            LatLng position = new LatLng(place.getLatitude(), place.getLongitude());
+            Marker marker = map.addMarker(new MarkerOptions()
+                    .position(position)
+                    .title(place.getBusinessName())
+                    .snippet(place.getBusinessAddress())
+                    .icon(placeIcon));
+            marker.setTag(place.getPlaceId());
+            placesMarkers.add(marker);
+        }
+    }
+
+    private void removeOldMarkers() {
+        for (Marker marker : placesMarkers) {
+            marker.remove();
+        }
+        placesMarkers.clear();
+    }
+
+    private void removeOldNewPlaces() {
+        for (Marker marker : myNewPlacesMarkers) {
+            marker.remove();
+        }
+        myNewPlacesMarkers.clear();
+    }
+
+    private void setOnMarkerClickListener(final GoogleMap map) {
+        map.setOnMarkerClickListener(new GoogleMap.OnMarkerClickListener() {
+            @Override
+            public boolean onMarkerClick(Marker marker) {
+                Log.d(TAG, "setOnMarkerClickListener");
+                mapInfoLatng = marker.getPosition();
+                // mapInfoContainer.setVisibility(View.VISIBLE);
+                mapInfoTitleTextView.setText(null); // (R.string.dropped_pin);
+                mapInfoImageView.setImageDrawable(null);
+                mapInfoImageView.setVisibility(View.INVISIBLE);
+                mapInfoAddressTextView.setText(null); // (snippet);
+                mapInfoPhoneTextView.setText(null);
+                mapInfoCallButton.setEnabled(false);
+                mapInfoMoreButton.setTag(null);
+                mapInfoEditButton.setTag(null);
+
+                if (marker.getTitle() != null) {
+                    mapInfoTitleTextView.setText(marker.getTitle());
+                }
+                if (marker.getTag() != null) {
+                    Integer placeId = (Integer) marker.getTag();
+                    Log.d(TAG, "onMarkerClick place: " + placeId);
+
+                    getPlaceData(placeId);
+                }
+                return true;
+            }
+        });
+    }
+
+    // Get place data from Our database
+    private void getPlaceData(Integer placeId) {
+        showLoadingDialog();
+        viewModel.getPlaceData(placeId.toString()).observe(this, new Observer<DataWrapper<ExtendedBusinessInfoModel>>() {
+            @Override
+            public void onChanged(@Nullable DataWrapper<ExtendedBusinessInfoModel> dataWrapper) {
+                progressDialog.dismiss();
+                if (dataWrapper != null) {
+                    if (dataWrapper.getData() != null) {
+                        handlePlaceClick(dataWrapper.getData());
+                    } else {
+                        String msg = dataWrapper.getThrowable() == null ? "" : dataWrapper.getThrowable().getMessage();
+                        Toast.makeText(context, "Failed to retrieve place's data " + msg, Toast.LENGTH_LONG).show();
+                    }
+                }
+            }
+        });
+    }
+
+    private void handlePlaceClick(ExtendedBusinessInfoModel data) {
+        List businessTypes = data.getType();
+        Animation enterAnimation = AnimationUtils.loadAnimation(context, R.anim.map_info_enter);
+        enterAnimation.setDuration(infoContainerAnimationDuration);
+        enterAnimation.setInterpolator(new DecelerateInterpolator());
+        mapInfoContainer.setVisibility(View.VISIBLE);
+        mapInfoContainer.startAnimation(enterAnimation);
+        if (businessTypes != null && businessTypes.size() > 0) {
+            String type = (String) businessTypes.get(0);
+            if (!StringUtils.isNumber(type)) {
+                type = String.valueOf(LocationHelper.Companion.getTypeByTypeName(type));
+            }
+            int iconId = LocationHelper.Companion.getImageByPlaceType(Integer.parseInt(type));
+            mapInfoImageView.setVisibility(View.VISIBLE);
+            Glide.with(context).load(iconId).into(mapInfoImageView);
+        }
+        mapInfoAddressTextView.setText(data.getBusinessAddress());
+        mapInfoPhoneTextView.setText(data.getBusinessPhone());
+        mapInfoCallButton.setEnabled(!StringUtils.isNullOrEmpty(data.getBusinessPhone()));
+        mapInfoMoreButton.setTag(data.getPlaceId());
+        mapInfoEditButton.setTag(data.getPlaceId());
+        mapInfoEditButton.setVisibility(View.VISIBLE);
+    }
+
+    private void setOnPoiClick(GoogleMap map) {
+        map.setOnPoiClickListener(new GoogleMap.OnPoiClickListener() {
+            @Override
+            public void onPoiClick(PointOfInterest pointOfInterest) {
+                Log.d(TAG, "setOnPoiClick");
+                mapInfoLatng = pointOfInterest.latLng;
+                mapInfoMoreButton.setTag(null);
+                showLoadingDialog();
+
+                viewModel.getPoiData(pointOfInterest.placeId).observe(MapsActivity.this, new Observer<DataWrapper<ExtendedBusinessInfoModel>>() {
+                    @Override
+                    public void onChanged(@Nullable DataWrapper<ExtendedBusinessInfoModel> extendedBusinessInfoModelDataWrapper) {
+                        progressDialog.dismiss();
+                        if (extendedBusinessInfoModelDataWrapper.getData() != null) {
+                            handlePoiClick(extendedBusinessInfoModelDataWrapper.getData());
+                        } else {
+                            Toast.makeText(MapsActivity.this, "Failed to retrice business data!", Toast.LENGTH_SHORT).show();
+                        }
+                    }
+                });
+            }
+        });
+    }
+
+    private void handlePoiClick(ExtendedBusinessInfoModel data) {
+        Log.d(TAG, "handleMarkerClick place");
+        Animation enterAnimation = AnimationUtils.loadAnimation(context, R.anim.map_info_enter);
+        enterAnimation.setDuration(infoContainerAnimationDuration);
+        enterAnimation.setInterpolator(new DecelerateInterpolator());
+        mapInfoContainer.setVisibility(View.VISIBLE);
+        mapInfoContainer.startAnimation(enterAnimation);
+        mapInfoTitleTextView.setText(data.getBusinessName());
+        String iconUrl = data.getIcon();
+        if (!StringUtils.isNullOrEmpty(iconUrl)) {
+            mapInfoImageView.setVisibility(View.VISIBLE);
+            Glide.with(context).load(iconUrl).into(mapInfoImageView);
+        }
+        mapInfoAddressTextView.setText(data.getBusinessAddressStr());
+        mapInfoPhoneTextView.setText(data.getBusinessPhoneStr());
+        mapInfoCallButton.setEnabled(!StringUtils.isNullOrEmpty(data.getBusinessPhoneStr()));
+        mapInfoMoreButton.setTag(data.getPlaceIdStr());
+        mapInfoEditButton.setVisibility(View.GONE);
+    }
+
+    private void openDirectionMap(double dest_lat, double dest_long) {
+        Intent intent = new Intent(android.content.Intent.ACTION_VIEW,
+                Uri.parse("http://maps.google.com/maps?daddr=" + dest_lat + "," + dest_long));
+        startActivity(intent);
+    }
+
+    private void openDialer(String phoneNumber) {
+        if (!StringUtils.isNullOrEmpty(phoneNumber)) {
+            Intent intent = new Intent(Intent.ACTION_DIAL);
+            intent.setData(Uri.parse("tel:" + phoneNumber));
+            startActivity(intent);
+        }
+    }
+
+    private void registerLocalLocationReceiver() {
+        IntentFilter locationIntentFilter = new IntentFilter();
+        locationIntentFilter.addAction(Constants.LOCATION_NOT_AVAILABLE);
+        locationIntentFilter.addAction(Constants.LOCATION_AVAILABLE);
+        LocalBroadcastManager.getInstance(context).registerReceiver(locationReceiver, locationIntentFilter);
+    }
+
+    private void startLocationMonitoring() {
+        Log.d(TAG, "startLocationMonitoring");
+        // GPS reception listener
+        locationReceiver = new BroadcastReceiver() {
+            @Override
+            public void onReceive(Context context, Intent intent) {
+                String action = intent.getAction();
+                isGpsAvailable = Constants.LOCATION_AVAILABLE.equalsIgnoreCase(action);
+                if (isGpsAvailable) {
+                    lat = intent.getDoubleExtra(Constants.NAME_LATITUDE_DATA, lat);
+                    lng = intent.getDoubleExtra(Constants.NAME_LONGITUDE_DATA, lng);
+                    time = intent.getLongExtra(Constants.NAME_SAMPLE_TIME, 0);
+                }
+                updateMap(action, lat, lng, time);
+            }
+        };
+        registerLocalLocationReceiver();
+        Intent locationServiceIntent = new Intent(context, locationListenerService.class);
+        locationServiceIntent.putExtra(Constants.UUID, Dynamic.Companion.getUuid());
+        // locationServiceIntent.addFlags(ServiceInfo.FLAG_STOP_WITH_TASK);
+        if (hasAppPermissions()) {
+            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
+                context.startForegroundService(locationServiceIntent);
+            } else {
+                context.startService(locationServiceIntent);
+            }
+            //startService(locationServiceIntent);
+        } else {
+            EasyPermissions.requestPermissions(
+                    this,
+                    context.getString(R.string.must_garnt_permission),
+                    RC_APP_PERMISSION,
+                    appPermissions
+            );
+        }
+    }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        MenuInflater inflater = getMenuInflater();
+        inflater.inflate(R.menu.map_options, menu);
+
+        // Add Search widget to action bar
+        // Get the SearchView and set the searchable configuration
+        SearchManager searchManager = (SearchManager) getSystemService(Context.SEARCH_SERVICE);
+        searchView = (SearchView) menu.findItem(R.id.menu_search).getActionView();
+        // Assumes current activity is the searchable activity
+        searchView.setSearchableInfo(searchManager.getSearchableInfo(getComponentName()));
+        // searchView.setIconifiedByDefault(false); // Do not iconify the widget; expand it by default
+        searchView.setOnQueryTextListener(this);
+
+        return true;
+    }
+
+    // SearchView.OnQueryTextListener Implementation
+    @Override
+    public boolean onQueryTextSubmit(String query) {
+        Log.d(TAG, "onQueryTextSubmit query: " + query);
+        if (searchMarker != null) searchMarker.remove();
+        Geocoder goeCoder = new Geocoder(context);
+        List<Address> addressList = null;
+        try {
+            addressList = goeCoder.getFromLocationName(query, 1);
+        } catch (Exception ex) {
+            Log.e(TAG, "onQueryTextSubmit", ex);
+        }
+        if (addressList != null && !addressList.isEmpty()) {
+            Address address = addressList.get(0);
+            LatLng latLng = new LatLng(address.getLatitude(), address.getLongitude());
+            searchMarker = map.addMarker(new MarkerOptions().position(latLng).title("Marker"));
+            map.animateCamera(CameraUpdateFactory.newLatLng(latLng));
+            updateMap = false;
+            hideKeyBoard(searchView);
+            return true;
+        } else {
+            Toast.makeText(context, "can not find " + query, Toast.LENGTH_LONG).show();
+        }
+        return false;
+    }
+
+    // SearchView.OnQueryTextListener Implementation
+    @Override
+    public boolean onQueryTextChange(String newText) {
+        //Log.d(TAG, "onQueryTextChange newText: " + newText);
+        return false;
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        // Change the map typeList based on the user's selection.
+        switch (item.getItemId()) {
+            case R.id.normal_map:
+                map.setMapType(GoogleMap.MAP_TYPE_NORMAL);
+                return true;
+            case R.id.hybrid_map:
+                map.setMapType(GoogleMap.MAP_TYPE_HYBRID);
+                return true;
+            case R.id.satellite_map:
+                map.setMapType(GoogleMap.MAP_TYPE_SATELLITE);
+                return true;
+            case R.id.terrain_map:
+                map.setMapType(GoogleMap.MAP_TYPE_TERRAIN);
+                return true;
+            case R.id.settings:
+                openSettingsScreen();
+                return true;
+            default:
+                return super.onOptionsItemSelected(item);
+        }
+    }
+
+    private void hideKeyBoard(View view) {
+        InputMethodManager inputMethodManager = (InputMethodManager) getSystemService(Activity.INPUT_METHOD_SERVICE);
+        inputMethodManager.hideSoftInputFromWindow(view.getWindowToken(), 0);
+    }
+
+    private void openSettingsScreen() {
+        Intent intent = new Intent(context, AppSettingsActivity.class);
+        intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+        startActivity(intent);
+        overridePendingTransition(R.anim.activity_slide_in, R.anim.activity_slide_out);
+    }
+
+    public void onPause() {
+        super.onPause();
+        stopLocationMonitoring();
+    }
+
+    private void showLoadingDialog() {
+        try {
+            if (progressDialog != null) progressDialog.dismiss();
+            if (progressDialog == null) {
+                progressDialog = new ProgressDialog();
+            }
+            progressDialog.show(getSupportFragmentManager(), progressDialog.getClass().getSimpleName());
+        } catch (IllegalStateException ex) {
+            Log.e(TAG, "showLoadingDialog", ex);
+        }
+    }
+
+    private void stopLocationMonitoring() {
+        // Stop listening to Location changes
+        unregisterLocalLocationReceiver();
+//        Intent locationServiceIntent = new Intent(context, locationListenerService.class);
+//        stopService(locationServiceIntent);
+    }
+
+    private void unregisterLocalLocationReceiver() {
+        if (null != locationReceiver) {
+            LocalBroadcastManager.getInstance(context).unregisterReceiver(locationReceiver);
+        }
+    }
+
+    /**
+     * Display any typeList of DialogFragment
+     */
+    private void showDialog(DialogFragment dialog) {
+        dialog.show(getSupportFragmentManager(), dialog.getClass().getSimpleName());
+    }
+
+    private void showExitDialog() {
+        AppExitDialog appExitDialog = new AppExitDialog();
+        appExitDialog.show(getSupportFragmentManager(), "AppExitDialog");
+    }
+
+    /**
+     * Take care of popping the fragment back stack or finishing the activity
+     * as appropriate.
+     */
+    @Override
+    public void onBackPressed() {
+        showExitDialog();
+    }
+
+    @AfterPermissionGranted(RC_APP_PERMISSION)
+    private void getPermissions() {
+        if (hasAppPermissions()) {
+            Log.d(TAG, "appPermissionsTask");
+            startLocationMonitoring();
+        } else {
+            EasyPermissions.requestPermissions(
+                    this,
+                    context.getString(R.string.must_garnt_permission),
+                    RC_APP_PERMISSION,
+                    appPermissions
+            );
+        }
+    }
+
+
+// ************************************   EasyPermissions   ************************************
+
+    private boolean hasAppPermissions() {
+        return EasyPermissions.hasPermissions(this, appPermissions);
+    }
+
+    @Override
+    public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
+        super.onRequestPermissionsResult(requestCode, permissions, grantResults);
+        Log.d(TAG, "onRequestPermissionsResult");
+
+        // EasyPermissions handles the request result.
+        EasyPermissions.onRequestPermissionsResult(requestCode, permissions, grantResults, this);
+    }
+
+    @Override
+    public void onPermissionsGranted(int requestCode, @NonNull List<String> perms) {
+        Log.d(TAG, "onPermissionsGranted:" + requestCode + ":" + perms.size());
+        // Check if it not happen when permissions have been pre granted
+
+        permissionGranted = true;
+        startLocationMonitoring();
+    }
+
+    @Override
+    public void onPermissionsDenied(int requestCode, @NonNull List<String> perms) {
+        Log.d(TAG, "onPermissionsDenied:" + requestCode + ":" + perms.size());
+
+        // (Optional) Check whether the user denied any permissions and checked "NEVER ASK AGAIN."
+        // This will display a dialog directing them to enable the permission in app settings.
+        if (!permissionGranted) {
+            if (EasyPermissions.somePermissionPermanentlyDenied(this, perms)) {
+                new AppSettingsDialog.Builder(this).build().show();
+            }
+        }
+    }
+
+    @Override
+    public void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        Log.d(TAG, "onActivityResult");
+
+        if (requestCode == AppSettingsDialog.DEFAULT_SETTINGS_REQ_CODE) {
+            String yes = getString(R.string.yes);
+            String no = getString(R.string.no);
+
+            // Do something after user returned from app settings screen, like showing a Toast.
+            Toast.makeText(
+                    this,
+                    getString(R.string.returned_from_app_settings_to_activity,
+                            hasAppPermissions() ? yes : no),
+                    Toast.LENGTH_LONG)
+                    .show();
+
+            // Check if it not happen when permissions have been pre granted
+        }
+    }
+
+
+}

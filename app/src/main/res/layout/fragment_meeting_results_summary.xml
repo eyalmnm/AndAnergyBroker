@@ -1,0 +1,294 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@drawable/meeting_results_summary_bg_image">
+
+    <!-- Dialog Title -->
+    <TextView
+            android:id="@+id/meetingResultsSummaryTitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="@dimen/spacing_5x"
+            android:background="@android:color/transparent"
+            android:textColor="@color/white"
+            android:text="@string/meeting_results_summary_title"
+            android:textSize="@dimen/text_size_2_25x"/>
+
+    <!-- Dialog Sub Title -->
+    <TextView
+            android:id="@+id/meetingResultsSummarySubTitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="@dimen/spacing_2x"
+            android:layout_below="@id/meetingResultsSummaryTitle"
+            android:background="@android:color/transparent"
+            android:textColor="@color/turquoise_dark"
+            android:text="@string/meeting_results_summary_title_sub_title"
+            android:textSize="@dimen/text_size_1_5x"/>
+
+    <RadioGroup
+            android:id="@+id/seeTheBillRadioGroup"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:background="@android:color/transparent"
+            android:layout_below="@id/meetingResultsSummarySubTitle"
+            android:layout_marginTop="@dimen/spacing_6x"
+            android:layout_marginStart="@dimen/spacing_4x"
+            android:layout_marginEnd="@dimen/spacing_4x">
+
+        <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:textSize="@dimen/text_size_2_0x"
+                android:background="@android:color/transparent"
+                android:textColor="@color/white"
+                android:layout_marginEnd="@dimen/spacing_4x"
+                android:text="@string/business_info_see_the_bill_title"/>
+
+        <RadioButton
+                android:id="@+id/didSeeTheBillRadioButton"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@android:color/darker_gray"
+                android:textSize="@dimen/text_size_2_0x"
+                android:text="@string/business_info_see_the_bill_radio_string"
+                android:button="@drawable/radio_button_selector"
+                android:background="@android:color/transparent"
+                android:paddingStart="@dimen/spacing_1x"
+                android:layout_marginEnd="@dimen/spacing_8x"/>
+
+        <RadioButton
+                android:id="@+id/didNotSeeTheBillRadioButton"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@android:color/darker_gray"
+                android:textSize="@dimen/text_size_2_0x"
+                android:text="@string/business_info_not_see_the_bill_radio_string"
+                android:button="@drawable/radio_button_selector"
+                android:background="@android:color/transparent"
+                android:paddingStart="@dimen/spacing_1x"/>
+
+    </RadioGroup>
+
+    <RadioGroup
+            android:id="@+id/meetingSummaryRadioGroup"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:background="@android:color/transparent"
+            android:layout_below="@id/seeTheBillRadioGroup"
+            android:layout_marginTop="@dimen/spacing_4x"
+            android:layout_marginStart="@dimen/spacing_4x"
+            android:layout_marginEnd="@dimen/spacing_4x">
+
+        <RadioButton
+                android:id="@+id/signedRadioButton"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@android:color/darker_gray"
+                android:textSize="@dimen/text_size_2_0x"
+                android:text="@string/business_info_signed_radio_string"
+                android:button="@drawable/radio_button_selector"
+                android:background="@android:color/transparent"
+                android:paddingStart="@dimen/spacing_1x"/>
+
+        <TextView
+                android:id="@+id/contractExpirationMeetingDate"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textColor="@android:color/darker_gray"
+                android:textSize="@dimen/text_size_2_0x"
+                android:gravity="center"
+                android:maxLines="1"
+                android:layout_marginTop="@dimen/spacing_1x"
+                android:layout_marginEnd="@dimen/spacing_1x"
+                android:layout_marginStart="@dimen/spacing_3x"
+                android:layout_gravity="center_horizontal"
+                android:background="@drawable/contact_form_edit_text_bg"
+                android:visibility="gone"/>
+
+        <RadioButton
+                android:id="@+id/comeAgainRadioButton"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@android:color/darker_gray"
+                android:textSize="@dimen/text_size_2_0x"
+                android:layout_marginTop="@dimen/spacing_2x"
+                android:paddingStart="@dimen/spacing_1x"
+                android:text="@string/business_info_come_radio_string"
+                android:button="@drawable/radio_button_selector"
+                android:background="@android:color/transparent"/>
+
+        <TextView
+                android:id="@+id/nextMeetingDate"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textColor="@android:color/darker_gray"
+                android:textSize="@dimen/text_size_2_0x"
+                android:gravity="center"
+                android:maxLines="1"
+                android:layout_marginTop="@dimen/spacing_1x"
+                android:layout_marginEnd="@dimen/spacing_1x"
+                android:layout_marginStart="@dimen/spacing_3x"
+                android:layout_gravity="center_horizontal"
+                android:background="@drawable/contact_form_edit_text_bg"
+                android:visibility="gone"/>
+
+        <RadioButton
+                android:id="@+id/declinedRadioButton"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@android:color/darker_gray"
+                android:layout_marginTop="@dimen/spacing_2x"
+                android:textSize="@dimen/text_size_2_0x"
+                android:paddingStart="@dimen/spacing_1x"
+                android:text="@string/business_info_declined_radio_string"
+                android:button="@drawable/radio_button_selector"
+                android:background="@android:color/transparent"/>
+
+        <RadioGroup
+                android:id="@+id/declineReasonsRadioGroup"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/spacing_2x"
+                android:layout_marginStart="@dimen/spacing_10x"
+                android:background="@android:color/transparent"
+                android:visibility="gone">
+
+            <RadioButton
+                    android:id="@+id/underContractRadioButton"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textColor="@android:color/darker_gray"
+                    android:textSize="@dimen/text_size_2_0x"
+                    android:layout_marginTop="@dimen/spacing_2x"
+                    android:paddingStart="@dimen/spacing_1x"
+                    android:text="@string/business_info_under_contract_radio_string"
+                    android:button="@drawable/radio_button_selector"
+                    android:background="@android:color/transparent"/>
+
+            <TextView
+                    android:id="@+id/underContractDateTV"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textColor="@android:color/darker_gray"
+                    android:textSize="@dimen/text_size_2_0x"
+                    android:gravity="center"
+                    android:maxLines="1"
+                    android:layout_marginTop="@dimen/spacing_1x"
+                    android:layout_marginEnd="@dimen/spacing_1x"
+                    android:layout_marginStart="@dimen/spacing_3x"
+                    android:layout_gravity="center_horizontal"
+                    android:background="@drawable/contact_form_edit_text_bg"
+                    android:visibility="gone"/>
+
+            <RadioButton
+                    android:id="@+id/notInterestedRadioButton"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/spacing_2x"
+                    android:textColor="@android:color/darker_gray"
+                    android:textSize="@dimen/text_size_2_0x"
+                    android:paddingStart="@dimen/spacing_1x"
+                    android:text="@string/business_info_not_interested_radio_string"
+                    android:button="@drawable/radio_button_selector"
+                    android:background="@android:color/transparent"/>
+
+            <RadioButton
+                    android:id="@+id/noCommentRadioButton"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/spacing_2x"
+                    android:textColor="@android:color/darker_gray"
+                    android:textSize="@dimen/text_size_2_0x"
+                    android:paddingStart="@dimen/spacing_1x"
+                    android:text="@string/business_info_no_comment_radio_string"
+                    android:button="@drawable/radio_button_selector"
+                    android:background="@android:color/transparent"
+                    android:visibility="gone"/>
+
+            <RadioButton
+                    android:id="@+id/dontComeAgainRadioButton"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/spacing_2x"
+                    android:textColor="@android:color/darker_gray"
+                    android:textSize="@dimen/text_size_2_0x"
+                    android:paddingStart="@dimen/spacing_1x"
+                    android:text="@string/business_info_do_not_come_again_radio_string"
+                    android:button="@drawable/radio_button_selector"
+                    android:background="@android:color/transparent"/>
+
+            <RadioButton
+                    android:id="@+id/otherRadioButton"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/spacing_2x"
+                    android:textColor="@android:color/darker_gray"
+                    android:textSize="@dimen/text_size_2_0x"
+                    android:paddingStart="@dimen/spacing_1x"
+                    android:text="@string/business_info_other_radio_string"
+                    android:button="@drawable/radio_button_selector"
+                    android:background="@android:color/transparent"/>
+
+        </RadioGroup>
+    </RadioGroup>
+
+
+    <LinearLayout
+            android:id="@+id/reasonFormLayout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@android:color/transparent"
+            android:layout_alignStart="@+id/meetingSummaryRadioGroup"
+            android:layout_alignEnd="@+id/meetingSummaryRadioGroup"
+            android:layout_above="@+id/nextButton"
+            android:layout_below="@+id/meetingSummaryRadioGroup"
+            android:layout_marginTop="@dimen/spacing_2x"
+            android:layout_marginBottom="@dimen/spacing_8x"
+            android:orientation="vertical">
+
+        <TextView
+                android:id="@+id/meetingResultsReasonTextView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@android:color/transparent"
+                android:textColor="@android:color/darker_gray"
+                android:textSize="@dimen/text_size_2_0x"
+                android:text="@string/meeting_results_summary_reason_title"
+                android:layout_marginBottom="@dimen/spacing_1x"/>
+
+        <EditText
+                android:id="@+id/meetingResultsReason"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textColor="@android:color/darker_gray"
+                android:textSize="@dimen/text_size_2_0x"
+                android:maxLines="3"
+                android:gravity="top"
+                android:lines="7"
+                android:padding="@dimen/spacing_1x"
+                android:hint="@string/meeting_results_summary_comment_hint"
+                android:layout_gravity="center_horizontal"
+                android:background="@drawable/contact_form_edit_text_bg"/>
+    </LinearLayout>
+
+    <Button
+            android:id="@+id/savetBtn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/next_button_bg"
+            android:layout_alignParentBottom="true"
+            android:layout_alignParentEnd="true"
+            android:layout_marginEnd="@dimen/spacing_3x"
+            android:layout_marginBottom="@dimen/spacing_5x"
+            android:textColor="@color/white"
+            android:text="@string/save"
+            android:textAllCaps="false"
+            android:textSize="@dimen/text_size_2_0x"/>
+
+</RelativeLayout>

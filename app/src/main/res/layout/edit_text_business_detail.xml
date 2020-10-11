@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<EditText xmlns:android="http://schemas.android.com/apk/res/android"
+          android:id="@+id/editText"
+          android:layout_width="match_parent"
+          android:layout_height="@dimen/spacing_8x"
+          android:layout_marginTop="@dimen/spacing_2x"
+          android:background="@drawable/borderedt"
+          android:padding="@dimen/spacing_1x"
+          android:imeOptions="actionNext"
+          android:textSize="@dimen/text_size_1_5x"
+          android:textColorHint="@color/registration_hint_color"
+          android:textColor="@color/white"/>

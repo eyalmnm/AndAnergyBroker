@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              android:layout_width="fill_parent"
+              android:layout_height="wrap_content"
+              android:orientation="vertical">
+
+    <TextView
+            xmlns:android="http://schemas.android.com/apk/res/android"
+            android:id="@+id/dropdown"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/add_place_item_border_shape"
+            android:ellipsize="marquee"
+            android:singleLine="true"
+            android:padding="5dp"
+            android:textAlignment="inherit"
+            android:textColor="@color/white"
+            android:textSize="@dimen/text_size_1_5x"/>
+
+    <View
+            android:layout_width="match_parent"
+            android:layout_height="5dp"
+            android:background="@drawable/add_place_item_border_shape"
+            android:visibility="gone"/>
+
+</LinearLayout>

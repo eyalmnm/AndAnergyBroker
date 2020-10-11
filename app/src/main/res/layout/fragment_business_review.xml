@@ -1,0 +1,1004 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@drawable/business_review_bg_image">
+
+    <TextView
+            android:id="@+id/reviewTitleTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/spacing_5x"
+            android:textColor="@color/white"
+            android:textSize="@dimen/text_size_2_0x"
+            android:text="@string/review_title"
+            android:background="@android:color/transparent"
+            android:layout_centerHorizontal="true"/>
+
+    <TextView
+            android:id="@+id/reviewSubTitleTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/spacing_2x"
+            android:textColor="@color/turquoise_dark"
+            android:text="@string/review_sub_title"
+            android:background="@android:color/transparent"
+            android:layout_centerHorizontal="true"
+            android:textSize="@dimen/text_size_1_5x"
+            android:layout_below="@id/reviewTitleTextView"/>
+
+    <ScrollView
+            android:id="@+id/dataReviweContainerScroll"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/spacing_0_5x"
+            android:layout_marginBottom="@dimen/spacing_5x"
+            android:layout_marginStart="@dimen/spacing_7x"
+            android:layout_marginEnd="@dimen/spacing_7x"
+            android:layout_below="@id/reviewSubTitleTextView"
+            android:layout_above="@id/cancelButton"
+            android:background="@android:color/transparent">
+
+        <RelativeLayout
+                android:id="@+id/dataReviweContainer"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@android:color/transparent">
+
+            <TextView
+                    android:id="@+id/reviewAddPlaceTitleTextView"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/spacing_5x"
+                    android:textColor="@color/white"
+                    android:textSize="@dimen/text_size_2_0x"
+                    android:text="@string/business_preview_title"
+                    android:background="@android:color/transparent"
+                    android:layout_centerHorizontal="true"/>
+
+            <!-- Name Field -->
+            <RelativeLayout
+                    android:id="@+id/businessNameLayout"
+                    android:layout_height="@dimen/spacing_8x"
+                    android:layout_width="match_parent"
+                    android:layout_marginTop="@dimen/spacing_3x"
+                    android:layout_below="@id/reviewAddPlaceTitleTextView"
+                    android:background="@android:color/transparent">
+
+                <TextView
+                        android:id="@+id/businessNameTV"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentBottom="true"
+                        android:background="@android:color/transparent"
+                        android:padding="@dimen/spacing_1x"
+                        android:textSize="@dimen/text_size_1_5x"
+                        android:textColor="@color/registration_hint_color"
+                        android:text="Business Name"/>
+
+                <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="@dimen/spacing_1x"
+                        android:textSize="@dimen/text_size_1_5x"
+                        android:layout_marginTop="0dp"
+                        android:background="@android:color/transparent"
+                        android:textColor="@color/white"
+                        android:text="@string/add_business_name_title"/>
+            </RelativeLayout>
+
+            <!-- Address Field -->
+            <RelativeLayout
+                    android:id="@+id/businessAddressLayout"
+                    android:layout_height="@dimen/spacing_8x"
+                    android:layout_width="match_parent"
+                    android:layout_marginTop="@dimen/spacing_3x"
+                    android:layout_below="@id/businessNameLayout"
+                    android:background="@android:color/transparent">
+
+                <TextView
+                        android:id="@+id/businessAddressTV"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentBottom="true"
+                        android:background="@android:color/transparent"
+                        android:padding="@dimen/spacing_1x"
+                        android:textSize="@dimen/text_size_1_5x"
+                        android:textColor="@color/registration_hint_color"
+                        android:text="Business Address"/>
+
+                <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="@dimen/spacing_1x"
+                        android:textSize="@dimen/text_size_1_5x"
+                        android:layout_marginTop="0dp"
+                        android:background="@android:color/transparent"
+                        android:textColor="@color/white"
+                        android:text="@string/add_business_address_title"/>
+            </RelativeLayout>
+
+            <!-- Email Field -->
+            <RelativeLayout
+                    android:id="@+id/BusinessEmailLayout"
+                    android:layout_height="@dimen/spacing_8x"
+                    android:layout_width="match_parent"
+                    android:layout_marginTop="@dimen/spacing_3x"
+                    android:layout_alignStart="@id/businessNameLayout"
+                    android:layout_alignEnd="@id/businessNameLayout"
+                    android:layout_below="@id/businessAddressLayout"
+                    android:background="@android:color/transparent">
+
+                <TextView
+                        android:id="@+id/BusinessEmailTV"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentBottom="true"
+                        android:background="@android:color/transparent"
+                        android:padding="@dimen/spacing_1x"
+                        android:textSize="@dimen/text_size_1_5x"
+                        android:textColor="@color/registration_hint_color"
+                        android:text="Business Email"/>
+
+                <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="@dimen/spacing_1x"
+                        android:textSize="@dimen/text_size_1_5x"
+                        android:layout_marginTop="0dp"
+                        android:background="@android:color/transparent"
+                        android:textColor="@color/white"
+                        android:text="@string/add_business_email_title"/>
+            </RelativeLayout>
+
+            <!-- Phone Field -->
+            <RelativeLayout
+                    android:id="@+id/BusinessPhoneLayout"
+                    android:layout_height="@dimen/spacing_8x"
+                    android:layout_width="match_parent"
+                    android:layout_marginTop="@dimen/spacing_3x"
+                    android:layout_alignStart="@id/businessNameLayout"
+                    android:layout_alignEnd="@id/businessNameLayout"
+                    android:layout_below="@id/BusinessEmailLayout"
+                    android:background="@android:color/transparent">
+
+                <TextView
+                        android:id="@+id/BusinessPhoneTV"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentBottom="true"
+                        android:background="@android:color/transparent"
+                        android:padding="@dimen/spacing_1x"
+                        android:textSize="@dimen/text_size_1_5x"
+                        android:textColor="@color/registration_hint_color"
+                        android:text="Business Phone"/>
+
+                <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="@dimen/spacing_1x"
+                        android:textSize="@dimen/text_size_1_5x"
+                        android:layout_marginTop="0dp"
+                        android:background="@android:color/transparent"
+                        android:textColor="@color/white"
+                        android:text="@string/add_business_phone_title"/>
+            </RelativeLayout>
+
+            <!-- Type Field -->
+            <RelativeLayout
+                    android:id="@+id/BusinessTypeLayout"
+                    android:layout_height="@dimen/spacing_8x"
+                    android:layout_width="match_parent"
+                    android:layout_marginTop="@dimen/spacing_3x"
+                    android:layout_alignStart="@id/businessNameLayout"
+                    android:layout_alignEnd="@id/businessNameLayout"
+                    android:layout_below="@id/BusinessPhoneLayout"
+                    android:background="@android:color/transparent">
+
+                <TextView
+                        android:id="@+id/BusinessTypeTV"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentBottom="true"
+                        android:background="@android:color/transparent"
+                        android:padding="@dimen/spacing_1x"
+                        android:textSize="@dimen/text_size_1_5x"
+                        android:textColor="@color/registration_hint_color"
+                        android:text="Business Type"/>
+
+                <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="@dimen/spacing_1x"
+                        android:textSize="@dimen/text_size_1_5x"
+                        android:layout_marginTop="0dp"
+                        android:background="@android:color/transparent"
+                        android:textColor="@color/white"
+                        android:text="@string/add_business_type_title"/>
+            </RelativeLayout>
+
+            <!-- Vertical dashed line -->
+            <ImageView
+                    android:id="@+id/verticalLine"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:src="@drawable/decision_makers_divider_image"
+                    android:layout_below="@id/BusinessTypeLayout"
+                    android:layout_marginTop="@dimen/spacing_3x"
+                    android:visibility="gone"/>
+
+            <TextView
+                    android:id="@+id/openingTitleTextView"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/white"
+                    android:textSize="@dimen/text_size_2_0x"
+                    android:layout_marginTop="@dimen/spacing_4x"
+                    android:text="@string/add_business_opening_title"
+                    android:background="@android:color/transparent"
+                    android:layout_centerHorizontal="true"
+                    android:layout_below="@id/verticalLine"
+                    android:visibility="gone"/>
+
+            <LinearLayout
+                    android:id="@+id/openingHoursContainer"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/spacing_3x"
+                    android:layout_below="@id/openingTitleTextView"
+                    android:background="@android:color/transparent"
+                    android:orientation="vertical"
+                    android:visibility="gone">
+
+                <!-- Monday Hours -->
+                <RelativeLayout
+                        android:id="@+id/mondayOpeningData"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        android:background="@android:color/transparent"
+                        android:padding="@dimen/spacing_1x">
+
+                    <TextView
+                            android:id="@+id/mondayOpeningTitle"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:textColor="@color/add_place_title_color"
+                            android:text="@string/monday"
+                            android:background="@android:color/transparent"
+                            android:textSize="@dimen/text_size_2_0x"/>
+
+                    <!-- Ref: http://www.zoftino.com/android-switch-button-and-custom-switch-examples -->
+                    <TextView
+                            android:id="@+id/mondayClosed"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="@string/closed"
+                            android:background="@android:color/transparent"
+                            android:textColor="@color/turquoise_dark"
+                            android:textStyle="bold"
+                            android:textSize="@dimen/text_size_2_0x"
+                            android:layout_alignBaseline="@id/mondayOpeningTitle"
+                            android:layout_alignParentEnd="true"
+                            android:visibility="gone"/>
+
+                    <LinearLayout
+                            android:id="@+id/mondayHoursForm"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:paddingRight="@dimen/spacing_1x"
+                            android:paddingLeft="@dimen/spacing_1x"
+                            android:layout_below="@id/mondayOpeningTitle"
+                            android:orientation="horizontal"
+                            android:background="@android:color/transparent">
+
+                        <TextView
+                                android:id="@+id/mondayFromHours"
+                                style="@style/previewTimeTextViewStyle"/>
+
+                        <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:textSize="@dimen/text_size_1_5x"
+                                android:text=":"
+                                android:background="@android:color/transparent"
+                                android:textColor="@color/add_place_title_color"
+                                android:layout_marginRight="@dimen/spacing_1x"
+                                android:layout_marginLeft="@dimen/spacing_1x"/>
+
+                        <TextView
+                                android:id="@+id/mondayFromMinutes"
+                                style="@style/previewTimeTextViewStyle"/>
+
+                        <TextView
+                                android:id="@+id/mondayFromTypes"
+                                android:text="AM"
+                                style="@style/previewTimeTypeTwxtViewStyle"/>
+
+                        <View
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:background="@android:color/transparent"
+                                android:layout_weight="1"/>
+
+                        <TextView
+                                android:id="@+id/mondayTillHours"
+                                style="@style/previewTimeTextViewStyle"/>
+
+                        <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:textSize="@dimen/text_size_1_5x"
+                                android:text=":"
+                                android:background="@android:color/transparent"
+                                android:textColor="@color/add_place_title_color"
+                                android:layout_marginRight="@dimen/spacing_1x"
+                                android:layout_marginLeft="@dimen/spacing_1x"/>
+
+                        <TextView
+                                android:id="@+id/mondayTillMinutes"
+                                style="@style/previewTimeTextViewStyle"/>
+
+                        <TextView
+                                android:id="@+id/mondayTillTypes"
+                                android:text="PM"
+                                style="@style/previewTimeTypeTwxtViewStyle"/>
+
+                    </LinearLayout>
+                </RelativeLayout>
+
+                <!-- Tuesday Hours -->
+                <RelativeLayout
+                        android:id="@+id/tuesdayOpeningData"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        android:background="@android:color/transparent"
+                        android:padding="@dimen/spacing_1x">
+
+                    <TextView
+                            android:id="@+id/tuesdayOpeningTitle"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:textColor="@color/add_place_title_color"
+                            android:text="@string/tuesday"
+                            android:background="@android:color/transparent"
+                            android:textSize="@dimen/text_size_2_0x"/>
+
+                    <!-- Ref: http://www.zoftino.com/android-switch-button-and-custom-switch-examples -->
+                    <TextView
+                            android:id="@+id/tuesdayClosed"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="@string/closed"
+                            android:background="@android:color/transparent"
+                            android:textColor="@color/turquoise_dark"
+                            android:textStyle="bold"
+                            android:textSize="@dimen/text_size_2_0x"
+                            android:layout_alignBaseline="@id/tuesdayOpeningTitle"
+                            android:layout_alignParentEnd="true"
+                            android:visibility="gone"/>
+
+                    <LinearLayout
+                            android:id="@+id/tuesdayHoursForm"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:paddingRight="@dimen/spacing_1x"
+                            android:paddingLeft="@dimen/spacing_1x"
+                            android:layout_below="@id/tuesdayOpeningTitle"
+                            android:orientation="horizontal"
+                            android:background="@android:color/transparent">
+
+                        <TextView
+                                android:id="@+id/tuesdayFromHours"
+                                style="@style/previewTimeTextViewStyle"/>
+
+                        <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:textSize="@dimen/text_size_1_5x"
+                                android:text=":"
+                                android:background="@android:color/transparent"
+                                android:textColor="@color/add_place_title_color"
+                                android:layout_marginRight="@dimen/spacing_1x"
+                                android:layout_marginLeft="@dimen/spacing_1x"/>
+
+                        <TextView
+                                android:id="@+id/tuesdayFromMinutes"
+                                style="@style/previewTimeTextViewStyle"/>
+
+                        <TextView
+                                android:id="@+id/tuesdayFromTypes"
+                                android:text="AM"
+                                style="@style/previewTimeTypeTwxtViewStyle"/>
+
+                        <View
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:background="@android:color/transparent"
+                                android:layout_weight="1"/>
+
+                        <TextView
+                                android:id="@+id/tuesdayTillHours"
+                                style="@style/previewTimeTextViewStyle"/>
+
+                        <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:textSize="@dimen/text_size_1_5x"
+                                android:text=":"
+                                android:background="@android:color/transparent"
+                                android:textColor="@color/add_place_title_color"
+                                android:layout_marginRight="@dimen/spacing_1x"
+                                android:layout_marginLeft="@dimen/spacing_1x"/>
+
+                        <TextView
+                                android:id="@+id/tuesdayTillMinutes"
+                                style="@style/previewTimeTextViewStyle"/>
+
+                        <TextView
+                                android:id="@+id/tuesdayTillTypes"
+                                android:text="PM"
+                                style="@style/previewTimeTypeTwxtViewStyle"/>
+
+                    </LinearLayout>
+                </RelativeLayout>
+
+                <!-- Wednesday Hours -->
+                <RelativeLayout
+                        android:id="@+id/wednesdayOpeningData"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        android:background="@android:color/transparent"
+                        android:padding="@dimen/spacing_1x">
+
+                    <TextView
+                            android:id="@+id/wednesdayOpeningTitle"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:textColor="@color/add_place_title_color"
+                            android:text="@string/wednesday"
+                            android:background="@android:color/transparent"
+                            android:textSize="@dimen/text_size_2_0x"/>
+
+                    <!-- Ref: http://www.zoftino.com/android-switch-button-and-custom-switch-examples -->
+                    <TextView
+                            android:id="@+id/wednesdayClosed"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="@string/closed"
+                            android:background="@android:color/transparent"
+                            android:textColor="@color/turquoise_dark"
+                            android:textStyle="bold"
+                            android:textSize="@dimen/text_size_2_0x"
+                            android:layout_alignBaseline="@id/wednesdayOpeningTitle"
+                            android:layout_alignParentEnd="true"
+                            android:visibility="gone"/>
+
+                    <LinearLayout
+                            android:id="@+id/wednesdayHoursForm"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:paddingRight="@dimen/spacing_1x"
+                            android:paddingLeft="@dimen/spacing_1x"
+                            android:layout_below="@id/wednesdayOpeningTitle"
+                            android:orientation="horizontal"
+                            android:background="@android:color/transparent">
+
+                        <TextView
+                                android:id="@+id/wednesdayFromHours"
+                                style="@style/previewTimeTextViewStyle"/>
+
+                        <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:textSize="@dimen/text_size_1_5x"
+                                android:text=":"
+                                android:background="@android:color/transparent"
+                                android:textColor="@color/add_place_title_color"
+                                android:layout_marginRight="@dimen/spacing_1x"
+                                android:layout_marginLeft="@dimen/spacing_1x"/>
+
+                        <TextView
+                                android:id="@+id/wednesdayFromMinutes"
+                                style="@style/previewTimeTextViewStyle"/>
+
+                        <TextView
+                                android:id="@+id/wednesdayFromTypes"
+                                android:text="AM"
+                                style="@style/previewTimeTypeTwxtViewStyle"/>
+
+                        <View
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:background="@android:color/transparent"
+                                android:layout_weight="1"/>
+
+                        <TextView
+                                android:id="@+id/wednesdayTillHours"
+                                style="@style/previewTimeTextViewStyle"/>
+
+                        <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:textSize="@dimen/text_size_1_5x"
+                                android:text=":"
+                                android:background="@android:color/transparent"
+                                android:textColor="@color/add_place_title_color"
+                                android:layout_marginRight="@dimen/spacing_1x"
+                                android:layout_marginLeft="@dimen/spacing_1x"/>
+
+                        <TextView
+                                android:id="@+id/wednesdayTillMinutes"
+                                style="@style/previewTimeTextViewStyle"/>
+
+                        <TextView
+                                android:id="@+id/wednesdayTillTypes"
+                                android:text="PM"
+                                style="@style/previewTimeTypeTwxtViewStyle"/>
+
+                    </LinearLayout>
+                </RelativeLayout>
+
+                <!-- Thursday Hours -->
+                <RelativeLayout
+                        android:id="@+id/thursdayOpeningData"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        android:background="@android:color/transparent"
+                        android:padding="@dimen/spacing_1x">
+
+                    <TextView
+                            android:id="@+id/thursdayOpeningTitle"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:textColor="@color/add_place_title_color"
+                            android:text="@string/thursday"
+                            android:background="@android:color/transparent"
+                            android:textSize="@dimen/text_size_2_0x"/>
+
+                    <!-- Ref: http://www.zoftino.com/android-switch-button-and-custom-switch-examples -->
+                    <TextView
+                            android:id="@+id/thursdayClosed"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="@string/closed"
+                            android:background="@android:color/transparent"
+                            android:textColor="@color/turquoise_dark"
+                            android:textStyle="bold"
+                            android:textSize="@dimen/text_size_2_0x"
+                            android:layout_alignBaseline="@id/thursdayOpeningTitle"
+                            android:layout_alignParentEnd="true"
+                            android:visibility="gone"/>
+
+                    <LinearLayout
+                            android:id="@+id/thursdayHoursForm"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:paddingRight="@dimen/spacing_1x"
+                            android:paddingLeft="@dimen/spacing_1x"
+                            android:layout_below="@id/thursdayOpeningTitle"
+                            android:orientation="horizontal"
+                            android:background="@android:color/transparent">
+
+                        <TextView
+                                android:id="@+id/thursdayFromHours"
+                                style="@style/previewTimeTextViewStyle"/>
+
+                        <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:textSize="@dimen/text_size_1_5x"
+                                android:text=":"
+                                android:background="@android:color/transparent"
+                                android:textColor="@color/add_place_title_color"
+                                android:layout_marginRight="@dimen/spacing_1x"
+                                android:layout_marginLeft="@dimen/spacing_1x"/>
+
+                        <TextView
+                                android:id="@+id/thursdayFromMinutes"
+                                style="@style/previewTimeTextViewStyle"/>
+
+                        <TextView
+                                android:id="@+id/thursdayFromTypes"
+                                android:text="AM"
+                                style="@style/previewTimeTypeTwxtViewStyle"/>
+
+                        <View
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:background="@android:color/transparent"
+                                android:layout_weight="1"/>
+
+                        <TextView
+                                android:id="@+id/thursdayTillHours"
+                                style="@style/previewTimeTextViewStyle"/>
+
+                        <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:textSize="@dimen/text_size_1_5x"
+                                android:text=":"
+                                android:background="@android:color/transparent"
+                                android:textColor="@color/add_place_title_color"
+                                android:layout_marginRight="@dimen/spacing_1x"
+                                android:layout_marginLeft="@dimen/spacing_1x"/>
+
+                        <TextView
+                                android:id="@+id/thursdayTillMinutes"
+                                style="@style/previewTimeTextViewStyle"/>
+
+                        <TextView
+                                android:id="@+id/thursdayTillTypes"
+                                android:text="PM"
+                                style="@style/previewTimeTypeTwxtViewStyle"/>
+
+                    </LinearLayout>
+                </RelativeLayout>
+
+
+                <!-- Friday Hours -->
+                <RelativeLayout
+                        android:id="@+id/fridayOpeningData"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        android:background="@android:color/transparent"
+                        android:padding="@dimen/spacing_1x">
+
+                    <TextView
+                            android:id="@+id/fridayOpeningTitle"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:textColor="@color/add_place_title_color"
+                            android:text="@string/friday"
+                            android:background="@android:color/transparent"
+                            android:textSize="@dimen/text_size_2_0x"/>
+
+                    <!-- Ref: http://www.zoftino.com/android-switch-button-and-custom-switch-examples -->
+                    <TextView
+                            android:id="@+id/fridayClosed"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="@string/closed"
+                            android:background="@android:color/transparent"
+                            android:textColor="@color/turquoise_dark"
+                            android:textStyle="bold"
+                            android:textSize="@dimen/text_size_2_0x"
+                            android:layout_alignBaseline="@id/fridayOpeningTitle"
+                            android:layout_alignParentEnd="true"
+                            android:visibility="gone"/>
+
+                    <LinearLayout
+                            android:id="@+id/fridayHoursForm"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:paddingRight="@dimen/spacing_1x"
+                            android:paddingLeft="@dimen/spacing_1x"
+                            android:layout_below="@id/fridayOpeningTitle"
+                            android:orientation="horizontal"
+                            android:background="@android:color/transparent">
+
+                        <TextView
+                                android:id="@+id/fridayFromHours"
+                                style="@style/previewTimeTextViewStyle"/>
+
+                        <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:textSize="@dimen/text_size_1_5x"
+                                android:text=":"
+                                android:background="@android:color/transparent"
+                                android:textColor="@color/add_place_title_color"
+                                android:layout_marginRight="@dimen/spacing_1x"
+                                android:layout_marginLeft="@dimen/spacing_1x"/>
+
+                        <TextView
+                                android:id="@+id/fridayFromMinutes"
+                                style="@style/previewTimeTextViewStyle"/>
+
+                        <TextView
+                                android:id="@+id/fridayFromTypes"
+                                android:text="AM"
+                                style="@style/previewTimeTypeTwxtViewStyle"/>
+
+                        <View
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:background="@android:color/transparent"
+                                android:layout_weight="1"/>
+
+                        <TextView
+                                android:id="@+id/fridayTillHours"
+                                style="@style/previewTimeTextViewStyle"/>
+
+                        <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:textSize="@dimen/text_size_1_5x"
+                                android:text=":"
+                                android:background="@android:color/transparent"
+                                android:textColor="@color/add_place_title_color"
+                                android:layout_marginRight="@dimen/spacing_1x"
+                                android:layout_marginLeft="@dimen/spacing_1x"/>
+
+                        <TextView
+                                android:id="@+id/fridayTillMinutes"
+                                style="@style/previewTimeTextViewStyle"/>
+
+                        <TextView
+                                android:id="@+id/fridayTillTypes"
+                                android:text="PM"
+                                style="@style/previewTimeTypeTwxtViewStyle"/>
+
+                    </LinearLayout>
+                </RelativeLayout>
+
+
+                <!-- Saturday Hours -->
+                <RelativeLayout
+                        android:id="@+id/saturdayOpeningData"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        android:background="@android:color/transparent"
+                        android:padding="@dimen/spacing_1x">
+
+                    <TextView
+                            android:id="@+id/saturdayOpeningTitle"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:textColor="@color/add_place_title_color"
+                            android:text="@string/saturday"
+                            android:background="@android:color/transparent"
+                            android:textSize="@dimen/text_size_2_0x"/>
+
+                    <!-- Ref: http://www.zoftino.com/android-switch-button-and-custom-switch-examples -->
+                    <TextView
+                            android:id="@+id/saturdayClosed"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="@string/closed"
+                            android:background="@android:color/transparent"
+                            android:textColor="@color/turquoise_dark"
+                            android:textStyle="bold"
+                            android:textSize="@dimen/text_size_2_0x"
+                            android:layout_alignBaseline="@id/saturdayOpeningTitle"
+                            android:layout_alignParentEnd="true"
+                            android:visibility="gone"/>
+
+                    <LinearLayout
+                            android:id="@+id/saturdayHoursForm"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:paddingRight="@dimen/spacing_1x"
+                            android:paddingLeft="@dimen/spacing_1x"
+                            android:layout_below="@id/saturdayOpeningTitle"
+                            android:orientation="horizontal"
+                            android:background="@android:color/transparent">
+
+                        <TextView
+                                android:id="@+id/saturdayFromHours"
+                                style="@style/previewTimeTextViewStyle"/>
+
+                        <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:textSize="@dimen/text_size_1_5x"
+                                android:text=":"
+                                android:background="@android:color/transparent"
+                                android:textColor="@color/add_place_title_color"
+                                android:layout_marginRight="@dimen/spacing_1x"
+                                android:layout_marginLeft="@dimen/spacing_1x"/>
+
+                        <TextView
+                                android:id="@+id/saturdayFromMinutes"
+                                style="@style/previewTimeTextViewStyle"/>
+
+                        <TextView
+                                android:id="@+id/saturdayFromTypes"
+                                android:text="AM"
+                                style="@style/previewTimeTypeTwxtViewStyle"/>
+
+                        <View
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:background="@android:color/transparent"
+                                android:layout_weight="1"/>
+
+                        <TextView
+                                android:id="@+id/saturdayTillHours"
+                                style="@style/previewTimeTextViewStyle"/>
+
+                        <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:textSize="@dimen/text_size_1_5x"
+                                android:text=":"
+                                android:background="@android:color/transparent"
+                                android:textColor="@color/add_place_title_color"
+                                android:layout_marginRight="@dimen/spacing_1x"
+                                android:layout_marginLeft="@dimen/spacing_1x"/>
+
+                        <TextView
+                                android:id="@+id/saturdayTillMinutes"
+                                style="@style/previewTimeTextViewStyle"/>
+
+                        <TextView
+                                android:id="@+id/saturdayTillTypes"
+                                android:text="PM"
+                                style="@style/previewTimeTypeTwxtViewStyle"/>
+
+                    </LinearLayout>
+                </RelativeLayout>
+
+
+                <!-- Sunday Hours -->
+                <RelativeLayout
+                        android:id="@+id/sundayOpeningData"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        android:background="@android:color/transparent"
+                        android:padding="@dimen/spacing_1x">
+
+                    <TextView
+                            android:id="@+id/sundayOpeningTitle"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:textColor="@color/add_place_title_color"
+                            android:text="@string/sunday"
+                            android:background="@android:color/transparent"
+                            android:textSize="@dimen/text_size_2_0x"/>
+
+                    <!-- Ref: http://www.zoftino.com/android-switch-button-and-custom-switch-examples -->
+                    <TextView
+                            android:id="@+id/sundayClosed"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="@string/closed"
+                            android:background="@android:color/transparent"
+                            android:textColor="@color/turquoise_dark"
+                            android:textStyle="bold"
+                            android:textSize="@dimen/text_size_2_0x"
+                            android:layout_alignBaseline="@id/sundayOpeningTitle"
+                            android:layout_alignParentEnd="true"
+                            android:visibility="gone"/>
+
+                    <LinearLayout
+                            android:id="@+id/sundayHoursForm"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:paddingRight="@dimen/spacing_1x"
+                            android:paddingLeft="@dimen/spacing_1x"
+                            android:layout_below="@id/sundayOpeningTitle"
+                            android:orientation="horizontal"
+                            android:background="@android:color/transparent">
+
+                        <TextView
+                                android:id="@+id/sundayFromHours"
+                                style="@style/previewTimeTextViewStyle"/>
+
+                        <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:textSize="@dimen/text_size_1_5x"
+                                android:text=":"
+                                android:background="@android:color/transparent"
+                                android:textColor="@color/add_place_title_color"
+                                android:layout_marginRight="@dimen/spacing_1x"
+                                android:layout_marginLeft="@dimen/spacing_1x"/>
+
+                        <TextView
+                                android:id="@+id/sundayFromMinutes"
+                                style="@style/previewTimeTextViewStyle"/>
+
+                        <TextView
+                                android:id="@+id/sundayFromTypes"
+                                android:text="AM"
+                                style="@style/previewTimeTypeTwxtViewStyle"/>
+
+                        <View
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:background="@android:color/transparent"
+                                android:layout_weight="1"/>
+
+                        <TextView
+                                android:id="@+id/sundayTillHours"
+                                style="@style/previewTimeTextViewStyle"/>
+
+                        <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:textSize="@dimen/text_size_1_5x"
+                                android:text=":"
+                                android:background="@android:color/transparent"
+                                android:textColor="@color/add_place_title_color"
+                                android:layout_marginRight="@dimen/spacing_1x"
+                                android:layout_marginLeft="@dimen/spacing_1x"/>
+
+                        <TextView
+                                android:id="@+id/sundayTillMinutes"
+                                style="@style/previewTimeTextViewStyle"/>
+
+                        <TextView
+                                android:id="@+id/sundayTillTypes"
+                                android:text="PM"
+                                style="@style/previewTimeTypeTwxtViewStyle"/>
+
+                    </LinearLayout>
+                </RelativeLayout>
+
+            </LinearLayout>
+
+
+            <!-- Vertical dashed line -->
+            <ImageView
+                    android:id="@+id/verticalLineSecond"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:src="@drawable/decision_makers_divider_image"
+                    android:layout_below="@id/openingHoursContainer"
+                    android:layout_marginTop="@dimen/spacing_3x"
+                    android:visibility="gone"/>
+
+            <TextView
+                    android:id="@+id/contactTitleTextView"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/white"
+                    android:textSize="@dimen/text_size_2_0x"
+                    android:layout_marginTop="@dimen/spacing_4x"
+                    android:text="@string/review_decision_maker_title"
+                    android:background="@android:color/transparent"
+                    android:layout_centerHorizontal="true"
+                    android:layout_below="@id/verticalLineSecond"
+                    android:visibility="gone"/>
+
+            <LinearLayout
+                    android:id="@+id/contactsContainer"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/spacing_3x"
+                    android:layout_below="@id/contactTitleTextView"
+                    android:background="@android:color/transparent"
+                    android:orientation="vertical"
+                    android:visibility="gone"/>
+
+        </RelativeLayout>
+    </ScrollView>
+
+
+    <Button
+            android:id="@+id/saveButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/next_button_bg"
+            android:layout_alignParentBottom="true"
+            android:layout_alignParentEnd="true"
+            android:layout_marginEnd="@dimen/spacing_3x"
+            android:layout_marginBottom="@dimen/spacing_5x"
+            android:textColor="@color/white"
+            android:text="@string/save"
+            android:textAllCaps="false"
+            android:textSize="@dimen/text_size_2_0x"/>
+
+    <Button
+            android:id="@+id/cancelButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/cancel_button_bg"
+            android:layout_alignParentBottom="true"
+            android:layout_alignParentStart="true"
+            android:layout_marginStart="@dimen/spacing_3x"
+            android:layout_marginBottom="@dimen/spacing_5x"
+            android:textColor="@color/white"
+            android:text="@string/cancel"
+            android:textAllCaps="false"
+            android:textSize="@dimen/text_size_2_0x"/>
+
+
+</RelativeLayout>

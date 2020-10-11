@@ -1,0 +1,410 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                xmlns:app="http://schemas.android.com/apk/res-auto"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/activity_time_bg_image"
+                android:gravity="center_horizontal"
+                android:orientation="vertical"
+                android:fitsSystemWindows="true"
+                android:padding="@dimen/spacing_1x"
+                android:windowSoftInputMode="adjustResize|adjustPan">
+
+    <!-- Ref: https://stackoverflow.com/questions/7238450/set-edittext-cursor-color -->
+
+    <!-- Dialog Title -->
+    <TextView
+            android:id="@+id/workingHoursDataTitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="@dimen/spacing_5x"
+            android:background="@android:color/transparent"
+            android:textColor="@color/white"
+            android:text="@string/opening_hours_title"
+            android:textSize="@dimen/text_size_2_25x"/>
+
+    <!-- Dialog Sub Title -->
+    <TextView
+            android:id="@+id/workingHoursDataSubTitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="@dimen/spacing_2x"
+            android:layout_below="@id/workingHoursDataTitle"
+            android:background="@android:color/transparent"
+            android:textColor="@color/turquoise_dark"
+            android:text="@string/opening_hours_sub_title"
+            android:textSize="@dimen/text_size_1_5x"/>
+
+    <!-- 24/7 Form -->
+    <LinearLayout
+            android:id="@+id/workingHoursNonStopForm"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:background="@android:color/transparent"
+            android:layout_below="@id/workingHoursDataSubTitle"
+            android:layout_marginTop="@dimen/spacing_3x"
+            android:layout_centerHorizontal="true">
+
+        <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:textColor="@color/white"
+                android:background="@android:color/transparent"
+                android:text="@string/non_stop"
+                android:textSize="@dimen/text_size_2_0x"
+                android:layout_marginEnd="@dimen/spacing_2x"/>
+
+        <com.nightonke.jellytogglebutton.JellyToggleButton
+                android:id="@+id/workingHoursNonStopToggleButton"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@android:color/transparent"
+                app:jtbJelly="lazy_tremble_head_fatty"
+                app:jtbEaseType="ease_in_out_circ"
+                app:jtbLeftBackgroundColor="@color/toggle_left_bg_color"
+                app:jtbRightBackgroundColor="@color/toggle_right_bg_color"
+                app:jtbLeftThumbColor="@color/white"
+                app:jtbRightThumbColor="@color/white"
+                app:jtbLeftTextColor="@color/white"
+                app:jtbRightTextColor="@color/toggle_left_bg_color"
+                app:jtbDuration="500"
+                app:jtbLeftText="@string/no"
+                app:jtbRightText="@string/yes"
+                app:jtbTextMarginLeft="@dimen/spacing_1x"
+                app:jtbTextMarginRight="@dimen/spacing_1x"/>
+
+    </LinearLayout>
+
+    <!-- Working Time Form -->
+    <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/workingHoursNonStopForm"
+            android:layout_above="@id/nextButton"
+            android:layout_marginStart="@dimen/spacing_4x"
+            android:layout_marginEnd="@dimen/spacing_4x"
+            android:background="@android:color/transparent"
+            android:layout_marginTop="@dimen/spacing_3x"
+            android:layout_marginBottom="@dimen/spacing_3x">
+
+        <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@android:color/transparent">
+
+            <!-- Monday  To Friday Hours -->
+            <RelativeLayout
+                    android:id="@+id/mondayToFridayOpeningData"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:background="@drawable/add_place_item_border_shape"
+                    android:padding="@dimen/spacing_1x">
+
+                <TextView
+                        android:id="@+id/mondayToFridayOpeningTitle"
+                        android:text="@string/monday_to_friday"
+                        style="@style/dayTileStyle"/>
+
+                <!-- Ref: http://www.zoftino.com/android-switch-button-and-custom-switch-examples -->
+                <Switch
+                        android:id="@+id/mondayToFridayClosed"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/closed"
+                        android:textColor="@color/add_place_title_color"
+                        android:textSize="@dimen/text_size_1_5x"
+                        android:layout_alignBaseline="@id/mondayOpeningTitle"
+                        android:layout_alignParentEnd="true"
+                        style="@style/MySwitch"/>
+
+                <LinearLayout
+                        android:id="@+id/mondayToFridayHoursForm"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:paddingRight="@dimen/spacing_1x"
+                        android:paddingLeft="@dimen/spacing_1x"
+                        android:layout_below="@id/mondayToFridayOpeningTitle"
+                        android:background="@android:color/transparent"
+                        android:orientation="horizontal">
+
+                    <EditText
+                            android:id="@+id/mondayToFridayFromHours"
+                            style="@style/timeEnterEditText"/>
+
+                    <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:textSize="@dimen/text_size_1_5x"
+                            android:text=":"
+                            android:background="@android:color/transparent"
+                            android:textColor="@color/turquoise_dark"
+                            android:layout_marginRight="@dimen/spacing_1x"
+                            android:layout_marginLeft="@dimen/spacing_1x"/>
+
+                    <EditText
+                            android:id="@+id/mondayToFridayFromMinutes"
+                            style="@style/timeEnterEditText"/>
+
+                    <Spinner
+                            android:id="@+id/mondayToFridayFromTypesSpinner"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"/>
+
+                    <TextView
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:gravity="center"
+                            android:text=" - "
+                            android:textColor="@color/add_place_title_color"
+                            android:layout_marginRight="@dimen/spacing_1x"
+                            android:layout_marginLeft="@dimen/spacing_1x"
+                            android:background="@android:color/transparent"/>
+
+                    <EditText
+                            android:id="@+id/mondayToFridayTillHours"
+                            style="@style/timeEnterEditText"/>
+
+                    <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:textSize="@dimen/text_size_1_5x"
+                            android:text=":"
+                            android:background="@android:color/transparent"
+                            android:textColor="@color/turquoise_dark"
+                            android:layout_marginRight="@dimen/spacing_1x"
+                            android:layout_marginLeft="@dimen/spacing_1x"/>
+
+                    <EditText
+                            android:id="@+id/mondayToFridayTillMinutes"
+                            style="@style/timeEnterEditText"/>
+
+                    <Spinner
+                            android:id="@+id/mondayToFridayTillTypesSpinner"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"/>
+
+                </LinearLayout>
+            </RelativeLayout>
+
+
+            <!-- Saturday Hours -->
+            <RelativeLayout
+                    android:id="@+id/saturdayOpeningData"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:background="@drawable/add_place_item_border_shape"
+                    android:layout_below="@id/mondayToFridayOpeningData"
+                    android:layout_marginTop="@dimen/spacing_1x"
+                    android:padding="@dimen/spacing_1x">
+
+                <TextView
+                        android:id="@+id/saturdayOpeningTitle"
+                        android:text="@string/saturday"
+                        style="@style/dayTileStyle"/>
+
+                <!-- Ref: http://www.zoftino.com/android-switch-button-and-custom-switch-examples -->
+                <Switch
+                        android:id="@+id/saturdayClosed"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/closed"
+                        android:textColor="@color/add_place_title_color"
+                        android:textSize="@dimen/text_size_1_5x"
+                        android:layout_alignBaseline="@id/saturdayOpeningTitle"
+                        android:layout_alignParentEnd="true"
+                        style="@style/MySwitch"/>
+
+                <LinearLayout
+                        android:id="@+id/saturdayHoursForm"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:paddingRight="@dimen/spacing_1x"
+                        android:paddingLeft="@dimen/spacing_1x"
+                        android:background="@android:color/transparent"
+                        android:layout_below="@id/saturdayOpeningTitle"
+                        android:orientation="horizontal">
+
+                    <EditText
+                            android:id="@+id/saturdayFromHours"
+                            style="@style/timeEnterEditText"/>
+
+                    <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:textSize="@dimen/text_size_1_5x"
+                            android:text=":"
+                            android:background="@android:color/transparent"
+                            android:textColor="@color/add_place_title_color"
+                            android:layout_marginRight="@dimen/spacing_1x"
+                            android:layout_marginLeft="@dimen/spacing_1x"/>
+
+                    <EditText
+                            android:id="@+id/saturdayFromMinutes"
+                            style="@style/timeEnterEditText"/>
+
+                    <Spinner
+                            android:id="@+id/saturdayFromTypesSpinner"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"/>
+
+                    <TextView
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:gravity="center"
+                            android:background="@android:color/transparent"
+                            android:text=" - "
+                            android:textColor="@color/add_place_title_color"
+                            android:layout_marginRight="@dimen/spacing_1x"
+                            android:layout_marginLeft="@dimen/spacing_1x"/>
+
+                    <EditText
+                            android:id="@+id/saturdayTillHours"
+                            style="@style/timeEnterEditText"/>
+
+                    <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:textSize="@dimen/text_size_1_5x"
+                            android:text=":"
+                            android:background="@android:color/transparent"
+                            android:textColor="@color/add_place_title_color"
+                            android:layout_marginRight="@dimen/spacing_1x"
+                            android:layout_marginLeft="@dimen/spacing_1x"/>
+
+                    <EditText
+                            android:id="@+id/saturdayTillMinutes"
+                            style="@style/timeEnterEditText"/>
+
+                    <Spinner
+                            android:id="@+id/saturdayTillTypesSpinner"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"/>
+
+                </LinearLayout>
+            </RelativeLayout>
+
+            <!-- Sunday Hours -->
+            <RelativeLayout
+                    android:id="@+id/sundayOpeningData"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:background="@drawable/add_place_item_border_shape"
+                    android:layout_below="@id/saturdayOpeningData"
+                    android:layout_marginTop="@dimen/spacing_1x"
+                    android:padding="@dimen/spacing_1x">
+
+                <TextView
+                        android:id="@+id/sundayOpeningTitle"
+                        android:text="@string/sunday"
+                        style="@style/dayTileStyle"/>
+
+                <!-- Ref: http://www.zoftino.com/android-switch-button-and-custom-switch-examples -->
+                <Switch
+                        android:id="@+id/sundayClosed"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/closed"
+                        android:textColor="@color/add_place_title_color"
+                        android:textSize="@dimen/text_size_1_5x"
+                        android:layout_alignBaseline="@id/sundayOpeningTitle"
+                        android:layout_alignParentEnd="true"
+                        style="@style/MySwitch"/>
+
+                <LinearLayout
+                        android:id="@+id/sundayHoursForm"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:paddingRight="@dimen/spacing_1x"
+                        android:paddingLeft="@dimen/spacing_1x"
+                        android:background="@android:color/transparent"
+                        android:layout_below="@id/sundayOpeningTitle"
+                        android:orientation="horizontal">
+
+                    <EditText
+                            android:id="@+id/sundayFromHours"
+                            style="@style/timeEnterEditText"/>
+
+                    <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:textSize="@dimen/text_size_1_5x"
+                            android:text=":"
+                            android:background="@android:color/transparent"
+                            android:textColor="@color/add_place_title_color"
+                            android:layout_marginRight="@dimen/spacing_1x"
+                            android:layout_marginLeft="@dimen/spacing_1x"/>
+
+                    <EditText
+                            android:id="@+id/sundayFromMinutes"
+                            style="@style/timeEnterEditText"/>
+
+                    <Spinner
+                            android:id="@+id/sundayFromTypesSpinner"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"/>
+
+                    <TextView
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:gravity="center"
+                            android:background="@android:color/transparent"
+                            android:text=" - "
+                            android:textColor="@color/add_place_title_color"
+                            android:layout_marginRight="@dimen/spacing_1x"
+                            android:layout_marginLeft="@dimen/spacing_1x"/>
+
+                    <EditText
+                            android:id="@+id/sundayTillHours"
+                            style="@style/timeEnterEditText"/>
+
+                    <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:textSize="@dimen/text_size_1_5x"
+                            android:text=":"
+                            android:background="@android:color/transparent"
+                            android:textColor="@color/add_place_title_color"
+                            android:layout_marginRight="@dimen/spacing_1x"
+                            android:layout_marginLeft="@dimen/spacing_1x"/>
+
+                    <EditText
+                            android:id="@+id/sundayTillMinutes"
+                            style="@style/timeEnterEditText"/>
+
+                    <Spinner
+                            android:id="@+id/sundayTillTypesSpinner"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"/>
+
+                </LinearLayout>
+            </RelativeLayout>
+
+        </RelativeLayout>
+    </ScrollView>
+
+    <Button
+            android:id="@+id/nextButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/next_button_bg"
+            android:layout_alignParentBottom="true"
+            android:layout_alignParentEnd="true"
+            android:layout_marginEnd="@dimen/spacing_3x"
+            android:layout_marginBottom="@dimen/spacing_5x"
+            android:textColor="@color/white"
+            android:text="@string/next"
+            android:textAllCaps="false"
+            android:textSize="@dimen/text_size_2_0x"/>
+
+</RelativeLayout>
+

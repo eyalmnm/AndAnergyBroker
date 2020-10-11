@@ -1,0 +1,240 @@
+<resources>
+    <string name="app_name">EnergyBroker</string>
+
+    <!-- Login Strings -->
+    <string name="app_version_format" translatable="false">Version v %s (%d)</string>
+    <string name="login_userneme_edit_text_hint">Username Or Email</string>
+    <string name="login_password_edit_text_hint">Password</string>
+    <string name="login_sign_in">Sign In</string>
+    <string name="login_register">
+        <u>Register</u>
+    </string>
+    <string name="login_missing_credentials">Missing Credentials</string>
+    <string name="login_remember_me">Remember me</string>
+    <string name="login_forgot_your_pwd_text">Forgot your password?</string>
+    <string name="login_sign_out">Log Out</string>
+    <string name="developer_name">Eyal Muchtar eyal@em-projects.com</string>
+    <string name="developer_phone">0522405134</string>
+
+    <!-- Map Activity Strings -->
+    <string name="title_activity_maps">Map</string>
+    <string name="must_garnt_permission">In order to use the application clearly, you must grant the required
+        permissions.
+    </string>
+    <string name="yes">Yes</string>
+    <string name="no">No</string>
+    <string name="returned_from_app_settings_to_activity">Returned from app settings to MainActivity with the following
+        permissions: \\nLocation: %ss_to_activity
+    </string>
+    <string name="title_activity_maps_temp">Map</string>
+    <string name="normal_map">Normal</string>
+    <string name="hybrid_map">Hybrid</string>
+    <string name="satellite_map">Satellite</string>
+    <string name="terrain_map">Terrain</string>
+    <string name="settings">Settings</string>
+    <string name="dropped_pin">DroppedPin</string>
+
+    <!-- Registration Activity Strings -->
+    <string name="registration_title_text">REGISTER</string>
+    <string name="registration_neme_edit_text_hint">Name</string>
+    <string name="registration_userneme_edit_text_hint">User Name</string>
+    <string name="registration_email_edit_text_hint">Email</string>
+    <string name="registration_password_edit_text_hint">Password</string>
+    <string name="registration_rep_password_edit_text_hint">Repeat Password</string>
+    <string name="registration_sign_sign_up">Sign Up</string>
+    <string name="login_sign_in_text">You don\'t have an account?
+        <u>Sign Up</u>
+    </string>
+    <string name="registration_username_edit_text_hint">User name</string>
+    <string name="registration_confirm_password_edit_text_hint">Confirm password</string>
+    <string name="registration_eula_check_box">When you use our services, you/\'re trusting us with your information. We
+        are understand this is big responsibility and work hard to protect your information and put you in contarl.
+    </string>
+    <string name="registration_create_account_button">Create Account</string>
+    <string name="registrartion_already_member">
+        <u>I am already member</u>
+    </string>
+    <string name="registration_password_not_equals_msg">Password and Confirm Password content are different</string>
+    <string name="registration_name_empty_msg">Name can not be empty</string>
+    <string name="registration_user_empty_msg">Username can not be empty</string>
+    <string name="registration_email_empty_msg">Email can not be empty</string>
+    <string name="registration_password_empty_msg">Password can not be empty</string>
+    <string name="registration_con_pass_empty_msg">Password confirm can not be empty</string>
+    <string name="search_hint">Please enter an address</string>
+
+    <!-- App Exit Dialog -->
+    <string name="exit_title">Exit</string>
+    <string name="exit_message">You are about to exit the application. Do you want to continue with exit?</string>
+
+    <!-- App Logout Dialog -->
+    <string name="logout_title">Logout</string>
+    <string name="logout_message">You are about to logout from application. Do you want to continue with exit?</string>
+
+
+    <!-- Add Place Screen -->
+    <string name="add_place_title">Title</string>
+    <string name="add_place_business_data_title">+ ADD PLACE</string>
+    <string name="add_place_business_name_title">NAME</string>
+    <string name="add_place_business_address_title">ADDRESS</string>
+    <string name="add_place_business_phone_title">PHONE</string>
+    <string name="add_place_contact_data_title">DECISION MAKER</string>
+    <string name="add_place_contact_name_title">NAME</string>
+    <string name="add_place_contact_email_title">EMAIL</string>
+    <string name="add_place_contact_phone_title">PHONE</string>
+    <string name="add_place_add_opening_hours">Opening Hours</string>
+    <string name="add_place_latitude">Latitude</string>
+    <string name="add_place_longitude">Longitude</string>
+    <string name="add_place_phone">Phone Number</string>
+    <string name="add_place_title_empty_msg">Title can not be empty</string>
+    <string name="add_place_phone_empty_msg">Phone can not be empty</string>
+    <string name="add_place_success">Place added successfully</string>
+    <string name="add_place_failed">Failed to add place. try again!</string>
+    <string name="cancel">Cancel</string>
+    <string name="save">Save</string>
+    <string name="add_place_header">Add Place</string>
+    <string name="add_place_address">Address</string>
+    <string name="add_place_opening_hours">Open</string>
+    <string name="add_place_from">From time</string>
+    <string name="add_place_to">To time</string>
+    <string name="add_place_address_empty_msg">Address Can not be empty</string>
+    <string name="add_place_from_empty_msg">Open hour can not be empty</string>
+    <string name="add_place_close_empty_msg">Close hour can not be empty</string>
+
+    <!-- Personal Account Activity Strings -->
+    <string name="personal_account_personal_salary">Salary</string>
+    <string name="personal_account_personal_commission">Commission</string>
+    <string name="personal_account_personal_bonuses">Bonuses</string>
+
+    <!-- Business Info Activity Strings -->
+    <string name="business_info_meeting">Meeting minute</string>
+    <string name="business_info_contact_decision">DM Information</string>
+    <string name="business_info_meeting_results">Meeting Results</string>
+    <string name="business_info_signed_radio_string">Signed</string>
+    <string name="business_info_come_radio_string">Come Again</string>
+    <string name="business_info_declined_radio_string">Declined</string>
+    <string name="business_info_history">Meetings History</string>
+    <string name="business_info_notes">Notes</string>
+    <string name="send">Send</string>
+    <string name="business_info_new_note_hint">New note</string>
+    <string name="business_info_open">%s</string>
+    <!--string name="business_info_open">Open %s</string-->
+    <string name="business_info_closed">Failed</string>
+    <string name="business_info_opened">Open</string>
+    <string name="contact_name">Name</string>
+    <string name="contact_phone">Phone</string>
+    <string name="contact_email">Email</string>
+    <string name="business_info_under_contract_radio_string">Under Contract</string>
+    <string name="business_info_not_interested_radio_string">Not Interested</string>
+    <string name="business_info_no_comment_radio_string">No Comment</string>
+    <string name="business_info_other_radio_string">Other</string>
+    <string name="business_info_do_not_come_again_radio_string">Do Not Come Again</string>
+    <string name="comment">Note</string>
+    <string name="business_info_see_the_bill">Did you see the bill?</string>
+    <string name="yes_or_failed_selection_only">Please choose Failed or Yes!</string>
+    <string name="loading">Loading....</string>
+
+    <!-- Opening Hours Dialog Strings -->
+    <string name="opening_hours_title">OPEN / CLOSE</string>
+    <string name="opening_hours_sub_title">ADD INFORMATION ABOUT WORKING PROGRAM</string>
+    <string name="closed">Closed</string>
+    <string name="non_stop">24/7</string>
+    <string name="monday">Monday</string>
+    <string name="tuesday">Tuesday</string>
+    <string name="wednesday">Wednesday</string>
+    <string name="thursday">Thursday</string>
+    <string name="friday">Friday</string>
+    <string name="saturday">Saturday</string>
+    <string name="sunday">Sunday</string>
+    <string name="monday_to_friday">Monday - Friday</string>
+
+    <!-- Add Note Screen Strings -->
+    <string name="add_note_title">Notes</string>
+
+    <!-- Bottom Navigation Activity Strings -->
+    <string name="nav_crm">CRM</string>
+    <string name="nav_profile">Profile</string>
+    <string name="nav_news">News</string>
+
+    <!-- Meeting History Activity -->
+    <string name="meeting_history_title">History</string>
+    <string name="meeting_status_string">%s %s</string>
+
+    <!-- Business Details Fragment -->
+    <string name="add_business_title">Add Place</string>
+    <string name="add_business_sub_title">Add Information About Business</string>
+    <string name="add_business_name_title">Name</string>
+    <string name="add_business_name_hint">Enter Business\'s Full Name</string>
+    <string name="add_business_address_title">Address</string>
+    <string name="add_business_address_hint">Enter Full Address</string>
+    <string name="add_business_email_title">Email</string>
+    <string name="add_business_email_hint">Enter Email Address</string>
+    <string name="add_business_phone_title">Phone</string>
+    <string name="add_business_phone_hint">Enter Phone Number</string>
+    <string name="add_business_type_title">Type Of Business</string>
+    <string name="add_new_form">Add New Item</string>
+    <string name="remove_form">Remove Last Item</string>
+    <string name="next">Next</string>
+
+    <!-- Form Contact Details -->
+    <string name="add_business_comment_title">Comments</string>
+    <string name="add_business_comment_hint">Enter Your Comments Here</string>
+
+    <!-- Decision Maker Fragment -->
+    <string name="decision_maker_title">ADD DECISION MAKER</string>
+    <string name="decision_maker_sub_title">ADD INFORMATION ABOUT OWNER / MANAGER</string>
+    <string name="add_new_decision_maker">ADD NEW DECISION MAKER</string>
+    <string name="remove_decision_maker">REMOVE DECISION MAKER</string>
+    <string name="add_decision_maker_name_hint">Enter Contact name</string>
+
+    <!-- Business Preview Fragment -->
+    <string name="business_preview_title">ADD PLACE</string>
+    <string name="add_business_opening_title">OPEN / CLOSED</string>
+    <string name="review_title">REVIEW</string>
+    <string name="review_sub_title">THIS IS WHAT WE HAVE DONE OVERALL</string>
+    <string name="review_decision_maker_title">DECISION MAKER</string>
+    <string name="location_picker_title">Please choose the business\'s location</string>
+
+    <!-- Meeting Results Contact Fragment -->
+    <string name="meeting_results_contact_title">MEETING RESULTS</string>
+    <string name="meeting_results_contact_sub_title">ADD INFORMATION ABOUT YOUR MEETING</string>
+    <string name="meeting_results_contact_type_title">Did you meet the DM?</string>
+
+    <!-- Meeting Results Summary Fragment -->
+    <string name="meeting_results_summary_title">MEETING RESULTS</string>
+    <string name="meeting_results_summary_title_sub_title">WHICH ARE THE RESULTS OF YOUR MEETING?</string>
+    <string name="meeting_results_summary_reason_title">Comment</string>
+    <string name="meeting_results_summary_comment_hint">Enter your comments here</string>
+    <string name="meeting_results_summary_empty_comment">You must enter a reason!</string>
+    <string name="meeting_results_summary_empty_selection">You must select one of the meeting summary options!</string>
+    <string name="meeting_results_summary_empty_see_the_bill">Please mark if you saw the bill or not!</string>
+    <string name="business_info_see_the_bill_radio_string">Yes</string>
+    <string name="business_info_not_see_the_bill_radio_string">No</string>
+    <string name="business_info_see_the_bill_title">Did you see the bill?</string>
+
+    <!-- Meeting Results Review Fragment -->
+    <string name="meeting_results_review_title">REVIEW</string>
+    <string name="meeting_results_review_title_sub_title">REVIEW YOUR MEETING RESULTS</string>
+    <string name="meeting_results_review_contacts_title">DECISION MAKER</string>
+    <string name="meeting_see_the_bill">YES</string>
+    <string name="meeting_not_see_the_bill">NO</string>
+    <string name="come_again_and_empty_contatcts">You must add at least one decision maker!</string>
+    <string name="edit">Edit</string>
+
+    <!-- Crop Activity Strings -->
+    <string name="can_not_crop">Can Not Crop</string>
+    <string name="fail_to_crop">Failed To Crop</string>
+    <string name="add_new_business_title">Added new business</string>
+    <string name="meeting_resutls_title">Meeting Result</string>
+    <string name="decision_maker_title_lower">Decision Makers</string>
+    <string name="status">Status</string>
+    <string name="see_the_bill">The bill has shown</string>
+
+    <!-- Business Edit Activity -->
+    <string name="edit_business_title">Edit Business</string>
+    <string name="edit_business_sub_title">Edit Information About Business</string>
+
+    <!-- Add New Note Activity -->
+    <string name="add_note_title_text">Add Note</string>
+    <string name="add_note_title_text_old">Add note for %s</string>
+
+</resources>

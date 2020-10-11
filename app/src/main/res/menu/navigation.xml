@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+>
+
+    <item android:id="@+id/navCRM"
+          android:title="@string/nav_crm"
+          android:icon="@drawable/menu_item_crm"/>
+
+    <item android:id="@+id/navProfile"
+          android:title="@string/nav_profile"
+          android:icon="@drawable/menu_item_profile"/>
+
+    <item android:id="@+id/navNews"
+          android:title="@string/nav_news"
+          android:icon="@drawable/menu_item_news"/>
+
+</menu>
